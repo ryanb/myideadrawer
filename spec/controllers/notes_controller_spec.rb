@@ -4,6 +4,17 @@ describe NotesController do
   fixtures :all
   integrate_views
   
+  it_should_require_login_for_actions :index, :show, :new, :edit, :update, :destroy
+end
+
+describe NotesController, "logged in" do
+  fixtures :all
+  integrate_views
+  
+  before(:each) do
+    login
+  end
+  
   it "show action should render show template" do
     get :show, :id => Note.first
     response.should render_template(:show)

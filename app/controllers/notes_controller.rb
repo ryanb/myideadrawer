@@ -1,4 +1,6 @@
 class NotesController < ApplicationController
+  before_filter :login_required
+  
   def show
     @note = Note.find(params[:id])
   end

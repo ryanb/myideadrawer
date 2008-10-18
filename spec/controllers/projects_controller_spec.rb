@@ -1,8 +1,19 @@
 require File.dirname(__FILE__) + '/../spec_helper'
- 
+
 describe ProjectsController do
   fixtures :all
   integrate_views
+  
+  it_should_require_login_for_actions :index, :show, :new, :edit, :update, :destroy
+end
+ 
+describe ProjectsController, "logged in" do
+  fixtures :all
+  integrate_views
+  
+  before(:each) do
+    login
+  end
   
   it "index action should render index template" do
     get :index
