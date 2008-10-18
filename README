@@ -1,0 +1,12 @@
+My Idea Drawer
+
+Still in progress.
+
+
+Setup:
+
+After cloning the repository, run "script/setup" to set up your 
+environment ready for development. This will install all the necessary 
+gems and plugins.
+
+If you want to run the tests, run "script/setup_test" to setup your test environment. And then you can run "rake spec" to run the specs.

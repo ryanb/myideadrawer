@@ -1,0 +1,6 @@
+log/*.log
+tmp/*
+config/database.yml
+db/*.sqlite3
+vendor/plugins/rspec*
+public/assets
