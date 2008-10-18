@@ -3,15 +3,15 @@ class User < ActiveRecord::Base
   has_many :activities
   
   # new columns need to be added here to be writable through mass assignment
-  attr_accessible :username, :email, :password, :password_confirmation
+  attr_accessible :username, :email, :password, :password_confirmation, :openid_url
   
   attr_accessor :password
   before_save :prepare_password
   
   validates_presence_of :username
   validates_format_of :email, :with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
-  validates_presence_of :password, :on => :create
-  validates_confirmation_of :password
+  validates_presence_of :password, :if => :password_required?
+  validates_confirmation_of :password, :if => :password_required?
   
   # login can be either username or email address
   def self.authenticate(login, pass)
@@ -34,5 +34,9 @@ class User < ActiveRecord::Base
   
   def encrypt_password(pass)
     Digest::SHA1.hexdigest([pass, password_salt].join)
+  end
+  
+  def password_required?
+    (password_hash.blank? && openid_url.blank?) || !password.blank?
   end
 end

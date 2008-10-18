@@ -23,4 +23,6 @@ describe SessionsController do
     response.should redirect_to(projects_url)
     session['user_id'].should == User.first.id
   end
+  
+  # TODO test openid authentication
 end
