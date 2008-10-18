@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   protect_from_forgery :except => [:create]
   
   def new
+	render :layout => 'thickbox' if request.xhr?
   end
   
   def create
