@@ -26,22 +26,22 @@ form h3 {
 	margin:0;
 }
 
-#new_user { 
+#new_user, #login form { 
 	margin:0;
 	border:5px solid #d2e1e4;
 	width:404px;
 }
 
-#new_user p { padding-right:20px; }
+#new_user p, #login p { padding-right:20px; }
 
-#new_user fieldset {
+#new_user fieldset, #login fieldset {
 	border:none;
 	margin:0;
 	padding:0 10px 5px 10px;
 	clear:both;
 }
 
-#new_user label {
+#new_user label, #login label {
 	display:block;
 	width:120px;
 	padding-right:10px;
@@ -49,7 +49,7 @@ form h3 {
 	float:left;
 }
 
-#new_user fieldset input {
+#new_user fieldset input, #login fieldset input {
 	width:237px;
 	display:block;
 	float:left;

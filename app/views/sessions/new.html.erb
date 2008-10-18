@@ -1,15 +1,17 @@
 <% title "Log in" %>
 
 <p>Don't have an account? <%= link_to "Sign up!", signup_path %></p>
-
+<div id="login">
 <% form_tag sessions_path do %>
-  <p>
-    <%= label_tag :login, "Username or Email Address" %><br />
+  <h3>Log In To Your Account:</h3><br />
+  <fieldset>
+    <%= label_tag :login, "Username or Email" %>
     <%= text_field_tag :login, params[:login] %>
-  </p>
-  <p>
-    <%= label_tag :password %><br />
+  </fieldset>
+  <fieldset>
+    <%= label_tag :password %>
     <%= password_field_tag :password %>
-  </p>
-  <p><%= submit_tag "Log in" %></p>
+  </fieldset>
+  <p class="align_right"><%= submit_tag "Log in" %></p>
 <% end %>
+</div>
