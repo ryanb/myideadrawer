@@ -1,5 +1,5 @@
 	<div class="item">	
-		<h2><span>Photos: (<%= current_project.photos.count %>)</span><span class="align_right"><%= link_to image_tag("/images/new_photo_btn.png", :alt=>"New Photo"), new_project_photo_path(current_project) %></span></h2>
+		<h2><span>Photos: (<%= current_project.photos.count %>)</span><span class="align_right"><%= link_to image_tag("/images/new_photo_btn.png", :alt=>"New Photo"), new_project_photo_path(current_project) %> &nbsp; <%= link_to image_tag("/images/manage_btn.png", :alt=>"Manage Photos"), manage_project_photos_path(current_project) %></span></h2>
 	  	<%
 	  	if current_project.photos.count > 0
 	  	  for photo in current_project.photos.recent(3) %>

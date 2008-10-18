@@ -2,6 +2,10 @@ class ScreenshotsController < ApplicationController
   def index
     @screenshots = current_project.screenshots.paginate(:per_page => 10, :page => params[:page])
   end
+
+  def manage
+    @screenshots = current_project.screenshots.paginate(:per_page => 10, :page => params[:page])
+  end
   
   def show
     @screenshot = current_project.screenshots.find(params[:id])

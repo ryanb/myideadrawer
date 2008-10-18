@@ -2,7 +2,11 @@ class PhotosController < ApplicationController
   def index
     @photos = current_project.photos.paginate(:per_page => 10, :page => params[:page])
   end
-  
+
+  def manage
+    @photos = current_project.photos.paginate(:per_page => 10, :page => params[:page])
+  end
+   
   def show
     @photo = current_project.photos.find(params[:id])
   end
