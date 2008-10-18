@@ -79,3 +79,5 @@ fieldset { border:none; }
 		
 .colorwell { border: 1px solid #ccc; width: 6em; text-align: center; cursor: pointer; }
 body .colorwell-selected { border: 1px solid #000; font-weight: bold; }
+.linklist { margin:10px 0 10px 0; padding:0; list-style:none; }
+	.linklist li { padding:3px; margin:0; }
