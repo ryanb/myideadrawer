@@ -1,5 +1,8 @@
-<% title "New Project" %>
-
-<%= render :partial => 'form' %>
-
-<p><%= link_to "Back to List", projects_path %></p>
+<div id="left_col">
+	<% title "Create A New Project" %>
+	<%= render :partial => 'form' %>
+	<p><%= link_to "Back to List", projects_path %></p>
+</div>
+<div id="sidebar">
+  <%= render :partial => "projects_overview_sidebar"  %>
+</div>

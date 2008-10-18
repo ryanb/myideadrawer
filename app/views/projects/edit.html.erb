@@ -1,8 +1,8 @@
-<% title "Edit Project" %>
+<div id="left_col">
+	<% title "Edit Project: " + current_project.name %>
+	<%= render :partial => 'form' %>
+</div>
 
-<%= render :partial => 'form' %>
-
-<p>
-  <%= link_to "Show", @project %> |
-  <%= link_to "View All", projects_path %>
-</p>
+<div id="sidebar">
+  <%= render :partial => "project_sidebar"  %>
+</div>

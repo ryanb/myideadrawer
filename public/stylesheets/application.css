@@ -5,11 +5,12 @@ a:hover {text-decoration:underline}
 h1,h2,h3 {margin:0 0 10px;padding:0}
 h1 {color:#9d0a0e;font-size:18pt}
 form h3 {background:#d2e1e4;color:#9c0a0d;padding:5px;margin:0}
+fieldset { border:none; }
 .breadcrumbs {padding:3px;background:#e1edf0}
 .date {color:#666;font-style:italic;font-weight:normal}
 .big_desc {font-size:14pt;border-bottom:1px solid #adc8cf;margin-bottom:10px;padding:10px 0;margin:0}
 .align_right {text-align:right}
-
+.clear { clear:both; }
 #flash_notice,#flash_error {padding:5px 8px;margin:10px 0}
 #flash_notice {border:solid 1px #6C6;background:#CFC}
 #flash_error {border:solid 1px #C66;background:#FCC}
@@ -32,7 +33,7 @@ form h3 {background:#d2e1e4;color:#9c0a0d;padding:5px;margin:0}
 			#welcome_bar small {font-weight:normal;font-size:8pt}
 			#welcome_bar a,#welcome_bar a:hover {color:#fff}
 			
-		#content {clear:both;padding:15px;height:500px;min-height:400px;background:url(/images/content_bg.jpg) top left no-repeat #fff}
+		#content { clear:both;padding:15px;height:auto !important;height:500px;min-height:400px;background:url(/images/content_bg.jpg) top left no-repeat #fff}
 			#content .item {border:1px solid #adc8cf;padding:5px;margin-bottom:10px}
 				#content .item p.desc {margin:0;padding:5px 0 5px 20px}
 				#content .item h3 {margin-bottom:0}
@@ -46,7 +47,13 @@ form h3 {background:#d2e1e4;color:#9c0a0d;padding:5px;margin:0}
 				#new_user fieldset,#login fieldset {border:none;margin:0;padding:0 10px 5px;clear:both}
 				#new_user label,#login label {display:block;width:120px;padding-right:10px;text-align:right;float:left}
 				#new_user fieldset input,#login fieldset input {width:237px;display:block;float:left}
-				
+
+			.edit_project, #new_project { margin:0;border:5px solid #d2e1e4;width:620px; }
+				.edit_project fieldset, #new_project fieldset { clear:both; padding;0 0 5px 0; margin:0; }
+					.edit_project fieldset input, .edit_project fieldset textarea, #new_project fieldset input, #new_project fieldset textarea { width:450px; float:left; }
+					.edit_project fieldset label, #new_project fieldset label { width:100px; text-align:right; padding-right:10px; display:block; float:left; }	
+					.edit_project p.align_right, #new_project p.align_right { padding-right:30px; }
+								
 			#action_btns {width:300px;float:right;display:block;height:20px;margin-top:-35px}
 			
 			#content #left_col {width:660px;float:left;border-right:1px dashed #adc8cf;padding-right:20px}
