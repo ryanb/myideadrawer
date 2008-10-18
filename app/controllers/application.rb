@@ -13,4 +13,12 @@ class ApplicationController < ActionController::Base
   # Uncomment this to filter the contents of submitted sensitive data parameters
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
+  
+  private
+  
+  def record_activity(message, project = nil, user = nil)
+    project ||= @project
+    user ||= current_user
+    Activity.create! :message => message, :project => project, :user => user
+  end
 end
