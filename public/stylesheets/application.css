@@ -9,7 +9,8 @@ body {
 
 img { border:none; }
 
-a { color:#9d0a0e; }
+a { color:#9d0a0e; text-decoration:none; }
+a:hover { text-decoration:underline; }
 	
 h1, h2, h3 { margin:0 0 10px 0; padding:0; }
 
@@ -120,6 +121,19 @@ h1 {
 			#header ul#top_nav li a:hover {
 				background:url(/images/tab.jpg) bottom left no-repeat;
 			}
+	#welcome_bar {
+		background:#357fa6;
+		color:#fff;
+		font-size:12pt;
+		font-weight:bold;
+		padding:5px;
+		margin-bottom:10px;
+	}
+	
+	#welcome_bar small { font-weight:normal; font-size:8pt; }
+	
+	#welcome_bar a, #welcome_bar a:hover { color:#fff;}
+	
 	#content {
 		clear:both;
 		padding:15px;

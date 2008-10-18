@@ -11,13 +11,24 @@
 	<div id="header">
 		<a id="logo" href="/" alt="MyIdeaDrawer"><img src="./images/logo.jpg" width="435" height="115"></a>
 		<ul id="top_nav">
-			<li><a href="/signup">Join</a></li>
-			<li><a href="/login">Login</a></li>
-			<li><a href="/about">About</a></li>
-			<li><a href="/about">Help</a></li>
+			<% if logged_in? %>
+			<li><%= link_to "Projects", projects_url %></li>
+			<li><%= link_to "Log Out", logout_url %></li>
+			<% else %>
+			<li><%= link_to "Join", signup_url %></li>
+			<li><%= link_to "Log In", login_url %></li>
+			<% end %>
+			<li><%= link_to "About", about_url %></li>
+			<li><%= link_to "Help", help_url %></li>
 		</ul>
 	</div>
 	<div id="content">
+		<% if logged_in? %>
+		<div id="welcome_bar">
+			Welcome back, <%= current_user.username %>!&nbsp;&nbsp;&nbsp;&nbsp;
+			<small><%= link_to "My Account", edit_user_path(current_user) %></small>
+		</div> 
+		<% end %>
       <%- flash.each do |name, msg| -%>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <%- end -%>
