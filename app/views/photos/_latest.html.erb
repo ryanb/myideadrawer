@@ -1,14 +1,18 @@
 	<div class="item">	
 		<h2><span>Photos: (<%= current_project.photos.count %>)</span><span class="align_right"><%= link_to image_tag("/images/new_photo_btn.png", :alt=>"New Photo"), new_project_photo_path(current_project) %></span></h2>
-		<ul>
 	  	<%
 	  	if current_project.photos.count > 0
-	  	  for photo in current_project.photos.recent(5) %>
-  		    <li><%= link_to photo.name, project_photo_path(current_project, photo) %> <span class="date">(<%= photo.created_at.strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
+	  	  for photo in current_project.photos.recent(3) %>
+	    	<div class="thumb <%= cycle('normal', 'alt') %>"">
+	    		<%= link_to image_tag(photo.image.url(:small)), photo.image.url, :class => "thickbox", :rel => current_project.name %>
+	    		<div class="name"><%= photo.name %><br /><%= photo.created_at.strftime("%b, %d %Y at %I:%M %p") %></div>
+	    	</div>
   		  <% end %>
+		  <div class="clear"><br /></div>
   		<% else %>
+		<ul>
   			<li><em>This project has no photos.</em></li>
-  	  	<% end %>
   	  	</ul>
+  	  	<% end %>
   	  	<%= link_to "View All Photos &#187;", project_photos_path(current_project) %>
   	</div>
