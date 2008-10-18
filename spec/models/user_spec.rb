@@ -1,69 +1,62 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe User do
-
+  def new_user(attributes = {})
+    attributes[:username] ||= 'foo'
+    attributes[:email] ||= 'foo@example.com'
+    attributes[:password] ||= 'abc123'
+    attributes[:password_confirmation] ||= attributes[:password]
+    User.new(attributes)
+  end
+  
+  it "should be valid" do
+    new_user.should be_valid
+  end
+  
+  it "should require username" do
+    new_user(:username => '').should have(1).error_on(:username)
+  end
+  
+  it "should require password" do
+    new_user(:password => '').should have(1).error_on(:password)
+  end
+  
+  it "should require well formed email" do
+    new_user(:email => 'foo@bar@example.com').should have(1).error_on(:email)
+  end
+  
+  it "should require matching password confirmation" do
+    new_user(:password_confirmation => 'nonmatching').should have(1).error_on(:password)
+  end
+  
+  it "should generate password hash and salt on create" do
+    user = new_user
+    user.save!
+    user.password_hash.should_not be_nil
+    user.password_salt.should_not be_nil
+  end
+  
+  it "should authenticate by username" do
+    User.delete_all
+    user = new_user(:username => 'foobar', :password => 'secret')
+    user.save!
+    User.authenticate('foobar', 'secret').should == user
+  end
+  
+  it "should authenticate by email" do
+    User.delete_all
+    user = new_user(:email => 'foo@bar.com', :password => 'secret')
+    user.save!
+    User.authenticate('foo@bar.com', 'secret').should == user
+  end
+  
+  it "should not authenticate bad username" do
+    User.authenticate('nonexisting', 'secret').should be_nil
+  end
+  
+  it "should not authenticate bad password" do
+    User.delete_all
+    new_user(:username => 'foobar', :password => 'secret').save!
+    User.authenticate('foobar', 'badpassword').should be_nil
+  end
 end
-
-# TODO translate these tests:
-# class UserTest < ActiveSupport::TestCase
-#   def new_user(attributes = {})
-#     attributes[:username] ||= 'foo'
-#     attributes[:email] ||= 'foo@example.com'
-#     attributes[:password] ||= 'abc123'
-#     attributes[:password_confirmation] ||= attributes[:password]
-#     user = User.new(attributes)
-#     user.valid? # run validations
-#     user
-#   end
-#   
-#   def test_valid
-#     assert new_user.valid?
-#   end
-#   
-#   def test_require_username
-#     assert new_user(:username => '').errors.on(:username)
-#   end
-#   
-#   def test_require_password
-#     assert new_user(:password => '').errors.on(:password)
-#   end
-#   
-#   def test_require_well_formed_email
-#     assert new_user(:email => 'foo@bar@example.com').errors.on(:email)
-#   end
-#   
-#   def test_require_matching_password_confirmation
-#     assert new_user(:password_confirmation => 'nonmatching').errors.on(:password)
-#   end
-#   
-#   def test_generate_password_hash_and_salt_on_create
-#     user = new_user
-#     user.save!
-#     assert user.password_hash
-#     assert user.password_salt
-#   end
-#   
-#   def test_authenticate_by_username
-#     User.delete_all
-#     user = new_user(:username => 'foobar', :password => 'secret')
-#     user.save!
-#     assert_equal user, User.authenticate('foobar', 'secret')
-#   end
-#   
-#   def test_authenticate_by_email
-#     User.delete_all
-#     user = new_user(:email => 'foo@bar.com', :password => 'secret')
-#     user.save!
-#     assert_equal user, User.authenticate('foo@bar.com', 'secret')
-#   end
-#   
-#   def test_authenticate_bad_username
-#     assert_nil User.authenticate('nonexisting', 'secret')
-#   end
-#   
-#   def test_authenticate_bad_password
-#     User.delete_all
-#     new_user(:username => 'foobar', :password => 'secret').save!
-#     assert_nil User.authenticate('foobar', 'badpassword')
-#   end
-# end
