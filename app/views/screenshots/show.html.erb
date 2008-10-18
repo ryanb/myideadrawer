@@ -12,6 +12,9 @@
   <strong>Source Url:</strong>
   <%=h @screenshot.source_url %>
 </p>
+<p>
+  <%= image_tag @screenshot.image_url(600) %>
+</p>
 
 <p>
   <%= link_to "Edit", edit_project_screenshot_path(current_project, @screenshot) %> |
