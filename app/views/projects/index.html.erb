@@ -5,11 +5,11 @@
 	   <h3><%= link_to project.name, project %> <span class="date">(Last Active on <%=h project.last_activity_at.strftime("%b, %d %Y at %I:%M%p") %>)</span></h3>
 	   <p class="desc"><%=h project.description %></p>
 	   <div class="project_links">
-	     <%= link_to image_tag('/images/link_icon.gif') + " Links", "#" %>&nbsp;&nbsp;
-	     <%= link_to image_tag('/images/note_icon.gif') + " Notes", "#" %>&nbsp;&nbsp;
-	     <%= link_to image_tag('/images/palettes_icon.gif') + " Palettes", "#" %>&nbsp;&nbsp;
-	     <%= link_to image_tag('/images/photo_icon.gif') + " Photos", "#" %>&nbsp;&nbsp;
-	     <%= link_to image_tag('/images/screenshot_icon.gif') + " Screenshots", "#" %>
+	     <%= link_to " Links", "#" %>
+	     <%= link_to " Notes", "#" %>
+	     <%= link_to " Palettes", "#" %>
+	     <%= link_to " Photos", "#" %>
+	     <%= link_to " Screenshots", "#" %>
 	   </div>
 	</div>
 	<% end %>
