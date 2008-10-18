@@ -1,23 +1,26 @@
-<% title "Code Snippet" %>
-
-<p>
-  <strong>Project:</strong>
-  <%=h @code_snippet.project_id %>
-</p>
-<p>
-  <strong>Name:</strong>
-  <%=h @code_snippet.name %>
-</p>
-<p>
-  <strong>Content:</strong>
-  <%=h @code_snippet.content %>
-</p>
-<p>
-  <strong>Language:</strong>
-  <%=h @code_snippet.language %>
-</p>
-
-<p>
-  <%= link_to "Edit", edit_project_code_snippet_path(current_project, @code_snippet) %> |
-  <%= link_to "Destroy", [current_project, @code_snippet], :confirm => 'Are you sure?', :method => :delete %> |
-</p>
+<div id="left_col">
+	<% title "Code Snippet: " + @code_snippet.name %>
+	<p>
+	  <%= link_to image_tag("/images/edit_code_btn.png", :alt => "Edit Code"), edit_project_code_snippet_path(current_project, @code_snippet) %> 
+	  <%= link_to image_tag("/images/delete_code_btn.png", :alt => "Delete Code"), [current_project, @code_snippet], :confirm => 'Are you sure?', :method => :delete %>
+	</p>
+	<p>
+	  <strong>Project:</strong>
+	  <%=h @code_snippet.project.name %>
+	</p>
+	<p>
+	  <strong>Language:</strong>
+	  <%=h @code_snippet.language %>
+	</p>
+	<p>
+	  <strong>Name:</strong>
+	  <%=h @code_snippet.name %>
+	</p>
+	<p>
+	  <pre><%=h @code_snippet.content %></pre>
+	</p>
+</div>
+<div id="sidebar">
+  <h3><%= link_to "&#187; Back to Project Home", project_path(current_project) %></h3>
+  <%= render :partial => "projects/project_sidebar"  %>
+</div>

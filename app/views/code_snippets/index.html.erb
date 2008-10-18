@@ -4,8 +4,8 @@
 	<ul>
 	<%
 	if current_project.code_snippets.count > 0
-	  for note in current_project.code_snippets %>
-	    <li><%= link_to note.name, project_code_snippets_path(current_project, code_snippet) %> <span class="date">(<%= code_snippet.created_at..strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
+	  for code_snippet in current_project.code_snippets %>
+	    <li><%= link_to code_snippet.name, project_code_snippets_path(current_project, code_snippet) %> <span class="date">(<%= code_snippet.created_at..strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
 	  <% end %>
 	<% else %>
 		<li><em>This project has no code snippets.</em></li>
