@@ -1,5 +1,6 @@
 <div id="left_col">
 	<% title "Manage Photos for: " + current_project.name %>
+    <h1><%= yield(:title) %></h1>
 	<%= link_to image_tag("/images/new_photo_btn.png", :alt=>"New Photo"), new_project_photo_path(current_project) %>
 	<ul class="linklist managelist">
 	  	<%

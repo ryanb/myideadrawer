@@ -2,6 +2,7 @@
 
 <div id="left_col">
 	<% title "Code Snippet: " + @code_snippet.name %>
+    <h1><%= yield(:title) %></h1>
 	<p>
 	  <%= link_to image_tag("/images/edit_code_btn.png", :alt => "Edit Code"), edit_project_code_snippet_path(current_project, @code_snippet) %> 
 	  <%= link_to image_tag("/images/delete_code_btn.png", :alt => "Delete Code"), [current_project, @code_snippet], :confirm => 'Are you sure?', :method => :delete %>

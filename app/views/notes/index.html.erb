@@ -1,5 +1,6 @@
 <div id="left_col">
 	<% title "Browse Notes for: " + current_project.name %>
+    <h1><%= yield(:title) %></h1>
 	<%= link_to image_tag("/images/new_note_btn.png", :alt=>"New Note"), new_project_note_path(current_project) %>
 		<ul class="linklist">
 	  	<%

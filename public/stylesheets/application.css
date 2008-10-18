@@ -72,7 +72,7 @@ fieldset { border:none; }
 				
 		#action_btns {width:300px;float:right;display:block;height:20px;margin-top:-35px}
 			
-			#content #left_col {width:660px;float:left;border-right:1px dashed #adc8cf;padding-right:20px}
+			#content #left_col {width:660px;float:left;padding-right:20px}
 				#sidebar {width:230px;float:right}
 					#sidebar img.centered {margin:0 auto 10px;display:block}
 					#sidebar p {font-size:8pt;margin:0;padding:0 0 10px;border-bottom:1px solid #eee}

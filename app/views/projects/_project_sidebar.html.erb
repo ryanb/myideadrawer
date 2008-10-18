@@ -1,6 +1,14 @@
 You're viewing "<%= link_to @project.name, project_path(@project) %>", last active on  <%=h @project.last_activity_at.strftime("%b, %d %Y at %I:%M %p") %>.
 <br /><br />
-
+<h4>Project Tools</h4>
+<ul class="linklist">
+	<li><%= link_to "Code Snippets", project_code_snippets_path(current_project) %></li>
+	<li><%= link_to "Links", project_links_path(current_project) %></li>
+	<li><%= link_to "Notes", project_notes_path(current_project) %></li>
+	<li><%= link_to "Palettes", project_palettes_path(current_project) %></li>
+	<li><%= link_to "Photos", project_photos_path(current_project) %></li>
+	<li><%= link_to "Screenshots", project_screenshots_path(current_project) %></li>
+</ul>
 <h4>Recent Activity</h4>
 <% for activity in @project.activities.recent(10) %>
 	<p><%= activity.message %></p>

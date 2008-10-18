@@ -1,5 +1,6 @@
 <div id="left_col">
 	<% title "Your Projects" %>
+    <h1><%= yield(:title) %></h1>
 	<% for project in @projects %>
 	<div class="item <%= cycle('normal', 'alt') %>">
 	   <h3><%= link_to project.name, project %> <span class="date">(Last Active on <%=h project.last_activity_at.strftime("%b, %d %Y at %I:%M %p") %>)</span></h3>
