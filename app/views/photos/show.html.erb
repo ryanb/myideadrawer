@@ -8,6 +8,9 @@
   <strong>Project:</strong>
   <%=h @photo.project_id %>
 </p>
+<p>
+  <%= image_tag @photo.image.url %>
+</p>
 
 <p>
   <%= link_to "Edit", edit_project_photo_path(current_project, @photo) %> |
