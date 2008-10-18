@@ -10,6 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resources :projects do |project|
     project.resources :notes
+    project.resources :links
   end
 
   map.root :controller => 'welcome'

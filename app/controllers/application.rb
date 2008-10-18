@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   private
   
   def record_activity(message, project = nil, user = nil)
-    project ||= @project
+    project ||= @project || current_project
     user ||= current_user
     Activity.create! :message => message, :project => project, :user => user
   end
