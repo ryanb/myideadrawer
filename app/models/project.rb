@@ -6,6 +6,7 @@ class Project < ActiveRecord::Base
   has_many :code_snippets
   has_many :palettes
   has_many :screenshots
+  has_many :photos
   
   generate_unique :token
   

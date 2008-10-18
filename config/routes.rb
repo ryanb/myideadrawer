@@ -14,6 +14,7 @@ ActionController::Routing::Routes.draw do |map|
     project.resources :code_snippets
     project.resources :palettes
     project.resources :screenshots
+    project.resources :photos
   end
 
   map.root :controller => 'welcome'

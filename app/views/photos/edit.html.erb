@@ -1,0 +1,8 @@
+<% title "Edit Photo" %>
+
+<%= render :partial => 'form' %>
+
+<p>
+  <%= link_to "Show", [current_project, @photo] %> |
+  <%= link_to "View All", project_photos_path(current_project) %>
+</p>

@@ -1,0 +1,19 @@
+<% title "Photos" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Project</th>
+  </tr>
+  <% for photo in @photos %>
+    <tr>
+      <td><%=h photo.name %></td>
+      <td><%=h photo.project_id %></td>
+      <td><%= link_to "Show", [current_project, photo] %></td>
+      <td><%= link_to "Edit", edit_project_photo_path(current_project, photo) %></td>
+      <td><%= link_to "Destroy", [current_project, photo], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Photo", new_project_photo_path(current_project) %></p>
