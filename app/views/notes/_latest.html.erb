@@ -1,0 +1,14 @@
+	<div class="item">	
+		<h2><span>Notes: (<%= current_project.notes.count %>)</span><span class="align_right"><%= link_to image_tag("/images/new_note_btn.png", :alt=>"New Note"), new_project_note_path(current_project) %></span></h2>
+		<ul>
+	  	<%
+	  	if current_project.notes.count > 0
+	  	  for note in current_project.notes.recent(5) %>
+  		    <li><%= link_to note.name, project_notes_path(current_project, note) %> <span class="date">(<%= note.created_at..strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
+  		  <% end %>
+  		<% else %>
+  			<li><em>This project has no notes.</em></li>
+  	  	<% end %>
+  	  	</ul>
+  	  	<%= link_to "View All Notes &#187;", project_notes_path(current_project) %>
+	</div>	

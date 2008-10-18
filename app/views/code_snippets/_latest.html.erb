@@ -1,0 +1,14 @@
+<div class="item">	
+	<h2><span>Code: (<%= current_project.code_snippets.count %>)</span><span class="align_right"><%= link_to image_tag("/images/new_code_btn.png", :alt=>"New Code Snippet"), new_project_code_snippet_path(current_project) %></span></h2>
+	<ul>
+	<%
+	if current_project.code_snippets.count > 0
+	  for note in current_project.code_snippets.recent(5) %>
+	    <li><%= link_to note.name, project_code_snippets_path(current_project, code_snippet) %> <span class="date">(<%= code_snippet.created_at..strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
+	  <% end %>
+	<% else %>
+		<li><em>This project has no code snippets.</em></li>
+	<% end %>
+	</ul>
+  	  	<%= link_to "View All Code Snippets &#187;", project_code_snippets_path(current_project) %>
+	</div>

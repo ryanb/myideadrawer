@@ -1,18 +1,19 @@
-<% title "Palettes" %>
+<div id="left_col">
+	<% title "Browse Palettes for:" + current_project.name %>
+	<%= link_to image_tag("/images/new_palette_btn.png", :alt=>"New Palette"), new_project_palette_path(current_project) %>
+		<ul>
+	  	<%
+	  	if current_project.palettes.count > 0
+	  	  for palette in current_project.palettes %>
+  		    <li><%= link_to palette.name, project_palettes_path(current_project, palette) %> <span class="date">(<%= palette.created_at..strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
+  		  <% end %>
+  		<% else %>
+  			<li><em>This project has no palettes.</em></li>
+  	  	<% end %>
+  	  	</ul>
+</div>
+<div id="sidebar">
+  <h3><%= link_to "&#187; Back to Project Home", project_path(current_project) %></h3>
+  <%= render :partial => "projects/project_sidebar"  %>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Project</th>
-  </tr>
-  <% for palette in @palettes %>
-    <tr>
-      <td><%=h palette.name %></td>
-      <td><%=h palette.project_id %></td>
-      <td><%= link_to "Edit", edit_project_palette_path(current_project, palette) %></td>
-      <td><%= link_to "Destroy", [current_project, palette], :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
-
-<p><%= link_to "New Palette", new_project_palette_path(current_project) %></p>

@@ -6,90 +6,12 @@
 	  <%=h @project.description %>
 	</p>
 	<br />
-	<div class="item">	
-		<h2><span>Code: (<%= current_project.code_snippets.count %>)</span><span class="align_right"><%= link_to image_tag("/images/new_code_btn.png", :alt=>"New Code Snippet"), new_project_code_snippet_path(current_project) %></h2>
-		<ul>
-	  	<%
-	  	if current_project.code_snippets.count > 0
-	  	  for note in current_project.code_snippets.recent(5) %>
-  		    <li><%= link_to note.name, project_code_snippets_path(current_project, code_snippet) %> <span class="date">(<%= code_snippet.created_at..strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
-  		  <% end %>
-  		<% else %>
-  			<li><em>This project has no code snippets.</em></li>
-  	  	<% end %>
-  	  	</ul>
-  	  	<%= link_to "View All Code Snippets &#187;", project_code_snippets_path(current_project) %>
-	</div>
-	<div class="item">	
-		<h2><span>Links: (<%= current_project.links.count %>)</span><span class="align_right"><%= link_to image_tag("/images/new_link_btn.png", :alt=>"New Link"), new_project_link_path(current_project) %></h2>
-		<ul>
-	  	<%
-	  	if current_project.links.count > 0
-	  	  for link in current_project.links.recent(5) %>
-  		    <li><%= link_to link.name, project_links_path(current_project, link) %> <span class="date">(<%= link.created_at..strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
-  		  <% end %>
-  		<% else %>
-  			<li><em>This project has no links.</em></li>
-  	  	<% end %>
-  	  	</ul>
-  	  	<%= link_to "View All Links &#187;", project_links_path(current_project) %>
-  	</div>
-	<div class="item">	
-		<h2><span>Notes: (<%= current_project.notes.count %>)</span><span class="align_right"><%= link_to image_tag("/images/new_note_btn.png", :alt=>"New Note"), new_project_note_path(current_project) %></h2>
-		<ul>
-	  	<%
-	  	if current_project.notes.count > 0
-	  	  for note in current_project.notes.recent(5) %>
-  		    <li><%= link_to note.name, project_notes_path(current_project, note) %> <span class="date">(<%= note.created_at..strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
-  		  <% end %>
-  		<% else %>
-  			<li><em>This project has no notes.</em></li>
-  	  	<% end %>
-  	  	</ul>
-  	  	<%= link_to "View All Notes &#187;", project_notes_path(current_project) %>
-	</div>	
-	<div class="item">	
-		<h2><span>Palettes: (<%= current_project.palettes.count %>)</span><span class="align_right"><%= link_to image_tag("/images/new_palette_btn.png", :alt=>"New Palette"), new_project_palette_path(current_project) %></h2>
-		<ul>
-	  	<%
-	  	if current_project.palettes.count > 0
-	  	  for palette in current_project.palettes.recent(5) %>
-  		    <li><%= link_to palette.name, project_palettes_path(current_project, palette) %> <span class="date">(<%= palette.created_at..strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
-  		  <% end %>
-  		<% else %>
-  			<li><em>This project has no palettes.</em></li>
-  	  	<% end %>
-  	  	</ul>
-  	  	<%= link_to "View All Paletes &#187;", project_palettes_path(current_project) %>
-  	</div>
-	<div class="item">	
-		<h2><span>Photos: (<%= current_project.photos.count %>)</span><span class="align_right"><%= link_to image_tag("/images/new_photo_btn.png", :alt=>"New Photo"), new_project_photo_path(current_project) %></h2>
-		<ul>
-	  	<%
-	  	if current_project.photos.count > 0
-	  	  for photo in current_project.photos.recent(5) %>
-  		    <li><%= link_to photo.name, project_photos_path(current_project, photo) %> <span class="date">(<%= photo.created_at..strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
-  		  <% end %>
-  		<% else %>
-  			<li><em>This project has no photos.</em></li>
-  	  	<% end %>
-  	  	</ul>
-  	  	<%= link_to "View All Photos &#187;", project_photos_path(current_project) %>
-  	</div>
-	<div class="item">	
-		<h2><span>Screenshots: (<%= current_project.screenshots.count %>)</span><span class="align_right"><%= link_to image_tag("/images/new_screenshot_btn.png", :alt=>"New Screenshot"), new_project_screenshot_path(current_project) %></h2>
-		<ul>
-	  	<%
-	  	if current_project.screenshots.count > 0
-	  	  for screenshot in current_project.screenshots.recent(5) %>
-  		    <li><%= link_to screenshot.name, project_screenshots_path(current_project, screenshot) %> <span class="date">(<%= screenshot.created_at..strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
-  		  <% end %>
-  		<% else %>
-  			<li><em>This project has no screenshots.</em></li>
-  	  	<% end %>
-  	  	</ul>
-  	  	<%= link_to "View All Screenshots &#187;", project_screenshots_path(current_project) %>
-  	</div>
+	<%= render :partial => 'code_snippets/latest' %>
+	<%= render :partial => 'links/latest' %>
+	<%= render :partial => 'notes/latest' %>
+	<%= render :partial => 'palettes/latest' %>
+	<%= render :partial => 'photos/latest' %>
+	<%= render :partial => 'screenshots/latest' %>
 </div>
 
 <div id="sidebar">

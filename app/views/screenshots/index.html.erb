@@ -1,21 +1,19 @@
-<% title "Screenshots" %>
+<div id="left_col">
+	<%= link_to image_tag("/images/new_screenshot_btn.png", :alt=>"New Screenshot"), new_project_screenshot_path(current_project) %>
+	<% title "Browse Screenshots for: " + current_project.name %>
+	<ul>
+  	<%
+  	if current_project.screenshots.count > 0
+  	  for screenshot in current_project.screenshots %>
+	    <li><%= link_to screenshot.name, project_screenshots_path(current_project, screenshot) %> <span class="date">(<%= screenshot.created_at..strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
+	  <% end %>
+	<% else %>
+		<li><em>This project has no screenshots.</em></li>
+  	<% end %>
+  	</ul>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Project</th>
-    <th>Source Url</th>
-  </tr>
-  <% for screenshot in @screenshots %>
-    <tr>
-      <td><%=h screenshot.name %></td>
-      <td><%=h screenshot.project_id %></td>
-      <td><%=h screenshot.source_url %></td>
-      <td><%= link_to "Show", [current_project, screenshot] %></td>
-      <td><%= link_to "Edit", edit_project_screenshot_path(current_project, screenshot) %></td>
-      <td><%= link_to "Destroy", [current_project, screenshot], :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
-
-<p><%= link_to "New Screenshot", new_project_screenshot_path(current_project) %></p>
+</div>
+<div id="sidebar">
+  <h3><%= link_to "&#187; Back to Project Home", project_path(current_project) %></h3>
+  <%= render :partial => "projects/project_sidebar"  %>
+</div>
