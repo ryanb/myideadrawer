@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   def index
-    @photos = current_project.photos.find(:all)
+    @photos = current_project.photos
   end
   
   def show

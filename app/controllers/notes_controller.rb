@@ -1,4 +1,8 @@
 class NotesController < ApplicationController
+  def index
+    @notes = current_project.notes
+  end
+  
   def show
     @note = current_project.notes.find(params[:id])
   end

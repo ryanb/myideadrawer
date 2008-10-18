@@ -1,6 +1,6 @@
 class PalettesController < ApplicationController
   def index
-    @palettes = current_project.palettes.find(:all)
+    @palettes = current_project.palettes
   end
   
   def new

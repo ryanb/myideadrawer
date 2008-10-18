@@ -1,6 +1,6 @@
 class ScreenshotsController < ApplicationController
   def index
-    @screenshots = current_project.screenshots.find(:all)
+    @screenshots = current_project.screenshots
   end
   
   def show

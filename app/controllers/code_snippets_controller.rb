@@ -1,4 +1,8 @@
 class CodeSnippetsController < ApplicationController
+  def index
+    @code_snippets = current_project.code_snippets
+  end
+  
   def show
     @code_snippet = current_project.code_snippets.find(params[:id])
   end
