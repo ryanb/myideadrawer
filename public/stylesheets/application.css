@@ -167,20 +167,7 @@ form h3 {
 			#content .item h3 a { text-decoration:none; }
 			#content .item .project_links { text-align:right; height:20px; }
 			#content .item .project_links a { 
-				border:1px solid #013334;
-				background:#adc8cf;
-				color:#013334;
-				display:block;
-				float:right;
-				margin-left:5px;
-				padding:2px;
-				font-weight:bold;
 				font-size:8pt;
-			}
-			#content .item .project_links a:hover { 
-				text-decoration:none;
-				background:#9c0a0d;
-				color:#fff;
 			}
 			
 		#content .alt { 
