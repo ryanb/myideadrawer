@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation
   
   attr_accessor :password
-  before_create :prepare_password
+  before_save :prepare_password
   
   validates_presence_of :username
   validates_format_of :email, :with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
@@ -26,8 +26,10 @@ class User < ActiveRecord::Base
   private
   
   def prepare_password
-    self.password_salt = Digest::SHA1.hexdigest([Time.now, rand].join)
-    self.password_hash = encrypt_password(password)
+    unless password.blank?
+      self.password_salt = Digest::SHA1.hexdigest([Time.now, rand].join)
+      self.password_hash = encrypt_password(password)
+    end
   end
   
   def encrypt_password(pass)

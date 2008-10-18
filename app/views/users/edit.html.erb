@@ -1,8 +1,7 @@
-<% title "Sign up" %>
+<% title "Edit My Account" %>
 
-<p>Already have an account? <%= link_to "Log in", login_path %>.</p>
 <% form_for @user do |f| %>
-  <h3>Create A New Account:</h3>
+  <h3>Edit My Account:</h3>
   <%= f.error_messages %><br />
   <fieldset>
     <%= f.label :username %>
@@ -13,12 +12,12 @@
     <%= f.text_field :email %>
   </fieldset>
   <fieldset>
-    <%= f.label :password %>
+    <%= f.label :password, "Change Password" %>
     <%= f.password_field :password %>
   </fieldset>
   <fieldset>
-    <%= f.label :password_confirmation, "Confirm Password" %>
+    <%= f.label :password_confirmation, "Confirm Changed Password" %>
     <%= f.password_field :password_confirmation %>
   </fieldset>
-  <p class="align_right"><%= f.submit "Sign up" %></p>
+  <p class="align_right"><%= f.submit "Update Account" %></p>
 <% end %>

@@ -59,4 +59,29 @@ describe User do
     new_user(:username => 'foobar', :password => 'secret').save!
     User.authenticate('foobar', 'badpassword').should be_nil
   end
+  
+  describe "with password" do
+    before(:each) do
+      @user = new_user
+      @user.save!
+      @user.reload
+      @password_hash = @user.password_hash
+    end
+    
+    it "should not change password when editing with blank password and confirmation" do
+      @user.update_attributes!(:password => '', :password_confirmation => '', :email => 'bar@example.com')
+      @user.password_hash.should == @password_hash
+    end
+    
+    it "should have validation on password when attempting to change it" do
+      @user.attributes = {:password => 'foo', :password_confirmation => ''}
+      @user.should have(1).errors_on(:password)
+      @user.password_hash.should == @password_hash
+    end
+    
+    it "should be able to change password when valid" do
+      @user.update_attributes!(:password => 'newpass', :password_confirmation => 'newpass')
+      @user.password_hash.should_not == @password_hash
+    end
+  end
 end
