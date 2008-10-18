@@ -1,6 +1,6 @@
 class PalettesController < ApplicationController
   def index
-    @palettes = current_project.palettes.find(:all)
+    @palettes = current_project.palettes
   end
   
   def new
@@ -11,6 +11,7 @@ class PalettesController < ApplicationController
     @palette = current_project.palettes.build(params[:palette])
     if @palette.save
       flash[:notice] = "Successfully created palette."
+      record_activity "Added #{@palette} palette to #{current_project} project."
       redirect_to current_project
     else
       render :action => 'new'
@@ -25,6 +26,7 @@ class PalettesController < ApplicationController
     @palette = current_project.palettes.find(params[:id])
     if @palette.update_attributes(params[:palette])
       flash[:notice] = "Successfully updated palette."
+      record_activity "Edited #{@palette} palette in #{current_project} project."
       redirect_to current_project
     else
       render :action => 'edit'
@@ -35,6 +37,7 @@ class PalettesController < ApplicationController
     @palette = current_project.palettes.find(params[:id])
     @palette.destroy
     flash[:notice] = "Successfully destroyed palette."
+    record_activity "Removed #{@palette} palette from #{current_project} project."
     redirect_to current_project
   end
 end

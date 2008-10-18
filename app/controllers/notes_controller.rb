@@ -1,4 +1,8 @@
 class NotesController < ApplicationController
+  def index
+    @notes = current_project.notes
+  end
+  
   def show
     @note = current_project.notes.find(params[:id])
   end
@@ -26,7 +30,7 @@ class NotesController < ApplicationController
     @note = current_project.notes.find(params[:id])
     if @note.update_attributes(params[:note])
       flash[:notice] = "Successfully updated note."
-      record_activity "Updated #{@note} note in #{current_project} project"
+      record_activity "Edited #{@note} note in #{current_project} project"
       redirect_to project_note_url(current_project, @note)
     else
       render :action => 'edit'

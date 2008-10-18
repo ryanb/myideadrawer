@@ -8,6 +8,11 @@ describe NotesController, "logged in" do
     login
   end
   
+  it "index action should render index template" do
+    get :index, :project_id => Project.first
+    response.should render_template(:index)
+  end
+  
   it "show action should render show template" do
     get :show, :id => Note.first, :project_id => Project.first
     response.should render_template(:show)

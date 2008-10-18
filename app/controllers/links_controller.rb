@@ -1,4 +1,8 @@
 class LinksController < ApplicationController
+  def index
+    @links = current_project.links
+  end
+  
   def new
     @link = current_project.links.build
   end

@@ -34,7 +34,7 @@ class ProjectsController < ApplicationController
 	@project.last_activity_at = Time.now
     if @project.update_attributes(params[:project])
       flash[:notice] = "Successfully updated project."
-      record_activity "Updated #{@project} project details."
+      record_activity "Edited #{@project} project details."
       redirect_to @project
     else
       render :action => 'edit'
