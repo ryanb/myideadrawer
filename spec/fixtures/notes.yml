@@ -1,0 +1,9 @@
+one:
+  name: MyString
+  content: MyText
+  project: one
+
+two:
+  name: MyString
+  content: MyText
+  project: one
