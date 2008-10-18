@@ -1,16 +1,20 @@
+<div class="common">
 <% form_for [current_project, @code_snippet] do |f| %>
+  <h3>Your Code Snippet:</h3><br />
   <%= f.error_messages %>
-  <p>
-    <%= f.label :name %><br />
+  <fieldset>
+    <%= f.label :name %>
     <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </p>
-  <p>
-    <%= f.label :language %><br />
-    <%= f.text_field :language %>
-  </p>
-  <p><%= f.submit "Submit" %></p>
+  </fieldset>
+  <fieldset>
+    <%= f.label :content %>
+    <%= f.text_area :content, { :cols => 20, :wrap => "off" } %>
+  </fieldset>
+  <fieldset>
+  	<% @languages = [ "Ruby", "C", "Delphi", "HTML", "RHTML", "Nitro-XHTML", "CSS", "Diff", "Java", "JavaScript", "JSON", "YAML"] %>
+    <%= f.label :language %>
+    <%= f.select :language, @languages %>
+  </fieldset>
+  <p class="align_right"><%= f.submit "Submit" %></p>
 <% end %>
+</div>

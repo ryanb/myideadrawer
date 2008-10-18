@@ -49,11 +49,11 @@ fieldset { border:none; }
 				#new_user label,#login label {display:block;width:120px;padding-right:10px;text-align:right;float:left}
 				#new_user fieldset input,#login fieldset input {width:237px;display:block;float:left}
 
-			.edit_project, #new_project { margin:0;border:5px solid #d2e1e4;width:620px; }
-				.edit_project fieldset, #new_project fieldset { clear:both; padding;0 0 5px 0; margin:0; }
-					.edit_project fieldset input, .edit_project fieldset textarea, #new_project fieldset input, #new_project fieldset textarea { width:450px; float:left; }
-					.edit_project fieldset label, #new_project fieldset label { width:100px; text-align:right; padding-right:10px; display:block; float:left; }	
-					.edit_project p.align_right, #new_project p.align_right { padding-right:30px; }
+			.common form { margin:0;border:5px solid #d2e1e4;width:620px; }
+				.common fieldset { clear:both; padding;0 0 5px 0; margin:0; }
+					.common fieldset input, .common fieldset textarea { width:470px; float:left; }
+					.common fieldset label { width:100px; text-align:right; padding-right:10px; display:block; float:left; }	
+					.common form p.align_right { padding-right:30px; }
 								
 			#action_btns {width:300px;float:right;display:block;height:20px;margin-top:-35px}
 			
