@@ -4,7 +4,7 @@
 	  	<%
 	  	if current_project.photos.count > 0
 	  	  for photo in current_project.photos.recent(5) %>
-  		    <li><%= link_to photo.name, project_photo_path(current_project, photo) %> <span class="date">(<%= photo.created_at..strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
+  		    <li><%= link_to photo.name, project_photo_path(current_project, photo) %> <span class="date">(<%= photo.created_at.strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
   		  <% end %>
   		<% else %>
   			<li><em>This project has no photos.</em></li>

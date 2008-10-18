@@ -4,7 +4,7 @@
 	  	<%
 	  	if current_project.screenshots.count > 0
 	  	  for screenshot in current_project.screenshots.recent(5) %>
-  		    <li><%= link_to screenshot.name, project_screenshot_path(current_project, screenshot) %> <span class="date">(<%= screenshot.created_at..strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
+  		    <li><%= link_to screenshot.name, project_screenshot_path(current_project, screenshot) %> <span class="date">(<%= screenshot.created_at.strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
   		  <% end %>
   		<% else %>
   			<li><em>This project has no screenshots.</em></li>
