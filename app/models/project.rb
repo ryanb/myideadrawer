@@ -3,6 +3,8 @@ class Project < ActiveRecord::Base
   has_many :notes
   has_many :activites
   
+  generate_unique :token
+  
   def to_s
     name
   end
