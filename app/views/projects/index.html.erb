@@ -3,14 +3,14 @@
 	<% for project in @projects %>
 	<div class="item <%= cycle('normal', 'alt') %>">
 	   <h3><%= link_to project.name, project %> <span class="date">(Last Active on <%=h project.last_activity_at.strftime("%b, %d %Y at %I:%M %p") %>)</span></h3>
-	   <p class="desc"><%=h project.description %></p>
+	   <p class="desc"><%=h truncate(project.description, 255, '...') %></p>
 	   <div class="project_links">
-	     <%= link_to " Code (" + project.code_snippets.count.to_s + ")", project_code_snippets_path(current_project) %> | 
-	     <%= link_to " Links (" + project.links.count.to_s + ")", project_links_path(current_project) %> | 
-	     <%= link_to " Notes (" + project.notes.count.to_s + ")", project_notes_path(current_project) %> |
-	     <%= link_to " Palettes(" + project.palettes.count.to_s + ")", project_palettes_path(current_project) %> }
-	     <%= link_to " Photos(" + project.photos.count.to_s + ")", "#" %> |
-	     <%= link_to " Screenshots(" + project.screenshots.count.to_s + ")", "#" %>
+	     <%= link_to " Code (" + project.code_snippets.count.to_s + ")", project_code_snippets_path(project) %> | 
+	     <%= link_to " Links (" + project.links.count.to_s + ")", project_links_path(project) %> | 
+	     <%= link_to " Notes (" + project.notes.count.to_s + ")", project_notes_path(project) %> |
+	     <%= link_to " Palettes(" + project.palettes.count.to_s + ")", project_palettes_path(project) %> }
+	     <%= link_to " Photos(" + project.photos.count.to_s + ")", project_photos_path(project) %> |
+	     <%= link_to " Screenshots(" + project.screenshots.count.to_s + ")", project_screenshots_path(project) %>
 	   </div>
 	</div>
 	<% end %>

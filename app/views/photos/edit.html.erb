@@ -1,8 +1,8 @@
+<div id="left_col">
 <% title "Edit Photo" %>
-
 <%= render :partial => 'form' %>
-
-<p>
-  <%= link_to "Show", [current_project, @photo] %> |
-  <%= link_to "View All", project_photos_path(current_project) %>
-</p>
+</div>
+<div id="sidebar">
+  <h3><%= link_to "&#187; Back to Project Home", project_path(current_project) %></h3>
+  <%= render :partial => "projects/project_sidebar"  %>
+</div>

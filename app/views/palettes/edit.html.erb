@@ -1,3 +1,8 @@
-<% title "Edit Palette" %>
-
-<%= render :partial => 'form' %>
+<div id="left_col">
+	<% title "Edit Palette" %>
+	<%= render :partial => 'form' %>
+</div>
+<div id="sidebar">
+  <h3><%= link_to "&#187; Back to Project Home", project_path(current_project) %></h3>
+  <%= render :partial => "projects/project_sidebar"  %>
+</div>

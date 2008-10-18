@@ -1,5 +1,8 @@
-<% title "New Photo" %>
-
-<%= render :partial => 'form' %>
-
-<p><%= link_to "Back to List", project_photos_path(current_project) %></p>
+<div id="left_col">
+	<% title "New Photo" %>
+	<%= render :partial => 'form' %>
+</div>
+<div id="sidebar">
+  <h3><%= link_to "&#187; Back to Project Home", project_path(current_project) %></h3>
+  <%= render :partial => "projects/project_sidebar"  %>
+</div>
