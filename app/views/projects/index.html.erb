@@ -8,9 +8,9 @@
 	     <%= link_to " Code (" + project.code_snippets.count.to_s + ")", project_code_snippets_path(current_project) %> | 
 	     <%= link_to " Links (" + project.links.count.to_s + ")", project_links_path(current_project) %> | 
 	     <%= link_to " Notes (" + project.notes.count.to_s + ")", project_notes_path(current_project) %>
-	     <%= link_to " Palettes (" + project.palettes.count.to_s + ")", project_palettes_path(current_project) %>
+	     <%= link_to " Palettes", project_palettes_path(current_project) %>
 	     <%= link_to " Photos", "#" %>
-	     <%= link_to " Screenshots(" + project.screenshots.count.to_s + ")", "#" %>
+	     <%= link_to " Screenshots", "#" %>
 	   </div>
 	</div>
 	<% end %>
