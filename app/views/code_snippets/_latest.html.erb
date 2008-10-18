@@ -1,6 +1,6 @@
 <div class="item">	
 	<h2><span>Code: (<%= current_project.code_snippets.count %>)</span><span class="align_right"><%= link_to image_tag("/images/new_code_btn.png", :alt=>"New Code Snippet"), new_project_code_snippet_path(current_project) %></span></h2>
-	<ul>
+	<ul class="linklist">
 	<%
 	if current_project.code_snippets.count > 0
 	  for snippet in current_project.code_snippets.recent(5) %>

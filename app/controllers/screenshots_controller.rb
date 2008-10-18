@@ -46,6 +46,6 @@ class ScreenshotsController < ApplicationController
     @screenshot.destroy
     flash[:notice] = "Successfully destroyed screenshot."
       record_activity "Removed #{@screenshot} screenshot from #{current_project} project."
-    redirect_to current_project
+    redirect_to manage_project_screenshots_path(current_project)
   end
 end

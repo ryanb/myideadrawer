@@ -3,14 +3,14 @@
 	  	<%
 	  	if current_project.photos.count > 0
 	  	  for photo in current_project.photos.recent(3) %>
-	    	<div class="thumb <%= cycle('normal', 'alt') %>"">
+	    	<div class="thumb <%= cycle('normal', 'alt') %>">
 	    		<%= link_to image_tag(photo.image.url(:small)), photo.image.url, :class => "thickbox", :rel => current_project.name %>
 	    		<div class="name"><%= photo.name %><br /><%= photo.created_at.strftime("%b, %d %Y at %I:%M %p") %></div>
 	    	</div>
   		  <% end %>
 		  <div class="clear"><br /></div>
   		<% else %>
-		<ul>
+		<ul class="linklist">
   			<li><em>This project has no photos.</em></li>
   	  	</ul>
   	  	<% end %>

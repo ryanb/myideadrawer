@@ -46,6 +46,6 @@ class PhotosController < ApplicationController
     @photo.destroy
     flash[:notice] = "Successfully destroyed photo."
       record_activity "Removed #{@photo} photo from #{current_project} project."
-    redirect_to current_project
+    redirect_to manage_project_photos_path(current_project)
   end
 end

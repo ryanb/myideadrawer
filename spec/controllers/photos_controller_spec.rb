@@ -55,7 +55,7 @@ describe PhotosController do
   it "destroy action should destroy model and redirect to index action" do
     photo = Photo.first
     delete :destroy, :id => photo, :project_id => Project.first
-    response.should redirect_to(project_url(Project.first))
+    response.should redirect_to(manage_project_photos_path(Project.first))
     Photo.exists?(photo.id).should be_false
   end
 end

@@ -55,7 +55,7 @@ describe ScreenshotsController do
   it "destroy action should destroy model and redirect to index action" do
     screenshot = Screenshot.first
     delete :destroy, :id => screenshot, :project_id => Project.first
-    response.should redirect_to(project_url(Project.first))
+    response.should redirect_to(manage_project_screenshots_path(Project.first))
     Screenshot.exists?(screenshot.id).should be_false
   end
 end

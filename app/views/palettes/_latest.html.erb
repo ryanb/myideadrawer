@@ -1,6 +1,6 @@
 	<div class="item">	
 		<h2><span>Palettes: (<%= current_project.palettes.count %>)</span><span class="align_right"><%= link_to image_tag("/images/new_palette_btn.png", :alt=>"New Palette"), new_project_palette_path(current_project) %></span></h2>
-		<ul>
+		<ul class="linklist">
 	  	<%
 	  	if current_project.palettes.count > 0
 	  	  for palette in current_project.palettes.recent(5) %>

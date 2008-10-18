@@ -1,7 +1,24 @@
 <div id="left_col">
 	<% title "Manage Photos for: " + current_project.name %>
+	<%= link_to image_tag("/images/new_photo_btn.png", :alt=>"New Photo"), new_project_photo_path(current_project) %>
+	<ul class="linklist managelist">
+	  	<%
+	  	if current_project.photos.count > 0
+	  	  for photo in current_project.photos.recent(3) %>
+	    	<li class="<%= cycle('normal', 'alt') %>">
+	    		<%= image_tag photo.image.url(:tiny), :class => "tinythumb" %>
+	    		<span class="info"><%= link_to photo.name, photo.image.url %> <span class="date"><%= photo.created_at.strftime("%b, %d %Y at %I:%M %p") %></span></span>
+	  			<%= link_to image_tag("/images/delete_photo_btn.png", :alt => "Delete Note"), [current_project, photo], :confirm => 'Are you sure?', :method => :delete, :class => "del_btn" %>
+	  	    	</li>
+  		  <% end %>
+		  <div class="clear"><br /></div>
+  		<% else %>
+  			<li><em>This project has no photos.</em></li>
+  	  	<% end %>
+  	</ul>
 </div>
 
 <div id="sidebar">
-  <%= render :partial => "projects/project_sidebar"  %>
+ <h3><%= link_to "&#187; Back to Project Home", project_path(current_project) %></h3>
+ <%= render :partial => "projects/project_sidebar"  %>
 </div>

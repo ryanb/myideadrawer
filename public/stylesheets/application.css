@@ -89,6 +89,10 @@ fieldset { border:none; }
 .colorwell { border: 1px solid #ccc; width: 6em; text-align: center; cursor: pointer; }
 body .colorwell-selected { border: 1px solid #000; font-weight: bold; }
 .linklist { margin:10px 0 10px 0; padding:0; list-style:none; }
-	.linklist li { padding:3px; margin:0; border-bottom:1px solid #adc8cf; }
+	.linklist li { clear:both; padding:3px; margin:0; border-bottom:1px solid #adc8cf; }
 	.linklist a { font-weight:bold; }
 .hidden { display:none; }
+.managelist li { height:64px; }
+.managelist .tinythumb { background:#abc6cd; width:64px; height:64px; margin-right:10px; float:left; }
+.managelist span.info { display:block; height:64px; line-height:64px; font-size:12pt; width:450px; float:left; }
+.managelist .del_btn { display:block; fliat:right; margin:22px 0 22px 0;; }
