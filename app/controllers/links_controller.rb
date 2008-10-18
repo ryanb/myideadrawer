@@ -5,6 +5,7 @@ class LinksController < ApplicationController
   
   def new
     @link = current_project.links.build
+	render :layout => 'thickbox' if request.xhr?
   end
   
   def create

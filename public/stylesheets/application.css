@@ -53,7 +53,7 @@ fieldset { border:none; }
 				.common fieldset { clear:both; padding;0 0 5px 0; margin:0; }
 					.common fieldset input, .common fieldset textarea { width:470px; float:left; }
 					.common fieldset label { width:100px; text-align:right; padding-right:10px; display:block; float:left; }	
-					.common form p.align_right { padding-right:30px; }
+					.common form p.align_right, #TB_window form p { padding-right:30px; }
 				
 			#palette_form { float:left;margin:0 20px 0 0;border:5px solid #d2e1e4;width:420px; } 				
 				#palette_form fieldset { clear:both; padding;0 0 5px 0; margin:0; }
@@ -96,3 +96,4 @@ body .colorwell-selected { border: 1px solid #000; font-weight: bold; }
 .managelist .tinythumb { background:#abc6cd; width:64px; height:64px; margin-right:10px; float:left; }
 .managelist span.info { display:block; height:64px; line-height:64px; font-size:12pt; width:450px; float:left; }
 .managelist .del_btn { display:block; fliat:right; margin:22px 0 22px 0;; }
+#TB_window h1 { padding-top:10px; }

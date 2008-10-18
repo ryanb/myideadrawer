@@ -15,7 +15,7 @@
 	</p>
 	<p>
 	  <strong>Content:</strong>
-	  <%=h @note.content %>
+	  <%= @note.content.gsub(/\n/, '<br>') %>
 	</p>
 </div>
 <div id="sidebar">
