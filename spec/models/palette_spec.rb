@@ -31,4 +31,18 @@ describe Palette do
     palette.save
     palette.color_swatches(true).map(&:hex).should == %w[red]
   end
+  
+  it "should remember color hexes across reload (get from color swatch)" do
+    palette = Palette.create!(:color_hex_1 => 'foo', :color_hex_5 => 'bar')
+    palette.reload
+    palette.color_hex_1.should == 'foo'
+    palette.color_hex_2.should == 'bar'
+  end
+  
+  it "should not clear color hexes when saving without updating colors" do
+    palette = Palette.create!(:color_hex_1 => 'foo', :color_hex_5 => 'bar')
+    palette.save
+    palette.color_hex_1.should == 'foo'
+    palette.color_hex_2.should == 'bar'
+  end
 end
