@@ -6,7 +6,7 @@
 	   <p class="desc"><%=h project.description %></p>
 	   <div class="project_links">
 	     <%= link_to " Links", "#" %>
-	     <%= link_to " Notes", "#" %>
+	     <%= link_to " Notes (" + project.notes.count.to_s + ")", "#" %>
 	     <%= link_to " Palettes", "#" %>
 	     <%= link_to " Photos", "#" %>
 	     <%= link_to " Screenshots", "#" %>
