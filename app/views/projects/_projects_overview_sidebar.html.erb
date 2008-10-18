@@ -1,4 +1,7 @@
 <%= link_to image_tag("/images/new_project_btn.png", { :alt => "New Project", :class => 'centered' }), new_project_path, :title => "New Project" %>
 
 <h4>Recent Activity</h4>
+<% for activity in current_user.activities %>
+	<p><%= activity.message %></p>
+<% end %>
 <%= link_to image_tag("/images/rss.jpg", :alt => "RSS Feed"), "activity.rss", :title => "RSS Feed" %>

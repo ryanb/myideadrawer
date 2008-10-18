@@ -1,22 +1,16 @@
-<% title "Viewing Project: " + @project.name %>
-<div class="breadcrumbs">
-	<%= link_to "Home", home_url %>
+<div id="left_col">
+	<% title "Viewing Project: " + @project.name %>
+	<span class="date">(Last Active on <%=h @project.last_activity_at.strftime("%b, %d %Y at %I:%M%p") %>)</span>
+	<p class="big_desc">
+	  <%=h @project.description %>
+	</p>
+	
+	<p>
+	  <%= link_to "Edit", edit_project_path(@project) %> |
+	  <%= link_to "Destroy", @project, :confirm => 'Are you sure?', :method => :delete %> |
+	</p>
 </div>
-<p>
-  <strong>Name:</strong>
-  <%=h @project.name %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%=h @project.description %>
-</p>
-<p>
-  <strong>Last Activity At:</strong>
-  <%=h @project.last_activity_at %>
-</p>
 
-<p>
-  <%= link_to "Edit", edit_project_path(@project) %> |
-  <%= link_to "Destroy", @project, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", projects_path %>
-</p>
+<div id="sidebar">
+  <%= render :partial => "project_sidebar"  %>
+</div>
