@@ -3,7 +3,7 @@ class Photo < ActiveRecord::Base
   
   belongs_to :project
   
-  has_attached_file :image, :styles => { :small => "150x150>" },
+  has_attached_file :image, :styles => { :small => "150x150>", :tiny => "64x64>" },
     :url => "/assets/photos/:id/:style/:basename.:extension",
     :path => "#{RAILS_ROOT}/public/assets/photos/:id/:style/:basename.:extension" 
   
