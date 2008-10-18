@@ -8,8 +8,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :activities
   map.resources :sessions
   map.resources :users
-  map.resources :notes
-  map.resources :projects
+  map.resources :projects do |project|
+    project.resources :notes
+  end
 
   map.root :controller => 'welcome'
 end
