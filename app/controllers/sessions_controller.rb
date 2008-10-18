@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  protect_from_forgery :except => [:create]
+  
   def new
   end
   
@@ -39,7 +41,7 @@ class SessionsController < ApplicationController
           flash[:notice] = "Logged in successfully."
           redirect_to projects_url
         else
-          session[:openid_attributes] = registration.merge('openid_url' => openid_url)
+          session[:openid_attributes] = registration.data.merge('openid_url' => openid_url)
           flash[:notice] = "It looks like you don't have an account yet, please create one below."
           redirect_to signup_path
         end
