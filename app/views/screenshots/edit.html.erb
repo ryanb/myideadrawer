@@ -1,0 +1,8 @@
+<% title "Edit Screenshot" %>
+
+<%= render :partial => 'form' %>
+
+<p>
+  <%= link_to "Show", [current_project, @screenshot] %> |
+  <%= link_to "View All", project_screenshots_path(current_project) %>
+</p>

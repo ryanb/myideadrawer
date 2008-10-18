@@ -1,0 +1,21 @@
+<% title "Screenshots" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Project</th>
+    <th>Source Url</th>
+  </tr>
+  <% for screenshot in @screenshots %>
+    <tr>
+      <td><%=h screenshot.name %></td>
+      <td><%=h screenshot.project_id %></td>
+      <td><%=h screenshot.source_url %></td>
+      <td><%= link_to "Show", [current_project, screenshot] %></td>
+      <td><%= link_to "Edit", edit_project_screenshot_path(current_project, screenshot) %></td>
+      <td><%= link_to "Destroy", [current_project, screenshot], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Screenshot", new_project_screenshot_path(current_project) %></p>
