@@ -1,0 +1,17 @@
+<% title "Activities" %>
+
+<table>
+  <tr>
+    <th>Message</th>
+    <th>Project</th>
+    <th>User</th>
+  </tr>
+  <% for activity in @activities %>
+    <tr>
+      <td><%=h activity.message %></td>
+      <td><%=h activity.project_id %></td>
+      <td><%=h activity.user_id %></td>
+    </tr>
+  <% end %>
+</table>
+
