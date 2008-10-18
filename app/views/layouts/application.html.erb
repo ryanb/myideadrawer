@@ -7,7 +7,17 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <div id="container">
+  <div id="container">
+	<div id="header">
+		<a id="logo" href="/" alt="MyIdeaDrawer"><img src="./images/logo.jpg" width="435" height="115"></a>
+		<ul id="top_nav">
+			<li><a href="/signup">Join</a></li>
+			<li><a href="/login">Login</a></li>
+			<li><a href="/about">About</a></li>
+			<li><a href="/about">Help</a></li>
+		</ul>
+	</div>
+	<div id="content">
       <%- flash.each do |name, msg| -%>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <%- end -%>
@@ -17,6 +27,10 @@
       <%- end -%>
       
       <%= yield %>
-    </div>
+	</div>
+	<div id="footer">
+		MyIdeaDrawer is a <a href="http://railsrumble.com" title="Rails Rumble 2008">Rails Rumble 2008</a> project by <a href="http://railscasts.com" title="Ryan Bates">Ryan Bates</a> and <a href="http://kellishaver.com" title="Kelli Shaver">Kelli Shaver</a>
+	</div>
+  </div>
   </body>
 </html>
