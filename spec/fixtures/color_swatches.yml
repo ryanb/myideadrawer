@@ -1,0 +1,7 @@
+one:
+  palette: one
+  hex: MyString
+
+two:
+  palette: one
+  hex: MyString

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081018054838) do
+ActiveRecord::Schema.define(:version => 20081018131511) do
 
   create_table "activities", :force => true do |t|
     t.string   "message"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(:version => 20081018054838) do
     t.string   "name"
     t.text     "content"
     t.string   "language"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "color_swatches", :force => true do |t|
+    t.integer  "palette_id"
+    t.string   "hex"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
