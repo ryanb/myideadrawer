@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_filter :login_required
   
   def index
-    @projects = current_user.projects
+    @projects = current_user.projects.paginate(:per_page => 10, :page => params[:page])
   end
   
   def show
