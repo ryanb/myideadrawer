@@ -1,21 +1,15 @@
-<% title "Projects" %>
+<div id="left_col">
+	<% title "Your Projects" %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Last Activity At</th>
-  </tr>
-  <% for project in @projects %>
-    <tr>
-      <td><%=h project.name %></td>
-      <td><%=h project.description %></td>
-      <td><%=h project.last_activity_at %></td>
-      <td><%= link_to "Show", project %></td>
-      <td><%= link_to "Edit", edit_project_path(project) %></td>
-      <td><%= link_to "Destroy", project, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
 
-<p><%= link_to "New Project", new_project_path %></p>
+	<% for project in @projects %>
+	<div class="item <%= cycle('normal', 'alt') %>">
+	   <h3><%= link_to project.name, project %> <span class="date">(Last Active on <%=h project.last_activity_at.strftime("%b, %d %Y at %I:%M%p") %>)</span></h3>
+	   <p class="desc"><%=h project.description %></p>
+	</div>
+	<% end %>
+</div>
+
+<div id="sidebar">
+  <%= render :partial => "projects_overview_sidebar"  %>
+</div>
