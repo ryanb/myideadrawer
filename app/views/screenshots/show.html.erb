@@ -1,0 +1,20 @@
+<% title "Screenshot" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @screenshot.name %>
+</p>
+<p>
+  <strong>Project:</strong>
+  <%=h @screenshot.project_id %>
+</p>
+<p>
+  <strong>Source Url:</strong>
+  <%=h @screenshot.source_url %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_project_screenshot_path(current_project, @screenshot) %> |
+  <%= link_to "Destroy", [current_project, @screenshot], :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", project_screenshots_path(current_project) %>
+</p>
