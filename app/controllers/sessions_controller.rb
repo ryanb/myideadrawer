@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
     end
   end
   
-  def open_id_authentication(openid_url)
+  def open_id_authentication
     authenticate_with_open_id(params[:openid_url], :required => [:nickname, :email], :optional => :fullname) do |result, openid_url, registration|
       if result.successful?
         user = User.find_by_openid_url(openid_url)
