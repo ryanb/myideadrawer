@@ -1,9 +1,9 @@
 	<div id="palette">
-		<div id="swatch_1"></div>
-		<div id="swatch_2"></div>
-		<div id="swatch_3"></div>
-		<div id="swatch_4"></div>
-		<div id="swatch_5"></div>
+		<a id="swatch_1" href="#" onclick="$('#palette_color_hex_1').focus(); return false;"></a>
+		<a id="swatch_2" href="#" onclick="$('#palette_color_hex_2').focus(); return false;"></a>
+		<a id="swatch_3" href="#" onclick="$('#palette_color_hex_3').focus(); return false;"></a>
+		<a id="swatch_4" href="#" onclick="$('#palette_color_hex_4').focus(); return false;"></a>
+		<a id="swatch_5" href="#" onclick="$('#palette_color_hex_5').focus(); return false;"></a>
 	</div>
 	<div id="palette_form">
 		<% form_for [current_project, @palette] do |f| %>
