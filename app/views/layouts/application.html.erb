@@ -5,8 +5,10 @@
     <title><%= h(yield(:title) || "Untitled") %></title>
     <%= stylesheet_link_tag 'application' %>
     <%= stylesheet_link_tag 'farbtastic' %>
+    <%= stylesheet_link_tag 'thickbox' %>
     <%= javascript_include_tag 'jquery' %>
     <%= javascript_include_tag 'farbtastic' %>
+    <%= javascript_include_tag 'thickbox' %>
     <%= yield(:head) %>
   </head>
   <body>

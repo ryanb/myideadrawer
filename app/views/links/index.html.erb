@@ -5,14 +5,14 @@
 	  	<%
 	  	if current_project.links.count > 0
 	  	  for link in current_project.links %>
-  		    <li>
+  		    <li class="<%= cycle('normal', 'alt') %>">
   		    	<%= link_to link.name, link.url %> <span class="date">(<%= link.created_at.strftime("%b, %d %Y at %I:%M %p") %>)</span><br /><%= link.description %></li>
   		  <% end %>
   		<% else %>
   			<li><em>This project has no links.</em></li>
   	  	<% end %>
   	  	</ul>
-	<%= will_paginate current_project.links %>
+	<%= will_paginate @links %>
 </div>
 <div id="sidebar">
   <h3><%= link_to "&#187; Back to Project Home", project_path(current_project) %></h3>

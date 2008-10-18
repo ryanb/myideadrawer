@@ -77,7 +77,11 @@ fieldset { border:none; }
 					#sidebar img.centered {margin:0 auto 10px;display:block}
 					#sidebar p {font-size:8pt;margin:0;padding:0 0 10px;border-bottom:1px solid #eee}
 					#sidebar h4 {clear:both;color:#013334;padding-top:10px;margin:0 0 10px 0;border-top:1px solid #adc8cf}
-	
+					
+		.thumb { width:150px; padding:5px; border:1px solid #000; margin-right:10px; float:left; }
+		.thumb a:hover { text-decoration:none; }
+		.thumb img { display:block; margin:auto; }
+		.thumb .name { clear:both; padding-top:5px; text-align:center; font-size:8pt; }
 	#footer {text-align:center;font-size:9pt;color:#fff;padding:10px;clear:both}
 		#footer a,#footer a:hover {color:#fff}
 		
