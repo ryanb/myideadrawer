@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.home 'home', :controller => 'projects', :action => 'index'
   map.about 'about', :controller => 'welcome', :action => 'about'
   map.help 'help', :controller => 'welcome', :action => 'about'
+  map.resources :activities
   map.resources :sessions
   map.resources :users
   map.resources :notes
