@@ -41,7 +41,8 @@ fieldset { border:none; }
 				#content .item .project_links {text-align:right;height:20px}
 					#content .item .project_links a {font-size:8pt}
 				#content .alt {background:#e1edf0}
-				
+				#content .item h2 { padding:5px; background:#adc8cf; height:20px; }
+					#content .item h2 span { color:#013334 !important; font-size:10pt; line-height:20px; color:#fff; width:50%; float:left; }
 			#new_user,#login form {margin:0;border:5px solid #d2e1e4;width:404px}
 				#new_user p,#login p {padding-right:20px}
 				#new_user fieldset,#login fieldset {border:none;margin:0;padding:0 10px 5px;clear:both}
