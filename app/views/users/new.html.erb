@@ -29,3 +29,12 @@
   
   <p class="align_right"><%= f.submit "Sign Up" %></p>
 <% end %>
+
+<% form_tag sessions_path do %>
+  <h3>Or use OpenID:</h3><br />
+  <fieldset>
+    <%= label_tag :openid_url, "OpenID URL" %>
+    <%= text_field_tag :openid_url, params[:openid_url] %>
+  </fieldset>
+  <p class="align_right"><%= submit_tag "Sign Up" %></p>
+<% end %>
