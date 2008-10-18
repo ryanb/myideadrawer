@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
   belongs_to :user
   has_many :notes
-  has_many :activites
+  has_many :activities
   
   generate_unique :token
   

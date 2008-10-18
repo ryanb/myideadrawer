@@ -1,4 +1,9 @@
-<h3>Recent Activity</h3>
+You're viewing "<%= link_to @project.name, project_path(@project) %>", last active on  <%=h @project.last_activity_at.strftime("%b, %d %Y at %I:%M%p") %>.
+<br /><br />
+
+<h4>Recent Activity</h4>
 <% for activity in @project.activities %>
 	<p><%= activity.message %></p>
 <% end %>
+<br />
+<%= link_to image_tag("/images/rss.jpg", :alt => "RSS Feed"), "project.rss", :title => "RSS Feed" %>
