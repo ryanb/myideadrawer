@@ -2,7 +2,7 @@ You're viewing "<%= link_to @project.name, project_path(@project) %>", last acti
 <br /><br />
 
 <h4>Recent Activity</h4>
-<% for activity in @project.activities %>
+<% for activity in @project.activities.recent(10) %>
 	<p><%= activity.message %></p>
 <% end %>
 <br />
