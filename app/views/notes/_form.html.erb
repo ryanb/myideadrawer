@@ -1,6 +1,5 @@
 <% form_for [current_project, @note] do |f| %>
   <%= f.error_messages %>
-
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -8,10 +7,6 @@
   <p>
     <%= f.label :content %><br />
     <%= f.text_area :content %>
-  </p>
-  <p>
-    <%= f.label :project_id %><br />
-    <%= f.text_field :project_id %>
   </p>
   <p><%= f.submit "Submit" %></p>
 <% end %>
