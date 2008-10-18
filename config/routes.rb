@@ -9,6 +9,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :sessions
   map.resources :users
   map.resources :projects do |project|
+    project.resources :screenshots, :collection => { :manage => :get }
+    project.resources :photos, :collection => { :manage => :get }
     project.resources :notes
     project.resources :links
     project.resources :code_snippets
@@ -16,6 +18,5 @@ ActionController::Routing::Routes.draw do |map|
     project.resources :screenshots
     project.resources :photos
   end
-
   map.root :controller => 'welcome'
 end
