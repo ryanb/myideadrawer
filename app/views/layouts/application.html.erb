@@ -31,7 +31,7 @@
 		<% if logged_in? %>
 		<div id="welcome_bar">
 			Welcome back, <%= current_user.username %>!&nbsp;&nbsp;&nbsp;&nbsp;
-			<small><%= link_to "My Account", edit_user_path(current_user) %></small>
+			<small><%= link_to "My Account", edit_user_path(:current) %></small>
 		</div> 
 		<% end %>
       <%- flash.each do |name, msg| -%>

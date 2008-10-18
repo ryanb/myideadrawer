@@ -21,4 +21,32 @@ describe UsersController do
     response.should redirect_to(projects_url)
     assert_equal assigns['user'].id, session['user_id']
   end
+  
+  it_should_require_login_for_actions :edit, :update
+end
+
+describe UsersController, "logged in" do
+  fixtures :all
+  integrate_views
+  
+  before(:each) do
+    login
+  end
+  
+  it "edit action should render edit template" do
+    get :edit, :id => :current
+    response.should render_template(:edit)
+  end
+  
+  it "update action should render edit template when model is invalid" do
+    User.any_instance.stubs(:valid?).returns(false)
+    put :update, :id => :current
+    response.should render_template(:edit)
+  end
+  
+  it "update action should redirect when model is valid" do
+    User.any_instance.stubs(:valid?).returns(true)
+    put :update, :id => :current
+    response.should redirect_to(projects_url)
+  end
 end

@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
   
   def update
     @project = current_user.projects.find(params[:id])
-	@project.last_activity_at = Time.now
+    @project.last_activity_at = Time.now
     if @project.update_attributes(params[:project])
       flash[:notice] = "Successfully updated project."
       record_activity "Edited #{@project} project details."
