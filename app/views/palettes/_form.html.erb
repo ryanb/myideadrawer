@@ -1,28 +1,73 @@
-<% form_for [current_project, @palette] do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :color_hex_1 %><br />
-    <%= f.text_field :color_hex_1 %>
-  </p>
-  <p>
-    <%= f.label :color_hex_2 %><br />
-    <%= f.text_field :color_hex_2 %>
-  </p>
-  <p>
-    <%= f.label :color_hex_3 %><br />
-    <%= f.text_field :color_hex_3 %>
-  </p>
-  <p>
-    <%= f.label :color_hex_4 %><br />
-    <%= f.text_field :color_hex_4 %>
-  </p>
-  <p>
-    <%= f.label :color_hex_5 %><br />
-    <%= f.text_field :color_hex_5 %>
-  </p>
-  <p><%= f.submit "Submit" %></p>
-<% end %>
+	<div id="palette">
+		<div id="swatch_1"></div>
+		<div id="swatch_2"></div>
+		<div id="swatch_3"></div>
+		<div id="swatch_4"></div>
+		<div id="swatch_5"></div>
+	</div>
+	<div id="palette_form">
+		<% form_for [current_project, @palette] do |f| %>
+		  <h3>Palette Details:</h3><br />
+		  <%= f.error_messages %>
+		  <fieldset>
+		    <%= f.label :name %>
+		    <%= f.text_field :name, :soze => 40 %>
+		  </fieldset>
+		  <fieldset>
+		    <%= f.label :color_hex_1 %>
+		    <%= f.text_field :color_hex_1, :class => "colorwell" %>
+		  </fieldset>
+		  <fieldset>
+		    <%= f.label :color_hex_2 %>
+		    <%= f.text_field :color_hex_2, :class => "colorwell" %>
+		  </fieldset>
+		  <fieldset>
+		    <%= f.label :color_hex_3 %>
+		    <%= f.text_field :color_hex_3, :class => "colorwell" %>
+		  </fieldset>
+		  <fieldset>
+		    <%= f.label :color_hex_4 %>
+		    <%= f.text_field :color_hex_4, :class => "colorwell" %>
+		  </fieldset>
+		  <fieldset>
+		    <%= f.label :color_hex_5 %>
+		    <%= f.text_field :color_hex_5, :class => "colorwell" %>
+		  </fieldset>
+		  <p class="align_right">><%= f.submit "Submit" %></p>
+		<% end %>
+	</div>
+	<div id="picker"></div>
+
+<script type="text/javascript" charset="utf-8">
+  function set_swatches() {
+  
+  	$('.colorwell').each(function() {
+  	  if($(this).val() == '') the_color = '#ffffff';
+  	  else the_color = $(this).val();
+  	  if($(this).attr('id') == "palette_color_hex_1") $('#swatch_1').css("background", the_color);
+  	  if($(this).attr('id') == "palette_color_hex_2") $('#swatch_2').css("background", the_color);
+  	  if($(this).attr('id') == "palette_color_hex_3") $('#swatch_3').css("background", the_color);
+  	  if($(this).attr('id') == "palette_color_hex_4") $('#swatch_4').css("background", the_color);
+  	  if($(this).attr('id') == "palette_color_hex_5") $('#swatch_5').css("background", the_color);
+  	});
+ }
+
+
+  $(document).ready(function() {
+    var f = $.farbtastic('#picker');
+    var p = $('#picker').css('opacity', 0.25);
+    var selected;
+    $('.colorwell')
+      .each(function () { f.linkTo(this); $(this).css('opacity', 0.75); })
+      .focus(function() {
+        if (selected) {
+          $(selected).css('opacity', 0.75).removeClass('colorwell-selected');
+        }
+        f.linkTo(this);
+        p.css('opacity', 1);
+        $(selected = this).css('opacity', 1).addClass('colorwell-selected');
+      });
+    set_swatches();    
+    $('.colorwell').change(function() { set_swatches() });
+  });
+</script>

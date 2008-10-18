@@ -54,15 +54,27 @@ fieldset { border:none; }
 					.common fieldset input, .common fieldset textarea { width:470px; float:left; }
 					.common fieldset label { width:100px; text-align:right; padding-right:10px; display:block; float:left; }	
 					.common form p.align_right { padding-right:30px; }
-								
-			#action_btns {width:300px;float:right;display:block;height:20px;margin-top:-35px}
+				
+			#palette_form { float:left;margin:0 20px 0 0;border:5px solid #d2e1e4;width:420px; } 				
+				#palette_form fieldset { clear:both; padding;0 0 5px 0; margin:0; }
+					#palette_form fieldset label { width:100px; text-align:right; padding-right:10px; display:block; float:left; }	
+					#palette_form form p.align_right { padding-right:30px; }
+					
+			#picker { width:150px; float:left; }
+			
+			#palette { width:506px; height:102px; padding:5px; border:1px solid #000; margin:0 auto 10px auto; }
+				#swatch_1, #swatch_2, #swatch_3, #swatch_4, #swatch_4, #swatch_5 { width:100px; height:100px; border:1px solid #000; border-right:none; float:left; }
+				#swatch_5 { border-right:1px solid #000 !important; }			
+		#action_btns {width:300px;float:right;display:block;height:20px;margin-top:-35px}
 			
 			#content #left_col {width:660px;float:left;border-right:1px dashed #adc8cf;padding-right:20px}
 				#sidebar {width:230px;float:right}
 					#sidebar img.centered {margin:0 auto 10px;display:block}
 					#sidebar p {font-size:8pt;margin:0;padding:0 0 10px;border-bottom:1px solid #eee}
 					#sidebar h4 {clear:both;color:#013334;padding-top:10px;margin:0 0 10px 0;border-top:1px solid #adc8cf}
-					
+	
 	#footer {text-align:center;font-size:9pt;color:#fff;padding:10px;clear:both}
 		#footer a,#footer a:hover {color:#fff}
 		
+.colorwell { border: 1px solid #ccc; width: 6em; text-align: center; cursor: pointer; }
+body .colorwell-selected { border: 1px solid #000; font-weight: bold; }
