@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     project ||= @project || current_project
     user ||= current_user
     Activity.create! :message => message, :project => project, :user => user
-    project.update_attribute(:last_activity_on => Time.now)
+    project.update_attribute(:last_activity_at, Time.now) if project && !project.frozen?
   end
   
   def current_project
