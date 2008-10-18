@@ -13,13 +13,19 @@
     <%= f.label :email, "Email Address" %>
     <%= f.text_field :email %>
   </fieldset>
-  <fieldset>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </fieldset>
-  <fieldset>
-    <%= f.label :password_confirmation, "Confirm Password" %>
-    <%= f.password_field :password_confirmation %>
-  </fieldset>
+  
+  <% if @user.openid_url.blank? %>
+    <fieldset>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </fieldset>
+    <fieldset>
+      <%= f.label :password_confirmation, "Confirm Password" %>
+      <%= f.password_field :password_confirmation %>
+    </fieldset>
+  <% else %>
+    <%= f.hidden_field :openid_url %>
+  <% end %>
+  
   <p class="align_right"><%= f.submit "Sign Up" %></p>
 <% end %>

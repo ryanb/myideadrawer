@@ -16,3 +16,14 @@
   <p class="align_right"><%= submit_tag "Log In" %></p>
 <% end %>
 </div>
+
+<div id="login">
+<% form_tag sessions_path do %>
+  <h3>Or use OpenID:</h3><br />
+  <fieldset>
+    <%= label_tag :openid_url, "OpenID URL" %>
+    <%= text_field_tag :openid_url, params[:openid_url] %>
+  </fieldset>
+  <p class="align_right"><%= submit_tag "Log In" %></p>
+<% end %>
+</div>

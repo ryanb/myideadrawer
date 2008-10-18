@@ -9,6 +9,16 @@ describe UsersController do
     response.should render_template(:new)
   end
   
+  it "new should apply openid attributes to user model" do
+    session[:openid_attributes] = { 'nickname' => 'foo', 'email' => 'bar', 'openid_url' => 'boo'}
+    get :new
+    response.should render_template(:new)
+    assigns[:user].username.should == 'foo'
+    assigns[:user].email.should == 'bar'
+    assigns[:user].openid_url.should == 'boo'
+    session[:openid_attributes].should be_nil
+  end
+  
   it "create action should render new template when model is invalid" do
     User.any_instance.stubs(:valid?).returns(false)
     post :create

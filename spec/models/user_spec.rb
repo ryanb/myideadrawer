@@ -60,6 +60,11 @@ describe User do
     User.authenticate('foobar', 'badpassword').should be_nil
   end
   
+  it "should not require password when using identity url" do
+    user = User.new(:openid_url => 'foo')
+    user.should_not have(1).errors_on(:password)
+  end
+  
   describe "with password" do
     before(:each) do
       @user = new_user

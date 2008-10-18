@@ -20,6 +20,10 @@
     <%= f.label :password_confirmation, "Confirm Password" %>
     <%= f.password_field :password_confirmation %>
   </fieldset>
+  <fieldset>
+    <%= f.label :openid_url, "OpenID URL" %>
+    <%= f.text_field :openid_url %>
+  </fieldset>
   <p class="align_right"><%= f.submit "Edit Account" %></p>
 <% end %>
 </div>
