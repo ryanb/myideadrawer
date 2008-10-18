@@ -158,8 +158,24 @@ h1 {
 			#content .item p.desc { margin:0; padding:5px 0 5px 20px; }
 			#content .item h3 { margin-bottom:0; }
 			#content .item h3 a { text-decoration:none; }
-			#content .item .project_links { text-align:right; line-height:16px; }
-			#content .item .project_links a:hover { text-decoration:none; background:#ffd; } 
+			#content .item .project_links { text-align:right; height:20px; }
+			#content .item .project_links a { 
+				border:1px solid #013334;
+				background:#adc8cf;
+				color:#013334;
+				display:block;
+				float:right;
+				margin-left:5px;
+				padding:2px;
+				font-weight:bold;
+				font-size:8pt;
+			}
+			#content .item .project_links a:hover { 
+				text-decoration:none;
+				background:#9c0a0d;
+				color:#fff;
+			}
+			
 		#content .alt { 
 			background:#e1edf0;
 		}
