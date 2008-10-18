@@ -22,3 +22,4 @@ config.action_controller.allow_forgery_protection    = false
 config.action_mailer.delivery_method = :test
 
 config.gem 'thoughtbot-factory_girl', :version => '>= 1.1.1', :lib => 'factory_girl', :source => 'http://gems.github.com'
+config.gem 'mocha'

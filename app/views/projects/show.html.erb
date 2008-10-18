@@ -1,0 +1,20 @@
+<% title "Project" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @project.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%=h @project.description %>
+</p>
+<p>
+  <strong>Last Activity At:</strong>
+  <%=h @project.last_activity_at %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_project_path(@project) %> |
+  <%= link_to "Destroy", @project, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", projects_path %>
+</p>
