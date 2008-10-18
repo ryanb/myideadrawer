@@ -1,5 +1,7 @@
-<% title "Project" %>
-
+<% title "Viewing Project: " + @project.name %>
+<div class="breadcrumbs">
+	<%= link_to "Home", home_url %>
+</div>
 <p>
   <strong>Name:</strong>
   <%=h @project.name %>

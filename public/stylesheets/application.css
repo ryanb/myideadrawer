@@ -154,7 +154,7 @@ h1 {
 			width:230px;
 			float:right;
 		}
-			#sidebar img { margin:0 auto 0 auto; display:block; }
+			#sidebar img.centered { margin:0 auto 0 auto; display:block; }
 		
 	
 	#footer {
