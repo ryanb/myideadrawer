@@ -1,0 +1,21 @@
+<% form_for [current_project, @code_snippet] do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :project_id %><br />
+    <%= f.text_field :project_id %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.label :language %><br />
+    <%= f.text_field :language %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

@@ -1,0 +1,23 @@
+<% title "Code Snippet" %>
+
+<p>
+  <strong>Project:</strong>
+  <%=h @code_snippet.project_id %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%=h @code_snippet.name %>
+</p>
+<p>
+  <strong>Content:</strong>
+  <%=h @code_snippet.content %>
+</p>
+<p>
+  <strong>Language:</strong>
+  <%=h @code_snippet.language %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_project_code_snippet_path(current_project, @code_snippet) %> |
+  <%= link_to "Destroy", [current_project, @code_snippet], :confirm => 'Are you sure?', :method => :delete %> |
+</p>

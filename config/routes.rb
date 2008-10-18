@@ -11,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :projects do |project|
     project.resources :notes
     project.resources :links
+    project.resources :code_snippets
   end
 
   map.root :controller => 'welcome'

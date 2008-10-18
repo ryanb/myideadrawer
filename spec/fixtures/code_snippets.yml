@@ -1,0 +1,11 @@
+one:
+  project: one
+  name: MyString
+  content: MyText
+  language: MyString
+
+two:
+  project: one
+  name: MyString
+  content: MyText
+  language: MyString

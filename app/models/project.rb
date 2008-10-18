@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
   has_many :notes
   has_many :activities
   has_many :links
+  has_many :code_snippets
   
   generate_unique :token
   
