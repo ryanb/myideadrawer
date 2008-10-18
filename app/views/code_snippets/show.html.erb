@@ -1,3 +1,5 @@
+<% stylesheet 'coderay' %>
+
 <div id="left_col">
 	<% title "Code Snippet: " + @code_snippet.name %>
 	<p>
@@ -17,7 +19,7 @@
 	  <%=h @code_snippet.name %>
 	</p>
 	<p>
-	  <pre><%=h @code_snippet.content %></pre>
+	  <%= coderay @code_snippet %>
 	</p>
 </div>
 <div id="sidebar">
