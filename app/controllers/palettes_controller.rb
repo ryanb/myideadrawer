@@ -1,6 +1,6 @@
 class PalettesController < ApplicationController
   def index
-    @palettes = current_project.palettes
+    @palettes = current_project.palettes.paginate(:per_page => 10, :page => params[:page])
   end
   
   def new

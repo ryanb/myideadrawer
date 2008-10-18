@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   def index
-    @links = current_project.links
+    @links = current_project.links.paginate(:per_page => 10, :page => params[:page])
   end
   
   def new

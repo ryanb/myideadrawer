@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   def index
-    @notes = current_project.notes
+    @notes = current_project.notes.paginate(:per_page => 10, :page => params[:page])
   end
   
   def show

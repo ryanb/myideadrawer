@@ -1,6 +1,6 @@
 class CodeSnippetsController < ApplicationController
   def index
-    @code_snippets = current_project.code_snippets
+    @code_snippets = current_project.code_snippets.paginate(:per_page => 20, :page => params[:page])
   end
   
   def show
