@@ -1,4 +1,4 @@
-<% form_for @note do |f| %>
+<% form_for [current_project, @note] do |f| %>
   <%= f.error_messages %>
 
   <p>

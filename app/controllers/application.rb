@@ -3,16 +3,11 @@
 
 class ApplicationController < ActionController::Base
   include Authentication
-  helper :all # include all helpers, all the time
-
-  # See ActionController::RequestForgeryProtection for details
-  # Uncomment the :secret if you're not using the cookie session store
-  protect_from_forgery # :secret => '2d8a55a455e12ea012290330912e5a20'
+  helper :all
+  protect_from_forgery
+  filter_parameter_logging :password
   
-  # See ActionController::Base for details 
-  # Uncomment this to filter the contents of submitted sensitive data parameters
-  # from your application log (in this case, all fields with names like "password"). 
-  # filter_parameter_logging :password
+  helper_method :current_project
   
   private
   
@@ -20,5 +15,9 @@ class ApplicationController < ActionController::Base
     project ||= @project
     user ||= current_user
     Activity.create! :message => message, :project => project, :user => user
+  end
+  
+  def current_project
+    @project ||= Project.fetch(current_user, params[:project_id])
   end
 end

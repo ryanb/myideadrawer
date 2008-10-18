@@ -14,6 +14,6 @@
 </p>
 
 <p>
-  <%= link_to "Edit", edit_note_path(@note) %> |
-  <%= link_to "Destroy", @note, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "Edit", edit_project_note_path(current_project, @note) %> |
+  <%= link_to "Destroy", project_note_path(current_project, @note), :confirm => 'Are you sure?', :method => :delete %> |
 </p>

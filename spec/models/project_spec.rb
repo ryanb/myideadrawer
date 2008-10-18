@@ -6,8 +6,32 @@ describe Project do
   end
   
   it "should generate a unique token" do
-    p1 = Project.create!
-    p2 = Project.create!
+    p1 = Factory(:project)
+    p2 = Factory(:project)
     p1.token.should_not == p2.token
+  end
+  
+  it "should not be able to fetch projects by id that user doesn't own" do
+    project = Factory(:project)
+    lambda {
+      Project.fetch(User.new, project.id)
+    }.should raise_error(ActiveRecord::RecordNotFound)
+  end
+  
+  it "should not be able to fetch projects by bad token" do
+    lambda {
+      Project.fetch(User.new, 'abc123')
+    }.should raise_error(ActiveRecord::RecordNotFound)
+  end
+  
+  it "should be able to fetch projects by id that user owns" do
+    user = Factory(:user)
+    project = Factory(:project, :user => user)
+    Project.fetch(user, project.id).should == project
+  end
+  
+  it "should be able to fetch projects by correct token" do
+    project = Factory(:project)
+    Project.fetch(nil, project.token).should == project
   end
 end
