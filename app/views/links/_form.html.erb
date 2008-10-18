@@ -1,17 +1,19 @@
-<% form_for [current_project, @link] do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-  <p><%= f.submit "Submit" %></p>
-<% end %>
+<div class="common">
+	<% form_for [current_project, @link] do |f| %>
+	<h3>Link Details:</h3>
+	<%= f.error_messages %>
+	<fieldset>
+    	<%= f.label :name %>
+    	<%= f.text_field :name %>
+  	</fieldset>
+	<fieldset>
+	    <%= f.label :url %>
+	    <%= f.text_field :url %>
+	</fieldset>
+    <fieldset>
+    	<%= f.label :description %>
+    	<%= f.text_field :description, :maxlength => 255 %>
+    </fieldset>
+	<p class="align_right"><%= f.submit "Add Link" %></p>
+	<% end %>
+</div>

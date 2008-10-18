@@ -5,12 +5,13 @@
 	  	<%
 	  	if current_project.notes.count > 0
 	  	  for note in current_project.notes %>
-  		    <li><%= link_to note.name, project_note_path(current_project, note) %> <span class="date">(<%= note.created_at.strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
+  		    <li><%= link_to note.name, project_note_path(current_project, note) %> <span class="date">(<%= note.created_at.strftime("%b, %d %Y at %I:%M %p") %>)</span><br /><%= truncate(note.content, 255, '...') %></li>
   		  <% end %>
   		<% else %>
   			<li><em>This project has no notes.</em></li>
   	  	<% end %>
   	  	</ul>
+	   <%= will_paginate current_project.notes %>
 </div>
 <div id="sidebar">
   <h3><%= link_to "&#187; Back to Project Home", project_path(current_project) %></h3>
