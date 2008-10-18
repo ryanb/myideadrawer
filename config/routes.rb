@@ -12,6 +12,7 @@ ActionController::Routing::Routes.draw do |map|
     project.resources :notes
     project.resources :links
     project.resources :code_snippets
+    project.resources :palettes
   end
 
   map.root :controller => 'welcome'

@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
   has_many :activities
   has_many :links
   has_many :code_snippets
+  has_many :palettes
   
   generate_unique :token
   
