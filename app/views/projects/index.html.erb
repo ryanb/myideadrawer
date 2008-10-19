@@ -1,20 +1,24 @@
 <div id="left_col">
 	<% title "Your Projects" %>
     <h1><%=h yield(:title) %></h1>
-	<% for project in @projects %>
-	<div class="item <%= cycle('normal', 'alt') %>">
-	   <h3><%= link_to h(project.name), project %> <span class="date">(Last Active on <%=h project.last_activity_at.strftime("%b, %d %Y at %I:%M %p") %>)</span></h3>
-	   <p class="desc"><%= truncate(project.description, 255, '...').gsub(/\n/, '<br>') %></p>
-	   <div class="project_links">
-	     <%= link_to " Code (" + project.code_snippets.count.to_s + ")", project_code_snippets_path(project) %> | 
-	     <%= link_to " Links (" + project.links.count.to_s + ")", project_links_path(project) %> | 
-	     <%= link_to " Notes (" + project.notes.count.to_s + ")", project_notes_path(project) %> |
-	     <%= link_to " Palettes (" + project.palettes.count.to_s + ")", project_palettes_path(project) %> }
-	     <%= link_to " Photos (" + project.photos.count.to_s + ")", project_photos_path(project) %> |
-	     <%= link_to " Screenshots (" + project.screenshots.count.to_s + ")", project_screenshots_path(project) %>
-	   </div>
-	</div>
-	<% end %>
+  <% if @projects.empty? %>
+    <p>No projects yet. Click the button on the right to add one.</p>
+  <% else %>
+  	<% for project in @projects %>
+  	<div class="item <%= cycle('normal', 'alt') %>">
+  	   <h3><%= link_to h(project.name), project %> <span class="date">(Last Active on <%=h project.last_activity_at.strftime("%b, %d %Y at %I:%M %p") %>)</span></h3>
+  	   <p class="desc"><%= truncate(project.description, 255, '...').gsub(/\n/, '<br>') %></p>
+  	   <div class="project_links">
+  	     <%= link_to " Code (" + project.code_snippets.count.to_s + ")", project_code_snippets_path(project) %> | 
+  	     <%= link_to " Links (" + project.links.count.to_s + ")", project_links_path(project) %> | 
+  	     <%= link_to " Notes (" + project.notes.count.to_s + ")", project_notes_path(project) %> |
+  	     <%= link_to " Palettes (" + project.palettes.count.to_s + ")", project_palettes_path(project) %> |
+  	     <%= link_to " Photos (" + project.photos.count.to_s + ")", project_photos_path(project) %> |
+  	     <%= link_to " Screenshots (" + project.screenshots.count.to_s + ")", project_screenshots_path(project) %>
+  	   </div>
+  	</div>
+  	<% end %>
+  <% end %>
 	<%= will_paginate @projects %>
 </div>
 
