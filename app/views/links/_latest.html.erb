@@ -1,14 +1,14 @@
 	<div class="item">	
-		<h2><span>Links: (<%= current_project.links.count %>)</span><span class="align_right"><%= link_to image_tag("/images/new_link_btn.png", :alt=>"New Link"), new_project_link_path(current_project) + "?width=630&height=250", :class => "thickbox" %></span></h2>
+		<h2><span>Links: (<%= current_project.links.count %>)</span><span class="align_right"><%= link_to image_tag("/images/new_link_btn.png", :alt=>"New Link"), new_project_link_path(project_param) + "?width=630&height=250", :class => "thickbox" %></span></h2>
 		<ul class="linklist">
 	  	<%
 	  	if current_project.links.count > 0
 	  	  for link in current_project.links.recent(5) %>
-  		    <li><%= link_to link.name, project_link_path(current_project, link) %> <span class="date">(<%= link.created_at.strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
+  		    <li><%= link_to link.name, project_link_path(project_param, link) %> <span class="date">(<%= link.created_at.strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
   		  <% end %>
   		<% else %>
   			<li><em>This project has no links.</em></li>
   	  	<% end %>
   	  	</ul>
-  	  	<%= link_to "View All Links &#187;", project_links_path(current_project) %>
+  	  	<%= link_to "View All Links &#187;", project_links_path(project_param) %>
   	</div>

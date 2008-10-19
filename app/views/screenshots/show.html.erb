@@ -18,7 +18,7 @@
 </p>
 
 <p>
-  <%= link_to "Edit", edit_project_screenshot_path(current_project, @screenshot) %> |
+  <%= link_to "Edit", edit_project_screenshot_path(project_param, @screenshot) %> |
   <%= link_to "Destroy", [current_project, @screenshot], :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", project_screenshots_path(current_project) %>
+  <%= link_to "View All", project_screenshots_path(project_param) %>
 </p>

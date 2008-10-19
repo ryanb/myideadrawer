@@ -1,12 +1,12 @@
 <div id="left_col">
 	<% title "Browse Notes for: " + current_project.name %>
     <h1><%= yield(:title) %></h1>
-	<%= link_to image_tag("/images/new_note_btn.png", :alt=>"New Note"), new_project_note_path(current_project) %>
+	<%= link_to image_tag("/images/new_note_btn.png", :alt=>"New Note"), new_project_note_path(project_param) %>
 		<ul class="linklist">
 	  	<%
 	  	if current_project.notes.count > 0
 	  	  for note in current_project.notes %>
-  		    <li class="<%= cycle('normal', 'alt') %>"><%= link_to note.name, project_note_path(current_project, note) %> <span class="date">(<%= note.created_at.strftime("%b, %d %Y at %I:%M %p") %>)</span><br /><%= truncate(note.content, 255, '...') %></li>
+  		    <li class="<%= cycle('normal', 'alt') %>"><%= link_to note.name, project_note_path(project_param, note) %> <span class="date">(<%= note.created_at.strftime("%b, %d %Y at %I:%M %p") %>)</span><br /><%= truncate(note.content, 255, '...') %></li>
   		  <% end %>
   		<% else %>
   			<li><em>This project has no notes.</em></li>
@@ -15,6 +15,6 @@
 	   <%= will_paginate @notes %>
 </div>
 <div id="sidebar">
-  <h3><%= link_to "&#187; Back to Project Home", project_path(current_project) %></h3>
+  <h3><%= link_to "&#187; Back to Project Home", project_path(project_param) %></h3>
   <%= render :partial => "projects/project_sidebar"  %>
 </div>

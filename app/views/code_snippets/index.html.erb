@@ -1,12 +1,12 @@
 <div id="left_col">
 	<% title "Browsing Code Snippets for: " + current_project.name %>
     <h1><%= yield(:title) %></h1>
-	<%= link_to image_tag("/images/new_code_btn.png", :alt=>"New Code Snippet"), new_project_code_snippet_path(current_project) %>
+	<%= link_to image_tag("/images/new_code_btn.png", :alt=>"New Code Snippet"), new_project_code_snippet_path(project_param) %>
 	<ul class="linklist">
 	<%
 	if current_project.code_snippets.count > 0
 	  for code_snippet in current_project.code_snippets %>
-	    <li class="<%= cycle('normal', 'alt') %>"><%= link_to code_snippet.name, project_code_snippet_path(current_project, code_snippet) %> <span class="date">(<%= code_snippet.created_at.strftime("%b, %d %Y at %I:%M %p") %>)</span>  <em><small><strong>Language:</strong> <%= code_snippet.language %></small></em></li>
+	    <li class="<%= cycle('normal', 'alt') %>"><%= link_to code_snippet.name, project_code_snippet_path(project_param, code_snippet) %> <span class="date">(<%= code_snippet.created_at.strftime("%b, %d %Y at %I:%M %p") %>)</span>  <em><small><strong>Language:</strong> <%= code_snippet.language %></small></em></li>
 	  <% end %>
 	<% else %>
 		<li><em>This project has no code snippets.</em></li>
@@ -16,6 +16,6 @@
 </div>
 
 <div id="sidebar">
-  <h3><%= link_to "&#187; Back to Project Home", project_path(current_project) %></h3>
+  <h3><%= link_to "&#187; Back to Project Home", project_path(project_param) %></h3>
   <%= render :partial => "projects/project_sidebar"  %>
 </div>

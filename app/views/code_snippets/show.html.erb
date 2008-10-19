@@ -4,7 +4,7 @@
 	<% title "Code Snippet: " + @code_snippet.name %>
     <h1><%= yield(:title) %></h1>
 	<p>
-	  <%= link_to image_tag("/images/edit_code_btn.png", :alt => "Edit Code"), edit_project_code_snippet_path(current_project, @code_snippet) %> 
+	  <%= link_to image_tag("/images/edit_code_btn.png", :alt => "Edit Code"), edit_project_code_snippet_path(project_param, @code_snippet) %> 
 	  <%= link_to image_tag("/images/delete_code_btn.png", :alt => "Delete Code"), [current_project, @code_snippet], :confirm => 'Are you sure?', :method => :delete %>
 	</p>
 	<p>
@@ -24,6 +24,6 @@
 	</p>
 </div>
 <div id="sidebar">
-  <h3><%= link_to "&#187; Back to Project Home", project_path(current_project) %></h3>
+  <h3><%= link_to "&#187; Back to Project Home", project_path(project_param) %></h3>
   <%= render :partial => "projects/project_sidebar"  %>
 </div>
