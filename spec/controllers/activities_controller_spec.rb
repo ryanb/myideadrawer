@@ -9,7 +9,7 @@ describe ActivitiesController do
   end
   
   it "index action should render index template" do
-    get :index, :project_id => Project.first
+    get :index, :project_id => Project.first, :format => 'rss'
     response.should render_template(:index)
   end
 end
