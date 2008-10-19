@@ -3,7 +3,8 @@ img {border:none}
 a {color:#9d0a0e;text-decoration:none}
 a:hover {text-decoration:underline}
 h1,h2,h3 {margin:0 0 10px;padding:0}
-h1 {color:#9d0a0e;font-size:18pt}
+h1 {color:#9d0a0e;font-size:18pt;}
+h1.short {width:400px;}
 form h3 {background:#d2e1e4;color:#9c0a0d;padding:5px;margin:0}
 fieldset { border:none; }
 .breadcrumbs {padding:3px;background:#e1edf0}
@@ -71,7 +72,7 @@ fieldset { border:none; }
 			#palette_small { padding:5px; margin:10px 0; width:250px; border:1px solid #000; height:50px; }
 				.small_swatch { display:block; width:50px; height:50px; float:left; }
 				
-		#action_btns {width:300px;float:right;display:block;height:20px;margin-top:-35px}
+		#action_btns {width:250px;float:right;display:block;height:20px;}
 			
 			#content #left_col {width:660px;float:left;padding-right:20px}
 				#sidebar {width:230px;float:right}
@@ -124,3 +125,4 @@ h1.main_title a { background:#fffba8; color:#333; }
 .pagination .current { display:block; background:#357fa6; float:left; color:#fff; padding:3px 5px; margin-right:5px; }
 .pagination a { display:block; float:left; color:#fff; background:#adc8cf; padding:3px 5px; margin-right:5px; }
 .pagination a:hover { background:#9c0a0d; text-decoration:none; }
+.sthumb { width:150px; height:106px; margin:10px 0 10px 0; padding:5px; border:1px solid #333; float:left; }
