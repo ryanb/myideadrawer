@@ -43,12 +43,13 @@ fieldset { border:none; }
 				#content .alt {background:#e1edf0}
 				#content .item h2 { padding:5px; background:#adc8cf; height:20px; }
 					#content .item h2 span { color:#013334 !important; font-size:10pt; line-height:20px; color:#fff; width:50%; float:left; }
-			#new_user,#login form {margin:0;border:5px solid #d2e1e4;width:404px}
-				#new_user p,#login p {padding-right:20px}
-				#new_user fieldset,#login fieldset {border:none;margin:0;padding:0 10px 5px;clear:both}
-				#new_user label,#login label {display:block;width:120px;padding-right:10px;text-align:right;float:left}
-				#new_user fieldset input,#login fieldset input {width:237px;display:block;float:left}
-
+			#new_user,#login {margin:0;border:5px solid #d2e1e4;width:404px}
+				#new_user p,#login p, #new_photo p {padding-right:20px}
+				#new_user fieldset,#login fieldset, #new_photo fieldset {border:none;margin:0;padding:0 10px 5px;clear:both}
+				#new_user label,#login label, #new_photo label {display:block;width:120px;padding-right:10px;text-align:right;float:left}
+				#new_user fieldset input,#login fieldset input, #new_photo fieldset input {width:237px;display:block;float:left}
+				#new_photo { width:500px; margin:0;border:5px solid #d2e1e4;}
+				
 			.common form { margin:0;border:5px solid #d2e1e4;width:620px; }
 				.common fieldset { clear:both; padding;0 0 5px 0; margin:0; }
 					.common fieldset input, .common fieldset textarea { width:470px; float:left; }
@@ -95,6 +96,7 @@ body .colorwell-selected { border: 1px solid #000; font-weight: bold; }
 .managelist li { height:64px; }
 .managelist .tinythumb { background:#abc6cd; width:64px; height:64px; margin-right:10px; float:left; }
 .managelist span.info { display:block; height:64px; line-height:64px; font-size:12pt; width:450px; float:left; }
+.managelist span.info2 { display:block; height:64px; width:450px; float:left; }
 .managelist .del_btn { display:block; fliat:right; margin:22px 0 22px 0;; }
 #TB_window h1 { padding-top:10px; }
 #openid_url { text-indent:20px; background:url(/images/openid.png) top left no-repeat #fff; border:1px solid #888; }

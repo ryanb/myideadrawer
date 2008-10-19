@@ -1,12 +1,15 @@
 <div id="left_col">
 	<% title "Browse Links for: " + current_project.name %>
     <h1><%= yield(:title) %></h1>
-	<%= link_to image_tag("/images/new_link_btn.png", :alt=>"New Link"), new_project_link_path(current_project) + "?width=630&height=250", :class => "thickbox" %>	<ul class="linklist">
+	<%= link_to image_tag("/images/new_link_btn.png", :alt=>"New Link"), new_project_link_path(current_project) + "?width=630&height=250", :class => "thickbox" %>	
+	<ul class="linklist managelist">
 	  	<%
 	  	if current_project.links.count > 0
 	  	  for link in current_project.links %>
   		    <li class="<%= cycle('normal', 'alt') %>">
-  		    	<%= link_to link.name, link.url %> <span class="date">(<%= link.created_at.strftime("%b, %d %Y at %I:%M %p") %>)</span><br /><%= link.description %></li>
+  		    	<span class="info2"><%= link_to link.name, link.url %> <span class="date">(<%= link.created_at.strftime("%b, %d %Y at %I:%M %p") %>)</span><br /><%= link.description %></span>
+	  			<%= link_to image_tag("/images/delete_link_btn.png", :alt => "Delete Link"), [current_project, link], :confirm => 'Are you sure?', :method => :delete, :class => "del_btn" %>
+  		   	</li>
   		  <% end %>
   		<% else %>
   			<li><em>This project has no links.</em></li>

@@ -1,12 +1,16 @@
+<div id="login">
 <% form_for [current_project, @screenshot] do |f| %>
+  <h3>Screenshot Details:</h3><br />
   <%= f.error_messages %>
-  <p>
-    <%= f.label :name %><br />
+  <fieldset>
+    <%= f.label :name %>
     <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :source_url %><br />
+  </fieldset>
+  <fieldset>
+    <%= f.label :source_url %>
     <%= f.text_field :source_url %>
-  </p>
-  <p><%= f.submit "Submit" %></p>
+  </fieldset>
+  <p class="align_right"><%= f.submit "Submit" %></p>
 <% end %>
+</div>
+

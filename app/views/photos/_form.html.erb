@@ -1,9 +1,13 @@
-<% form_for [current_project, @photo], :html => { :multipart => true } do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p><%= f.file_field :image %></p>
-  <p><%= f.submit "Submit" %></p>
-<% end %>
+	<% form_for [current_project, @photo], :html => { :multipart => true } do |f| %>
+	<h3>Photo Details:</h3><br />
+	  <%= f.error_messages %>
+	  <fieldset>
+	    <%= f.label :name %>
+	    <%= f.text_field :name %>
+	  </fieldset>
+	  <fieldset>
+		  <%= f.label :image %>
+		  <%= f.file_field :image %>
+	  </fieldset>
+	  <p class="align_right"><%= f.submit "Submit" %></p>
+	<% end %>

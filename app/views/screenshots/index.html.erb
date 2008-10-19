@@ -1,6 +1,7 @@
 <div id="left_col">
 	<% title "Browse Screenshots for: " + current_project.name %>
-	<%= link_to image_tag("/images/new_screenshot_btn.png", :alt=>"New Screenshot"), new_project_screenshot_path(current_project) %>
+    <h1><%= yield(:title) %></h1>
+	<%= link_to image_tag("/images/new_screenshot_btn.png", :alt=>"New Screenshot"), new_project_screenshot_path(current_project) + "?width=410&height=230", :class => "thickbox" %>
 	<br /><br />
 	  	<%
 	  	if current_project.screenshots.count > 0
