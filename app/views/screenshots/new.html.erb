@@ -1,6 +1,6 @@
 <div id="left_col">
 	<% title "New Screenshot" %>
-    <h1><%= yield(:title) %></h1>
+    <h1><%=h yield(:title) %></h1>
 	<%= render :partial => 'form' %>
 </div>
 <% if !request.xhr? %>

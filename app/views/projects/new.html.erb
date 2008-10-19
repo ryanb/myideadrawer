@@ -1,6 +1,6 @@
 <div id="left_col">
 	<% title "Create A New Project" %>
-    <h1><%= yield(:title) %></h1>
+    <h1><%=h yield(:title) %></h1>
 	<%= render :partial => 'form' %>
 	<p><%= link_to "Back to List", projects_path %></p>
 </div>

@@ -1,6 +1,6 @@
 <div id="left_col">
 	<% title "Browse Screenshots for: " + current_project.name %>
-    <h1><%= yield(:title) %></h1>
+    <h1><%=h yield(:title) %></h1>
 	<% if owner? %><%= link_to image_tag("/images/new_screenshot_btn.png", :alt=>"New Screenshot"), new_project_screenshot_path(project_param) + "?width=410&height=230", :class => "thickbox" %><% end %>
 	<br /><br />
 	  	<%
@@ -8,7 +8,7 @@
 	  	  for screenshot in current_project.screenshots %>
 	    	<div class="screenshot <%= cycle('normal', 'alt') %>">
 	    		<%= link_to image_tag(screenshot.image_url(300)), screenshot.source_url %> &nbsp; <%= link_to image_tag("/images/manage_btn.png", :alt=>"Manage Photos"), manage_project_screenshots_path(project_param) %>
-	    		<div class="name"><%= screenshot.name %><br /><%= screenshot.created_at.strftime("%b, %d %Y at %I:%M %p") %></div>
+	    		<div class="name"><%=h screenshot.name %><br /><%=h screenshot.created_at.strftime("%b, %d %Y at %I:%M %p") %></div>
 	    	</div>
   		  <% end %>
   		<% else %>
