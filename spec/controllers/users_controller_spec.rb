@@ -18,7 +18,6 @@ describe UsersController do
     assigns[:user].openid_url.should == 'http://boo'
     assigns[:user].errors.on(:email).should_not be_nil
     session[:openid_attributes].should be_nil
-    
   end
   
   it "create action should render new template when model is invalid" do
