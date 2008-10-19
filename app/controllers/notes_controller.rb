@@ -1,4 +1,5 @@
 class NotesController < ApplicationController
+  before_filter :fetch_current_project
   before_filter :owner_required, :except => [:index, :show]
   
   def index

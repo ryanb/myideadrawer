@@ -1,4 +1,5 @@
 class LinksController < ApplicationController
+  before_filter :fetch_current_project
   before_filter :owner_required, :except => :index
   
   def index
