@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   filter_parameter_logging :password
   
-  helper_method :current_project, :owner?
+  helper_method :current_project, :owner?, :project_param
   
   private
   
@@ -19,11 +19,15 @@ class ApplicationController < ActionController::Base
   end
   
   def current_project
-    @project ||= Project.fetch(current_user, params[:project_id] || params[:id])
+    @project ||= Project.fetch(current_user, project_param)
   end
   
   def owner?
     current_user.id == current_project.user_id
+  end
+  
+  def project_param
+    params[:project_id] || params[:id]
   end
   
   def owner_required
