@@ -1,24 +1,11 @@
-<% title "Screenshot" %>
-    <h1><%=h yield(:title) %></h1>
-
-<p>
-  <strong>Name:</strong>
-  <%=h @screenshot.name %>
+<div id="left_col">
+<% title "Viewing Screenshot: " + h(@screenshot.name) %>
+<h1><%=h yield(:title) %></h1>
+<p style="padding:5px; border:1px solid #333;">
+<%= link_to image_tag(@screenshot.image_url(600)), @screenshot.source_url %>
 </p>
-<p>
-  <strong>Project:</strong>
-  <%=h @screenshot.project_id %>
-</p>
-<p>
-  <strong>Source URL:</strong>
-  <%=h @screenshot.source_url %>
-</p>
-<p>
-  <%= image_tag @screenshot.image_url(600) %>
-</p>
-
-<p>
-  <%= link_to "Edit", edit_project_screenshot_path(project_param, @screenshot) %> |
-  <%= link_to "Destroy", [current_project, @screenshot], :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", project_screenshots_path(project_param) %>
-</p>
+</div>
+<div id="sidebar">
+ <h3><%= link_to "&#187; Back to Project Home", project_path(project_param) %></h3>
+ <%= render :partial => "projects/project_sidebar"  %>
+</div>

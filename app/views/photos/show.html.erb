@@ -1,20 +1,11 @@
-    <h1><%=h yield(:title) %></h1>
-<% title "Photo" %>
-
-<p>
-  <strong>Name:</strong>
-  <%=h @photo.name %>
+<div id="left_col">
+<% title "Viewing Photo: " + h(@photo.name) %>
+<h1><%=h yield(:title) %></h1>
+<p class="thumb">
+<%= link_to image_tag(@photo.image.url(:small)), @photo.image.url, :class => "thickbox", :rel => h(@photo.name) %>
 </p>
-<p>
-  <strong>Project:</strong>
-  <%=h @photo.project_id %>
-</p>
-<p>
-  <%= image_tag @photo.image.url %>
-</p>
-
-<p>
-  <%= link_to "Edit", edit_project_photo_path(project_param, @photo) %> |
-  <%= link_to "Destroy", [current_project, @photo], :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", project_photos_path(project_param) %>
-</p>
+</div>
+<div id="sidebar">
+ <h3><%= link_to "&#187; Back to Project Home", project_path(project_param) %></h3>
+ <%= render :partial => "projects/project_sidebar"  %>
+</div>
