@@ -81,6 +81,11 @@ describe User do
     Factory.build(:user, :email => 'bar@example.com').should have(1).error_on(:email)
   end
   
+  it "should validate uniqueness of opend url" do
+    Factory(:user, :openid_url => 'bar.example.com')
+    Factory.build(:user, :openid_url => 'bar.example.com').should have(1).error_on(:openid_url)
+  end
+  
   it "should build user from openid attributes" do
     user = User.build_from_openid('nickname' => 'foo', 'email' => 'bar', 'openid_url' => 'boo')
     user.username.should == 'foo'
