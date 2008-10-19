@@ -3,7 +3,5 @@ class Note < ActiveRecord::Base
   
   belongs_to :project
   
-  def to_s
-    name
-  end
+  validates_presence_of :name, :content
 end

@@ -3,13 +3,11 @@ class Photo < ActiveRecord::Base
   
   belongs_to :project
   
+  validates_presence_of :name
+  
   has_attached_file :image, :styles => { :small => "150x150>", :tiny => "64x64>" },
     :url => "/assets/photos/:id/:style/:basename.:extension",
-    :path => "#{RAILS_ROOT}/public/assets/photos/:id/:style/:basename.:extension" 
-  
-  def to_s
-    name
-  end
+    :path => "#{RAILS_ROOT}/public/assets/photos/:id/:style/:basename.:extension"
   
   def image_width(style = nil)
     image_jpeg(style).width

@@ -3,9 +3,7 @@ class Screenshot < ActiveRecord::Base
   
   belongs_to :project
   
-  def to_s
-    name
-  end
+  validates_presence_of :name
   
   def image_url(width)
     "http://api.thumbalizr.com?api_key=#{APP_CONFIG['thumbalizr_key']}&url=#{source_url}&width=#{width}"

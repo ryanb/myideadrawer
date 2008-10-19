@@ -2,11 +2,12 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe User do
   def new_user(attributes = {})
-    attributes[:username] ||= 'foo'
-    attributes[:email] ||= 'foo@example.com'
-    attributes[:password] ||= 'abc123'
     attributes[:password_confirmation] ||= attributes[:password]
-    User.new(attributes)
+    Factory.build(:user, attributes)
+  end
+  
+  before(:each) do
+    User.delete_all # so uniqueness validations don't cause problems
   end
   
   it "should be valid" do
@@ -21,8 +22,20 @@ describe User do
     new_user(:password => '').should have(1).error_on(:password)
   end
   
+  it "should validate password is longer than 3 characters" do
+    new_user(:password => 'foo').should have(1).error_on(:password)
+  end
+  
+  it "should require email" do
+    new_user(:email => '').should have(1).error_on(:email)
+  end
+  
   it "should require well formed email" do
     new_user(:email => 'foo@bar@example.com').should have(1).error_on(:email)
+  end
+  
+  it "should not allow odd characters in username" do
+    new_user(:username => 'odd ^&(@)').should have(1).error_on(:username)
   end
   
   it "should require matching password confirmation" do
@@ -37,14 +50,12 @@ describe User do
   end
   
   it "should authenticate by username" do
-    User.delete_all
     user = new_user(:username => 'foobar', :password => 'secret')
     user.save!
     User.authenticate('foobar', 'secret').should == user
   end
   
   it "should authenticate by email" do
-    User.delete_all
     user = new_user(:email => 'foo@bar.com', :password => 'secret')
     user.save!
     User.authenticate('foo@bar.com', 'secret').should == user
@@ -55,14 +66,28 @@ describe User do
   end
   
   it "should not authenticate bad password" do
-    User.delete_all
     new_user(:username => 'foobar', :password => 'secret').save!
     User.authenticate('foobar', 'badpassword').should be_nil
   end
   
-  it "should not require password when using identity url" do
+  it "should not require password when using openid url" do
     user = User.new(:openid_url => 'foo')
     user.should_not have(1).errors_on(:password)
+  end
+  
+  it "should validate uniqueness of username" do
+    Factory(:user, :username => 'spongebob')
+    Factory.build(:user, :username => 'spongebob').should have(1).error_on(:username)
+  end
+  
+  it "should validate uniqueness of email" do
+    Factory(:user, :email => 'bar@example.com')
+    Factory.build(:user, :email => 'bar@example.com').should have(1).error_on(:email)
+  end
+  
+  it "should validate uniqueness of opend url" do
+    Factory(:user, :openid_url => 'bar.example.com')
+    Factory.build(:user, :openid_url => 'bar.example.com').should have(1).error_on(:openid_url)
   end
   
   it "should build user from openid attributes" do
@@ -86,7 +111,7 @@ describe User do
     end
     
     it "should have validation on password when attempting to change it" do
-      @user.attributes = {:password => 'foo', :password_confirmation => ''}
+      @user.attributes = {:password => 'foobar', :password_confirmation => ''}
       @user.should have(1).errors_on(:password)
       @user.password_hash.should == @password_hash
     end

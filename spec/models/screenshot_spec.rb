@@ -1,8 +1,12 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Screenshot do
-  it "should be valid" do
-    Screenshot.new.should be_valid
+  it "should be valid from factory" do
+    Factory.build(:screenshot).should be_valid
+  end
+  
+  it "should require name" do
+    Factory.build(:screenshot, :name => '').should have(1).error_on(:name)
   end
   
   it "should use thumbalizr for image url" do

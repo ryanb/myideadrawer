@@ -6,9 +6,7 @@ class Palette < ActiveRecord::Base
   
   after_save :save_color_swatches
   
-  def to_s
-    name
-  end
+  validates_presence_of :name
   
   private
   

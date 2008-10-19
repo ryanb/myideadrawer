@@ -1,13 +1,17 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Project do
-  it "should be valid" do
-    Project.new.should be_valid
+  it "should be valid from factory" do
+    Factory.build(:project).should be_valid
+  end
+  
+  it "should require name" do
+    Factory.build(:project, :name => '').should have(1).error_on(:name)
   end
   
   it "should generate a unique token" do
-    p1 = Factory(:project)
-    p2 = Factory(:project)
+    p1 = Factory(:project, :user => nil)
+    p2 = Factory(:project, :user => nil)
     p1.token.should_not == p2.token
   end
   
