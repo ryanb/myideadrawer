@@ -2,7 +2,7 @@ class Palette < ActiveRecord::Base
   include ProjectItem
   
   belongs_to :project
-  has_many :color_swatches
+  has_many :color_swatches, :dependent => :destroy
   
   after_save :save_color_swatches
   
