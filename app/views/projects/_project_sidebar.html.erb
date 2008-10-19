@@ -11,7 +11,7 @@ You're viewing "<%= link_to h(@project.name), project_path(@project) %>", last a
 </ul>
 <h4>Recent Activity</h4>
 <% for activity in @project.activities.recent(10) %>
-	<p><%= activity.message %></p>
+	<p><%= activity.message %> at <%= activity.created_at.strftime("%b, %d %Y at %I:%M %p") %></p>
 <% end %>
 <br />
 <%= link_to image_tag("/images/rss.jpg", :alt => "RSS Feed"), formatted_project_activities_path(current_project.token, :rss), :title => "RSS Feed" %>

@@ -2,6 +2,6 @@
 
 <h4>Recent Activity</h4>
 <% for activity in current_user.activities.recent(10) %>
-	<p><%= activity.message %></p>
+	<p><%= activity.message %> at <%= activity.created_at.strftime("%b, %d %Y at %I:%M %p") %></p>
 <% end %>
 <br />
