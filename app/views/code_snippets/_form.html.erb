@@ -11,7 +11,7 @@
     <%= f.text_area :content, { :cols => 20, :wrap => "off" } %>
   </fieldset>
   <fieldset>
-  	<% @languages = [ "Ruby", "C", "Delphi", "HTML", "RHTML", "Nitro-XHTML", "CSS", "Diff", "Java", "JavaScript", "JSON", "YAML"] %>
+  	<% @languages = [ "Ruby", "C", "Delphi", "HTML", "RHTML", "CSS", "Diff", "Java", "JavaScript", "JSON", "YAML"] %>
     <%= f.label :language %>
     <%= f.select :language, @languages %>
   </fieldset>
