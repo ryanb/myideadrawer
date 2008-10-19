@@ -8,7 +8,7 @@ class Project < ActiveRecord::Base
   has_many :screenshots, :dependent => :destroy
   has_many :photos, :dependent => :destroy
   
-  attr_accessible :name, :description
+  attr_accessible :name, :description, :show_code_snippets, :show_palettes, :show_links, :show_notes, :show_photos, :show_screenshots
   
   generate_unique :token
   

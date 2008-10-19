@@ -14,6 +14,9 @@ class ProjectsController < ApplicationController
   
   def new
     @project = current_user.projects.build
+    %w[code_snippets links notes palettes photos screenshots].each do |item|
+      @project["show_#{item}"] = true
+    end
   end
   
   def create
