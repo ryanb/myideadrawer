@@ -3,6 +3,8 @@ class CodeSnippet < ActiveRecord::Base
   
   belongs_to :project
   
+  validates_presence_of :name, :content, :language
+  
   def to_s
     name
   end

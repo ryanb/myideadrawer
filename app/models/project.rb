@@ -10,6 +10,8 @@ class Project < ActiveRecord::Base
   
   generate_unique :token
   
+  validates_presence_of :name
+  
   def to_s
     name
   end

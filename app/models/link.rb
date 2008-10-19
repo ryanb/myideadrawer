@@ -3,6 +3,8 @@ class Link < ActiveRecord::Base
   
   belongs_to :project
   
+  validates_presence_of :name, :url
+  
   def to_s
     name
   end
