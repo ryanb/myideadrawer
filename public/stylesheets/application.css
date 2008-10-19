@@ -96,7 +96,7 @@ body .colorwell-selected { border: 1px solid #000; font-weight: bold; }
 .managelist li { height:64px; }
 .managelist .tinythumb { background:#abc6cd; width:64px; height:64px; margin-right:10px; float:left; }
 .managelist span.info { display:block; height:64px; line-height:64px; font-size:12pt; width:450px; float:left; }
-.managelist span.info2 { display:block; height:64px; width:450px; float:left; }
+.managelist span.info2 { display:block; height:64px; width:520px; float:left; }
 .managelist .del_btn { display:block; fliat:right; margin:22px 0 22px 0;; }
 #TB_window h1 { padding-top:10px; }
 #openid_url { text-indent:20px; background:url(/images/openid.png) top left no-repeat #fff; border:1px solid #888; }
