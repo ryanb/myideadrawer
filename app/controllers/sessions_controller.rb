@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  protect_from_forgery :except => [:create]
+  protect_from_forgery :except => [:create] # since openid doesn't pass auth token
   
   def new
   end
@@ -41,9 +41,16 @@ class SessionsController < ApplicationController
           flash[:notice] = "Logged in successfully."
           redirect_to projects_url
         else
-          session[:openid_attributes] = registration.data.merge('openid_url' => openid_url)
-          flash[:notice] = "It looks like you don't have an account yet, please create one below."
-          redirect_to signup_path
+          user = User.build_from_openid(registration.data.merge('openid_url' => openid_url))
+          if user.save
+            session[:user_id] = user.id
+            flash[:notice] = "Signed up successfully."
+            redirect_to projects_url
+          else
+            session[:openid_attributes] = user.attributes
+            flash[:notice] = "It looks like you don't have an account yet, please create one below."
+            redirect_to signup_path
+          end
         end
       else
         flash.now[:error] = result.message

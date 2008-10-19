@@ -23,6 +23,14 @@ class User < ActiveRecord::Base
     self.password_hash == encrypt_password(pass)
   end
   
+  def self.build_from_openid(openid)
+    returning User.new do |user|
+      user.username = openid['nickname']
+      user.email = openid['email']
+      user.openid_url = openid['openid_url']
+    end
+  end
+  
   private
   
   def prepare_password

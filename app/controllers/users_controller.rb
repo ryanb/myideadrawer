@@ -4,9 +4,8 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     if session[:openid_attributes]
-      @user.username = session[:openid_attributes]['nickname']
-      @user.email = session[:openid_attributes]['email']
-      @user.openid_url = session[:openid_attributes]['openid_url']
+      @user.attributes = session[:openid_attributes]
+      @user.valid? # run the validations since it must have failed them earlier
       session[:openid_attributes] = nil
     end
   end
