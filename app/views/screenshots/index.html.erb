@@ -1,13 +1,13 @@
 <div id="left_col">
 	<% title "Browse Screenshots for: " + current_project.name %>
     <h1><%= yield(:title) %></h1>
-	<%= link_to image_tag("/images/new_screenshot_btn.png", :alt=>"New Screenshot"), new_project_screenshot_path(current_project) + "?width=410&height=230", :class => "thickbox" %>
+	<%= link_to image_tag("/images/new_screenshot_btn.png", :alt=>"New Screenshot"), new_project_screenshot_path(project_param) + "?width=410&height=230", :class => "thickbox" %>
 	<br /><br />
 	  	<%
 	  	if current_project.screenshots.count > 0
 	  	  for screenshot in current_project.screenshots %>
 	    	<div class="screenshot <%= cycle('normal', 'alt') %>"">
-	    		<%= link_to image_tag(screenshot.image_url(300)), screenshot.source_url %> &nbsp; <%= link_to image_tag("/images/manage_btn.png", :alt=>"Manage Photos"), manage_project_screenshots_path(current_project) %>
+	    		<%= link_to image_tag(screenshot.image_url(300)), screenshot.source_url %> &nbsp; <%= link_to image_tag("/images/manage_btn.png", :alt=>"Manage Photos"), manage_project_screenshots_path(project_param) %>
 	    		<div class="name"><%= screenshot.name %><br /><%= screenshot.created_at.strftime("%b, %d %Y at %I:%M %p") %></div>
 	    	</div>
   		  <% end %>
@@ -18,6 +18,6 @@
   	  	<% end %>
 </div>
 <div id="sidebar">
-  <h3><%= link_to "&#187; Back to Project Home", project_path(current_project) %></h3>
+  <h3><%= link_to "&#187; Back to Project Home", project_path(project_param) %></h3>
   <%= render :partial => "projects/project_sidebar"  %>
 </div>

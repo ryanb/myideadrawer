@@ -1,7 +1,7 @@
 <div id="left_col">
 	<% title "Browse Links for: " + current_project.name %>
     <h1><%= yield(:title) %></h1>
-	<%= link_to image_tag("/images/new_link_btn.png", :alt=>"New Link"), new_project_link_path(current_project) + "?width=630&height=250", :class => "thickbox" %>	
+	<%= link_to image_tag("/images/new_link_btn.png", :alt=>"New Link"), new_project_link_path(project_param) + "?width=630&height=250", :class => "thickbox" %>	
 	<ul class="linklist managelist">
 	  	<%
 	  	if current_project.links.count > 0
@@ -18,6 +18,6 @@
 	<%= will_paginate @links %>
 </div>
 <div id="sidebar">
-  <h3><%= link_to "&#187; Back to Project Home", project_path(current_project) %></h3>
+  <h3><%= link_to "&#187; Back to Project Home", project_path(project_param) %></h3>
   <%= render :partial => "projects/project_sidebar"  %>
 </div>
