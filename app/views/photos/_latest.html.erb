@@ -1,9 +1,9 @@
 	<div class="item">	
-		<h2><span>Photos: (<%= current_project.photos.count %>)</span><% if owner? %><span class="align_right"><%= link_to image_tag("/images/new_photo_btn.png", :alt=>"New Photo"), new_project_photo_path(project_param) + "?width=510&height=230", :class => "thickbox" %> &nbsp; <%= link_to image_tag("/images/manage_btn.png", :alt=>"Manage Photos"), manage_project_photos_path(project_param) %></span><% end %></h2>
+		<h2><span>Photos: (<%= current_project.photos.count %>)</span><% if owner? %><span class="align_right"><%= link_to image_tag("/images/new_photo_btn.png", :alt=>"New Photo"), new_project_photo_path(project_param) + "?width=510&amp;height=230", :class => "thickbox" %> &nbsp; <%= link_to image_tag("/images/manage_btn.png", :alt=>"Manage Photos"), manage_project_photos_path(project_param) %></span><% end %></h2>
 	  	<%
 	  	if current_project.photos.count > 0
 	  	  for photo in current_project.photos.recent(3) %>
-	    	<div class="thumb <%= cycle('normal', 'alt') %>">
+	    	<div class="thumb<%= cycle('', ' alt') %>">
 	    		<%= link_to image_tag(photo.image.url(:small)), photo.image.url, :class => "thickbox", :rel => current_project.name %>
 	    		<div class="name"><%= photo.name %><br /><%= photo.created_at.strftime("%b, %d %Y at %I:%M %p") %></div>
 	    	</div>

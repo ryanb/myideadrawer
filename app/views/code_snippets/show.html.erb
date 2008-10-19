@@ -8,20 +8,13 @@
 	  <%= link_to image_tag("/images/delete_code_btn.png", :alt => "Delete Code"), [current_project, @code_snippet], :confirm => 'Are you sure?', :method => :delete %>
 	</p><% end %>
 	<p>
-	  <strong>Project:</strong>
-	  <%=h @code_snippet.project.name %>
-	</p>
-	<p>
 	  <strong>Language:</strong>
+	  <%=h @code_snippet.language %><br />
+	  <strong>Created On: </strong><%= @code_snippet.created_at %><br />
+	  <strong>Last Updated On: </strong><%= @code_snippet.updated_at %>
 	  <%=h @code_snippet.language %>
 	</p>
-	<p>
-	  <strong>Name:</strong>
-	  <%=h @code_snippet.name %>
-	</p>
-	<p>
 	  <%= coderay @code_snippet %>
-	</p>
 </div>
 <div id="sidebar">
   <h3><%= link_to "&#187; Back to Project Home", project_path(project_param) %></h3>

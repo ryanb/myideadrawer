@@ -98,6 +98,8 @@ body .colorwell-selected { border: 1px solid #000; font-weight: bold; }
 	#sidebar .linklist li a:hover { background-position:bottom left; }
 		
 .hidden { display:none; }
+.managelist, #left_col .linklist { border-top:1px solid #adc8cf; }
+#left_col div .linklist { border-top:none; }
 .managelist li { height:64px; }
 .managelist .tinythumb { background:#abc6cd; width:64px; height:64px; margin-right:10px; float:left; }
 .managelist span.info { display:block; height:64px; line-height:64px; font-size:12pt; width:450px; float:left; }
@@ -117,3 +119,8 @@ h1.main_title a { background:#fffba8; color:#333; }
 	.col form { margin:10px 20px 10px 20px; border:5px solid #d2e1e4; }
 	.col form p.align_right { padding-right:20px; }
 	.col form fieldset input { width:150px; }
+.pagination { clear:both; padding-top:10px; margin-top:10px; }
+.pagination .disabled { display:block; float:left; background:#d2e1e4; color:#fff; padding:3px 5px; margin-right:5px; }
+.pagination .current { display:block; background:#357fa6; float:left; color:#fff; padding:3px 5px; margin-right:5px; }
+.pagination a { display:block; float:left; color:#fff; background:#adc8cf; padding:3px 5px; margin-right:5px; }
+.pagination a:hover { background:#9c0a0d; text-decoration:none; }

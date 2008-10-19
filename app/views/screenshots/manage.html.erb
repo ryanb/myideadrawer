@@ -1,7 +1,7 @@
 <div id="left_col">
 	<% title "Manage Screenshots for: " + current_project.name %>
     <h1><%= yield(:title) %></h1>
-	<% if owner? %><%= link_to image_tag("/images/new_screenshot_btn.png", :alt=>"New Screenshot"), new_project_screenshot_path(project_param) + "?width=410&height=230", :class => "thickbox" %> &nbsp; <%= link_to image_tag("/images/manage_btn.png", :alt=>"Manage Photos"), manage_project_screenshots_path(project_param) %><% end %>
+	<% if owner? %><%= link_to image_tag("/images/new_screenshot_btn.png", :alt=>"New Screenshot"), new_project_screenshot_path(project_param) + "?width=410&amp;height=230", :class => "thickbox" %> &nbsp; <%= link_to image_tag("/images/manage_btn.png", :alt=>"Manage Photos"), manage_project_screenshots_path(project_param) %><% end %>
 	<ul class="linklist managelist">
 	  	<%
 	  	if current_project.screenshots.count > 0
@@ -10,9 +10,9 @@
 	    		<%= image_tag screenshot.image_url(64), :class => "tinythumb" %>
 	    		<span class="info"><%= link_to screenshot.name, screenshot.source_url %> <span class="date"><%= screenshot.created_at.strftime("%b, %d %Y at %I:%M %p") %></span></span>
 	  			<%= link_to image_tag("/images/delete_screenshot_btn.png", :alt => "Delete Note"), [current_project, screenshot], :confirm => 'Are you sure?', :method => :delete, :class => "del_btn" %>
+				  <div class="clear"><br /></div>
 	  	    	</li>
   		  <% end %>
-		  <div class="clear"><br /></div>
   		<% else %>
   			<li><em>This project has no screenshots.</em></li>
   	  	<% end %>
