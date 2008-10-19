@@ -25,10 +25,10 @@ describe ActivityMessageGenerator do
   end
   
   it "should link to object" do
-    target = Note.new(:name => 'foo')
+    target = Note.new(:name => 'f&oo')
     template = TemplateStub.new
     template.expects(:note_url).with(target).returns('note_url')
-    template.expects(:link_to).with('foo', 'note_url').returns('link')
+    template.expects(:link_to).with('f&amp;oo', 'note_url').returns('link')
     message_generator = ActivityMessageGenerator.new(template)
     message_generator.link_obj(target).should == "link note"
   end
