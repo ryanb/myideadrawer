@@ -14,7 +14,7 @@ class LinksController < ApplicationController
     @link = current_project.links.build(params[:link])
     if @link.save
       flash[:notice] = "Successfully created link."
-      record_activity "Added #{@link} link to #{current_project} project."
+      record_activity @link
       redirect_to current_project
     else
       render :action => 'new'
@@ -29,7 +29,7 @@ class LinksController < ApplicationController
     @link = current_project.links.find(params[:id])
     if @link.update_attributes(params[:link])
       flash[:notice] = "Successfully updated link."
-      record_activity "Edited #{@link} link in #{current_project} project."
+      record_activity @link
       redirect_to project_url(current_project)
     else
       render :action => 'edit'
@@ -40,7 +40,7 @@ class LinksController < ApplicationController
     @link = current_project.links.find(params[:id])
     @link.destroy
     flash[:notice] = "Successfully destroyed link."
-    record_activity "Removed #{@link} link from #{current_project} project."
+    record_activity @link
     redirect_to project_links_path(current_project)
   end
 end

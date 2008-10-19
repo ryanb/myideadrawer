@@ -22,7 +22,7 @@ class PhotosController < ApplicationController
     @photo = current_project.photos.build(params[:photo])
     if @photo.save
       flash[:notice] = "Successfully created photo."
-      record_activity "Added #{@photo} photo to #{current_project} project."
+      record_activity @photo
       redirect_to [current_project, @photo]
     else
       render :action => 'new'
@@ -37,7 +37,7 @@ class PhotosController < ApplicationController
     @photo = current_project.photos.find(params[:id])
     if @photo.update_attributes(params[:photo])
       flash[:notice] = "Successfully updated photo."
-      record_activity "Edited #{@photo} photo in #{current_project} project."
+      record_activity @photo
       redirect_to [current_project, @photo]
     else
       render :action => 'edit'
@@ -48,7 +48,7 @@ class PhotosController < ApplicationController
     @photo = current_project.photos.find(params[:id])
     @photo.destroy
     flash[:notice] = "Successfully destroyed photo."
-      record_activity "Removed #{@photo} photo from #{current_project} project."
+      record_activity @photo
     redirect_to manage_project_photos_path(current_project)
   end
 end
