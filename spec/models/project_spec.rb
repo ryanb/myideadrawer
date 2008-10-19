@@ -34,4 +34,10 @@ describe Project do
     project = Factory(:project)
     Project.fetch(nil, project.token).should == project
   end
+  
+  it "should not beable to fetch if user is nil with bad token" do
+    lambda {
+      Project.fetch(nil, 'badtoken')
+    }.should raise_error(ActiveRecord::RecordNotFound)
+  end
 end

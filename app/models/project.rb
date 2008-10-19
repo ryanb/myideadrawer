@@ -15,6 +15,6 @@ class Project < ActiveRecord::Base
   end
   
   def self.fetch(user, id_or_token)
-    Project.find_by_token(id_or_token) || user.projects.find(id_or_token)
+    Project.find_by_token(id_or_token) || (user || User.new).projects.find(id_or_token)
   end
 end
