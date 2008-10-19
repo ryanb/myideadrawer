@@ -8,7 +8,7 @@
 	  	  for screenshot in current_project.screenshots.recent(3) %>
 	    	<li class="<%= cycle('normal', 'alt') %>">
 	    		<%= image_tag screenshot.image_url(64), :class => "tinythumb" %>
-	    		<span class="info"><%= link_to h(truncate(screenshot.name, 28, "...")), h(screenshot.source_url) %> <span class="date"><%= screenshot.created_at.strftime("%b, %d %Y at %I:%M %p") %></span></span>
+	    		<span class="info"><%= link_to h(truncate(screenshot.name, 28, "...")), project_screenshot_path(project_param, screenshot) %> <span class="date"><%= screenshot.created_at.strftime("%b, %d %Y at %I:%M %p") %></span></span>
 	  			<%= link_to image_tag("/images/delete_screenshot_btn.png", :alt => "Delete Note"), [current_project, screenshot], :confirm => 'Are you sure?', :method => :delete, :class => "del_btn" %>
 				  <div class="clear"><br /></div>
 	  	    	</li>

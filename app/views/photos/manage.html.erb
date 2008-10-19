@@ -8,7 +8,7 @@
 	  	  for photo in current_project.photos.recent(3) %>
 	    	<li class="<%= cycle('normal', 'alt') %>">
 	    		<%= image_tag photo.image.url(:tiny), :class => "tinythumb" %>
-	    		<span class="info"><%= link_to h(truncate(photo.name, 28, "...")), photo.image.url %> <span class="date"><%=h photo.created_at.strftime("%b, %d %Y at %I:%M %p") %></span></span>
+	    		<span class="info"><%= link_to h(truncate(photo.name, 28, "...")), photo.image.url, :class => "thickbox" %> <span class="date"><%=h photo.created_at.strftime("%b, %d %Y at %I:%M %p") %></span></span>
 	  			<%= link_to image_tag("/images/delete_photo_btn.png", :alt => "Delete Photo"), [current_project, photo], :confirm => 'Are you sure?', :method => :delete, :class => "del_btn" %>
 				  <div class="clear"><br /></div>
 	  	    	</li>
