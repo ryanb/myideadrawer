@@ -2,20 +2,10 @@
 	<% title "View Note: " + @note.name %>
     <h1><%= yield(:title) %></h1>
   <% if owner? %>
-	<p>
 	  <%= link_to image_tag("/images/edit_note_btn.png", :alt => "Edit Note"), edit_project_note_path(project_param, @note) %> 
 	  <%= link_to image_tag("/images/delete_note_btn.png", :alt => "Delete Note"), [current_project, @note], :confirm => 'Are you sure?', :method => :delete %>
-	</p>
 	<% end %>
-	<p>
-	  <strong>Project:</strong>
-	  <%=h @note.project.name %>
-	</p>
-	<p>
-	  <strong>Name:</strong>
-	  <%=h @note.name %>
-	</p>
-	<%= simple_format @note.content %>
+	<div class="big_desc" style="margin:0; padding:0; border:none;"><%= simple_format @note.content %></div>
 </div>
 <div id="sidebar">
   <h3><%= link_to "&#187; Back to Project Home", project_path(project_param) %></h3>
