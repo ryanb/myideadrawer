@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
   def index
-    @activities = current_project.activities.paginate(:per_page => 20, :page => params[:page])
+    @activities = current_project.activities.all(:limit => 20)
   end
 end
