@@ -13,6 +13,12 @@ describe LinksController do
     response.should render_template(:index)
   end
   
+  it "show action should redirect to link url" do
+    link = Factory(:link, :url => 'http://example.com')
+    get :show, :id => link, :project_id => link.project
+    response.should redirect_to(link.url)
+  end
+  
   it "new action should render new template" do
     get :new, :project_id => Project.first
     response.should render_template(:new)

@@ -13,6 +13,11 @@ describe PalettesController do
     response.should render_template(:index)
   end
   
+  it "show action should render show template" do
+    get :show, :id => Palette.first, :project_id => Project.first
+    response.should render_template(:show)
+  end
+  
   it "new action should render new template" do
     get :new, :project_id => Project.first
     response.should render_template(:new)

@@ -1,9 +1,14 @@
 class LinksController < ApplicationController
   before_filter :fetch_current_project
-  before_filter :owner_required, :except => :index
+  before_filter :owner_required, :except => [:index, :show]
   
   def index
     @links = current_project.links.paginate(:per_page => 10, :page => params[:page])
+  end
+  
+  def show
+    @link = current_project.links.find(params[:id])
+    redirect_to @link.url
   end
   
   def new
