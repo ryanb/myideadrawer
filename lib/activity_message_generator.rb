@@ -18,9 +18,9 @@ class ActivityMessageGenerator
   
   def link_to(item)
     if container && item != container
-      @template.link_to(item.name, @template.send("#{lower_name(container)}_#{lower_name(item)}_url", container.token, item))
+      @template.link_to(CGI.escapeHTML(item.name), @template.send("#{lower_name(container)}_#{lower_name(item)}_url", container.token, item))
     else
-      @template.link_to(item.name, @template.send("#{lower_name(item)}_url", item))
+      @template.link_to(CGI.escapeHTML(item.name), @template.send("#{lower_name(item)}_url", item))
     end
   end
   
