@@ -10,13 +10,17 @@
     <%= f.label :description %>
     <%= f.text_area :description, :rows => 6 %>
   </fieldset>
+  <div class="box">
+  	<p><strong>Show These Items:</strong></p>
   <% %w[code_snippets links notes palettes photos screenshots].each do |item| %>
-    <fieldset>
-      <%= f.label "show_#{item}" %>
+    <p class="half">
       <%= f.check_box "show_#{item}" %>
-    </fieldset>
+      <%= f.label "show_#{item}" %>
+    </p>
   <% end %>
-  <p class="align_right"><%= f.submit "Save Project" %></p>
+  <p>&nbsp;</p>
+  </div>
+  <p class="align_right clear"><%= f.submit "Save Project" %></p>
 <% end %>
 </div>
 <br />  <br />

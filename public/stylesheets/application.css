@@ -126,3 +126,5 @@ h1.main_title a { background:#fffba8; color:#333; }
 .pagination a { display:block; float:left; color:#fff; background:#adc8cf; padding:3px 5px; margin-right:5px; }
 .pagination a:hover { background:#9c0a0d; text-decoration:none; }
 .sthumb { width:150px; height:106px; padding:5px; border:1px solid #333; float:left; }
+.half { clear:none; display:block; width:50%; margin:0; padding:5px 0; float:left; }
+form .box { padding-left:120px; }
