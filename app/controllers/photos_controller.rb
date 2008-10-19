@@ -9,6 +9,7 @@ class PhotosController < ApplicationController
    
   def show
     @photo = current_project.photos.find(params[:id])
+	render :layout => 'thickbox' if request.xhr?
   end
   
   def new

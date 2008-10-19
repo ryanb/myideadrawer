@@ -13,6 +13,7 @@ class ScreenshotsController < ApplicationController
   
   def new
     @screenshot = current_project.screenshots.build
+	render :layout => 'thickbox' if request.xhr?
   end
   
   def create
