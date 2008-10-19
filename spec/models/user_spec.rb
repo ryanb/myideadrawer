@@ -22,6 +22,10 @@ describe User do
     new_user(:password => '').should have(1).error_on(:password)
   end
   
+  it "should validate password is longer than 3 characters" do
+    new_user(:password => 'foo').should have(1).error_on(:password)
+  end
+  
   it "should require email" do
     new_user(:email => '').should have(1).error_on(:email)
   end
@@ -98,7 +102,7 @@ describe User do
     end
     
     it "should have validation on password when attempting to change it" do
-      @user.attributes = {:password => 'foo', :password_confirmation => ''}
+      @user.attributes = {:password => 'foobar', :password_confirmation => ''}
       @user.should have(1).errors_on(:password)
       @user.password_hash.should == @password_hash
     end
