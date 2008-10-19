@@ -102,7 +102,8 @@ body .colorwell-selected { border: 1px solid #000; font-weight: bold; }
 #openid_url { text-indent:20px; background:url(/images/openid.png) top left no-repeat #fff; border:1px solid #888; }
 h1.main_title { text-align:center; border-bottom:1px solid #ADC8CF; margin-bottom:20px; padding:20px; font-size:24pt; font-family:verdana; }
 h1.main_title a { background:#fffba8; color:#333; }
-.rumble { background:#fffba8; padding:10px; border:1px solid #333; clear:both; margin:10px 0 10px 0; }
+.rumble { background:url(/images/rumble.png) 10px 50% no-repeat #fffba8; padding:10px 10px 10px 110px; border:1px solid #333; clear:both; margin:10px 0 10px 0; }
+.rumble a { font-weight:bold; }
 .col { width:33%; float:left; }
 	.col h2 { color:#357FA4; }
 	.col p.big { margin-left:20px; margin-right:20px; font-size:12pt; }
