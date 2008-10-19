@@ -10,6 +10,9 @@
     <%= f.label :content %>
     <%= f.text_area :content, :rows => 10 %>
   </fieldset>
-  <p class="align_right"><%= f.submit "Save Note" %></p>
+  <p class="align_right">
+	<%= f.submit "Save Note" %><br /><br />
+	<small>Notes support <a href="/textile.html?TB_iframe=true&height=400&width=400" title="Textile Help" class="thickbox">textile</a> formatting.</small>
+  </p>
 <% end %>
 </div>
