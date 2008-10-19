@@ -18,9 +18,17 @@ class ActivityMessageGenerator
   
   def link_to(item)
     if container && item != container
-      @template.link_to(CGI.escapeHTML(item.name), @template.send("#{lower_name(container)}_#{lower_name(item)}_url", container.token, item))
+      @template.link_to(CGI.escapeHTML(item.name), @template.send("#{lower_name(container)}_#{lower_name(item)}_url", item_for_url(container), item_for_url(item)))
     else
-      @template.link_to(CGI.escapeHTML(item.name), @template.send("#{lower_name(item)}_url", item))
+      @template.link_to(CGI.escapeHTML(item.name), @template.send("#{lower_name(item)}_url", item_for_url(item)))
+    end
+  end
+  
+  def item_for_url(item)
+    if item.kind_of? Project
+      item.token
+    else
+      item
     end
   end
   
