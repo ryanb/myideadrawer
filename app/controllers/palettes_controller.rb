@@ -1,4 +1,6 @@
 class PalettesController < ApplicationController
+  before_filter :owner_required, :except => [:index, :show]
+  
   def index
     @palettes = current_project.palettes.paginate(:per_page => 10, :page => params[:page])
   end

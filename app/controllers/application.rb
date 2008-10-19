@@ -19,10 +19,19 @@ class ApplicationController < ActionController::Base
   end
   
   def current_project
-    @project ||= Project.fetch(current_user, params[:project_id])
+    @project ||= Project.fetch(current_user, params[:project_id] || params[:id])
   end
   
   def owner?
     current_user.id == current_project.user_id
+  end
+  
+  def owner_required
+    if !logged_in?
+      login_required
+    elsif !owner?
+      flash[:error] = "Unauthorized access. You must be the owner of this project to do that."
+      redirect_to project_url(params[:project_id])
+    end
   end
 end

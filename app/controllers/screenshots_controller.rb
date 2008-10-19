@@ -1,4 +1,6 @@
 class ScreenshotsController < ApplicationController
+  before_filter :owner_required, :except => [:index, :show]
+  
   def index
     @screenshots = current_project.screenshots.paginate(:per_page => 10, :page => params[:page])
   end

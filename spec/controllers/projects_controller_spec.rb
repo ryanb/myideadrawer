@@ -4,7 +4,7 @@ describe ProjectsController do
   fixtures :all
   integrate_views
   
-  it_should_require_login_for_actions :index, :show, :new, :edit, :update, :destroy
+  it_should_require_login_for_actions :index, :new, :edit, :update, :destroy
 end
  
 describe ProjectsController, "logged in" do

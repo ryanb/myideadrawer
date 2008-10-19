@@ -1,4 +1,6 @@
 class LinksController < ApplicationController
+  before_filter :owner_required, :except => :index
+  
   def index
     @links = current_project.links.paginate(:per_page => 10, :page => params[:page])
   end

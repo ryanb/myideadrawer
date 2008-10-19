@@ -1,4 +1,6 @@
 class CodeSnippetsController < ApplicationController
+  before_filter :owner_required, :except => [:index, :show]
+  
   def index
     @code_snippets = current_project.code_snippets.paginate(:per_page => 20, :page => params[:page])
   end

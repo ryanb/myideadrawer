@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  before_filter :owner_required, :except => [:index, :show]
+  
   def index
     @photos = current_project.photos.paginate(:per_page => 10, :page => params[:page])
   end
