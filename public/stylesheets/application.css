@@ -76,9 +76,9 @@ fieldset { border:none; }
 			#content #left_col {width:660px;float:left;padding-right:20px}
 				#sidebar {width:230px;float:right}
 					#sidebar img.centered {margin:0 auto 10px;display:block}
-					#sidebar p {font-size:8pt;margin:0;padding:0 0 10px;border-bottom:1px solid #eee}
-					#sidebar h4 {clear:both;color:#013334;padding-top:10px;margin:0 0 10px 0;border-top:1px solid #adc8cf}
-					
+					#sidebar p {font-size:8pt;margin:10px 0 0 0;padding:0;border-bottom:1px solid #eee;}
+					#sidebar p a { text-decoration:underline; }
+					#sidebar h4 { clear:both;color:#fff;padding:5px;margin:0;border-top:10px solid #fff; background:#6aa5c3;}
 		.thumb { width:150px; padding:5px; border:1px solid #000; margin-right:10px; float:left; }
 		.screenshot { width:300px; padding:5px; border:1px solid #000; margin-right:10px; float:left; }
 		.thumb a:hover, .screenshot a:hover { text-decoration:none; }
@@ -92,6 +92,11 @@ body .colorwell-selected { border: 1px solid #000; font-weight: bold; }
 .linklist { margin:10px 0 10px 0; padding:0; list-style:none; }
 	.linklist li { clear:both; padding:3px; margin:0; border-bottom:1px solid #adc8cf; }
 	.linklist a { font-weight:bold; }
+	#sidebar .linklist { border-top:1px solid #adc8cf; }
+	#sidebar .linklist li { padding:0; margin:0; border:none; }
+	#sidebar .linklist li a { height:20px; line-height:20px; display:block; padding:3px 0 3px 30px;  border-bottom:1px solid #adc8cf; background:url(/images/menu_link_bg.gif) top left no-repeat; }
+	#sidebar .linklist li a:hover { background-position:bottom left; }
+		
 .hidden { display:none; }
 .managelist li { height:64px; }
 .managelist .tinythumb { background:#abc6cd; width:64px; height:64px; margin-right:10px; float:left; }
