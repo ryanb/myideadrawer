@@ -13,12 +13,24 @@
 	  <%=h @project.description %>
 	</p>
 	<br />
-	<%= render :partial => 'code_snippets/latest' %>
-	<%= render :partial => 'links/latest' %>
-	<%= render :partial => 'notes/latest' %>
-	<%= render :partial => 'palettes/latest' %>
-	<%= render :partial => 'photos/latest' %>
-	<%= render :partial => 'screenshots/latest' %>
+	<% if @project.show_code_snippets? %>
+		<%= render :partial => 'code_snippets/latest' %>
+	<% end %>
+	<% if @project.show_links? %>
+		<%= render :partial => 'links/latest' %>
+	<% end %>
+	<% if @project.show_notes? %>
+		<%= render :partial => 'notes/latest' %>
+	<% end %>
+	<% if @project.show_palettes? %>
+		<%= render :partial => 'palettes/latest' %>
+	<% end %>
+	<% if @project.show_photos? %>
+		<%= render :partial => 'photos/latest' %>
+	<% end %>
+	<% if @project.show_screenshots? %>
+		<%= render :partial => 'screenshots/latest' %>
+	<% end %>
 </div>
 
 <div id="sidebar">

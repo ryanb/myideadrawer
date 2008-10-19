@@ -2,12 +2,24 @@ You're viewing "<%= link_to h(@project.name), project_path(@project) %>", last a
 <br /><br />
 <h4>Project Tools</h4>
 <ul class="linklist">
+	<% if @project.show_code_snippets? %>
 	<li><%= link_to "Code Snippets", project_code_snippets_path(project_param) %></li>
+	<% end %>
+	<% if @project.show_links? %>
 	<li><%= link_to "Links", project_links_path(project_param) %></li>
+	<% end %>
+	<% if @project.show_notes? %>
 	<li><%= link_to "Notes", project_notes_path(project_param) %></li>
+	<% end %>
+	<% if @project.show_palettes? %>
 	<li><%= link_to "Palettes", project_palettes_path(project_param) %></li>
+	<% end %>
+	<% if @project.show_photos? %>
 	<li><%= link_to "Photos", project_photos_path(project_param) %></li>
+	<% end %>
+	<% if @project.show_screenshots? %>
 	<li><%= link_to "Screenshots", project_screenshots_path(project_param) %></li>
+	<% end %>
 </ul>
 <h4>Recent Activity</h4>
 <% for activity in @project.activities.recent(10) %>
