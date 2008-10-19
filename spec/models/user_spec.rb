@@ -34,6 +34,10 @@ describe User do
     new_user(:email => 'foo@bar@example.com').should have(1).error_on(:email)
   end
   
+  it "should not allow odd characters in username" do
+    new_user(:username => 'odd ^&(@)').should have(1).error_on(:username)
+  end
+  
   it "should require matching password confirmation" do
     new_user(:password_confirmation => 'nonmatching').should have(1).error_on(:password)
   end
