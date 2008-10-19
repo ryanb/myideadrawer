@@ -1,7 +1,7 @@
 <div id="left_col">
 	<% title "Viewing Project: " + @project.name %>
-    <h1><%=h yield(:title) %></h1>
 	<% if owner? %><p id="action_btns" class="align_right"><%= link_to image_tag("/images/edit_project_btn.png",  :alt => "Edit Project"), edit_project_path(@project) %> <%= link_to  image_tag("/images/delete_project_btn.png",  :alt => "delete Project"), @project, :confirm => 'Are you sure?', :method => :delete %></p><% end %>
+    <h1 <% if owner? %>class="short"<% end %>><%= yield(:title) %></h1>
 	<span class="date">(Last Active on <%=h @project.last_activity_at.strftime("%b, %d %Y at %I:%M %p") %>)</span>
 	<% if owner? %>
 	<p class="item alt">

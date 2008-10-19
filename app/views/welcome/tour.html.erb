@@ -1,2 +1,28 @@
-<% title "Take A Screenshot Tour of My Idea Drawer" %>
+<% title "Take A Tour of My Idea Drawer" %>
 <h1><%=h yield(:title) %></h1>
+<p class="big_desc" style="border-bottom:none;">
+	There's a lot going on behind the scenes at <strong>MyIdeaDrawer</strong>. If you'd like to take a closer look, we've set up a few sample projects that you can view, via their sharing URL.
+</p>
+<ul class="linklist">
+	<li style="border:none;"><a href="#">Insert a link here</a> - About this project.</li>
+	<li style="border:none;"><a href="#">Insert a link here</a> - About this project.</li>
+	<li style="border:none;"><a href="#">Insert a link here</a> - About this project.</li>
+</ul>
+<div id="left_col">
+	<h2>Screenshots of MyIdeaDrawer</h2>
+	<div>
+		<div class="sthumb"><%= link_to image_tag("screens/projects-t.png", :alt => "Projects Overview"), "/images/screens/projects.png", :class => "thickbox", :rel => "Screenshot Tour" %></div>
+		<div class="sthumb"><%= link_to image_tag("screens/project-t.png", :alt => "Project Details"), "/images/screens/project.png", :class => "thickbox", :rel => "Screenshot Tour" %></div>
+		<div class="sthumb"><%= link_to image_tag("screens/code-t.png", :alt => "Code Snippets"), "/images/screens/code.png", :class => "thickbox", :rel => "Screenshot Tour" %></div>
+		<div class="sthumb"><%= link_to image_tag("screens/links-t.png", :alt => "Project Links"), "/images/screens/links.png", :class => "thickbox", :rel => "Screenshot Tour" %></div>
+	</div>
+	<div class="clear">
+		<div class="sthumb"><%= link_to image_tag("screens/notes-t.png", :alt => "Project Notes"), "/images/screens/notes.png", :class => "thickbox", :rel => "Screenshot Tour" %></div>
+		<div class="sthumb"><%= link_to image_tag("screens/palette-t.png", :alt => "Color Palettes"), "/images/screens/palette.png", :class => "thickbox", :rel => "Screenshot Tour" %></div>
+		<div class="sthumb"><%= link_to image_tag("screens/photos-t.png", :alt => "Photos"), "/images/screens/photos.png", :class => "thickbox", :rel => "Screenshot Tour" %></div>
+		<div class="sthumb"><%= link_to image_tag("screens/screenshots-t.png", :alt => "Screencasts"), "/images/screens/screencasts.png", :class => "thickbox", :rel => "Screenshot Tour" %></div>
+	</div>
+</div>
+<div class="sidebar">
+	<h2>MyIdeaDrawer Screencast</h2>
+</div>
