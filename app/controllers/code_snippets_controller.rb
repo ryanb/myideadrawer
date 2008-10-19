@@ -17,7 +17,7 @@ class CodeSnippetsController < ApplicationController
     @code_snippet = current_project.code_snippets.build(params[:code_snippet])
     if @code_snippet.save
       flash[:notice] = "Successfully created code snippet."
-      record_activity "Added #{@code_snippet} snippet to #{current_project} project."
+      record_activity @code_snippet
       redirect_to [current_project, @code_snippet]
     else
       render :action => 'new'
@@ -32,7 +32,7 @@ class CodeSnippetsController < ApplicationController
     @code_snippet = current_project.code_snippets.find(params[:id])
     if @code_snippet.update_attributes(params[:code_snippet])
       flash[:notice] = "Successfully updated code snippet."
-      record_activity "Edited #{@code_snippet} snippet in #{current_project} project."
+      record_activity @code_snippet
       redirect_to [current_project, @code_snippet]
     else
       render :action => 'edit'
@@ -43,7 +43,7 @@ class CodeSnippetsController < ApplicationController
     @code_snippet = current_project.code_snippets.find(params[:id])
     @code_snippet.destroy
     flash[:notice] = "Successfully destroyed code snippet."
-    record_activity "Removed #{@code_snippet} snippet from #{current_project} project."
+    record_activity @code_snippet
     redirect_to project_code_snippets_path(current_project)
   end
 end

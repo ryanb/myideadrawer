@@ -22,7 +22,7 @@ class ScreenshotsController < ApplicationController
     @screenshot = current_project.screenshots.build(params[:screenshot])
     if @screenshot.save
       flash[:notice] = "Successfully created screenshot."
-      record_activity "Added #{@screenshot} screenshot to #{current_project} project."
+      record_activity @screenshot
       redirect_to [current_project, @screenshot]
     else
       render :action => 'new'
@@ -37,7 +37,7 @@ class ScreenshotsController < ApplicationController
     @screenshot = current_project.screenshots.find(params[:id])
     if @screenshot.update_attributes(params[:screenshot])
       flash[:notice] = "Successfully updated screenshot."
-      record_activity "Edited #{@screenshot} screenshot in #{current_project} project."
+      record_activity @screenshot
       redirect_to [current_project, @screenshot]
     else
       render :action => 'edit'
@@ -48,7 +48,7 @@ class ScreenshotsController < ApplicationController
     @screenshot = current_project.screenshots.find(params[:id])
     @screenshot.destroy
     flash[:notice] = "Successfully destroyed screenshot."
-      record_activity "Removed #{@screenshot} screenshot from #{current_project} project."
+      record_activity @screenshot
     redirect_to manage_project_screenshots_path(current_project)
   end
 end

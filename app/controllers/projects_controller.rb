@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
     @project.last_activity_at = Time.now
     if @project.save
       flash[:notice] = "Successfully created project."
-      record_activity "Created #{@project} project."
+      record_activity @project
       redirect_to @project
     else
       render :action => 'new'
@@ -35,7 +35,7 @@ class ProjectsController < ApplicationController
     @project.last_activity_at = Time.now
     if @project.update_attributes(params[:project])
       flash[:notice] = "Successfully updated project."
-      record_activity "Edited #{@project} project details."
+      record_activity @project
       redirect_to @project
     else
       render :action => 'edit'
@@ -46,7 +46,7 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.find(params[:id])
     @project.destroy
     flash[:notice] = "Successfully destroyed project."
-    record_activity "Destroyed #{@project} project."
+    record_activity @project
     redirect_to projects_url
   end
 end
