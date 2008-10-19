@@ -6,6 +6,10 @@ class PalettesController < ApplicationController
     @palettes = current_project.palettes.paginate(:per_page => 10, :page => params[:page])
   end
   
+  def show
+    @palette = current_project.palettes.find(params[:id])
+  end
+  
   def new
     @palette = current_project.palettes.build
   end
