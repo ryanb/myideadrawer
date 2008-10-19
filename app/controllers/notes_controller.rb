@@ -1,4 +1,6 @@
 class NotesController < ApplicationController
+  before_filter :owner_required, :except => [:index, :show]
+  
   def index
     @notes = current_project.notes.paginate(:per_page => 10, :page => params[:page])
   end

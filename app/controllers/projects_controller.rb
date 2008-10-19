@@ -1,12 +1,12 @@
 class ProjectsController < ApplicationController
-  before_filter :login_required
+  before_filter :owner_required, :except => :show
   
   def index
     @projects = current_user.projects.paginate(:per_page => 10, :page => params[:page])
   end
   
   def show
-    @project = current_user.projects.find(params[:id])
+    @project = current_project # so it can be fetched by token
   end
   
   def new

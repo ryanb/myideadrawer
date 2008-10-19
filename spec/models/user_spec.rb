@@ -65,6 +65,13 @@ describe User do
     user.should_not have(1).errors_on(:password)
   end
   
+  it "should build user from openid attributes" do
+    user = User.build_from_openid('nickname' => 'foo', 'email' => 'bar', 'openid_url' => 'boo')
+    user.username.should == 'foo'
+    user.email.should == 'bar'
+    user.openid_url.should == 'boo'
+  end
+  
   describe "with password" do
     before(:each) do
       @user = new_user
