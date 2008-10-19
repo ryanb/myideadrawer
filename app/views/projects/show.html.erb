@@ -3,10 +3,12 @@
     <h1><%= yield(:title) %></h1>
 	<p id="action_btns" class="align_right"><%= link_to image_tag("/images/edit_project_btn.png",  :alt => "Edit Project"), edit_project_path(@project) %> <%= link_to  image_tag("/images/delete_project_btn.png",  :alt => "delete Project"), @project, :confirm => 'Are you sure?', :method => :delete %></p>
 	<span class="date">(Last Active on <%=h @project.last_activity_at.strftime("%b, %d %Y at %I:%M %p") %>)</span>
+	<% if owner? %>
 	<p class="item alt">
 		<strong>Share This:</strong> <%= auto_link share_project_url(@project.token) %>
 		<br />This is your project sharing URL. You can give it to people so they can look at (but not edit) this project.
 	</p>
+	<% end %>
 	<p class="big_desc">
 	  <%=h @project.description %>
 	</p>
