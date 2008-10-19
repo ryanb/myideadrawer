@@ -44,9 +44,6 @@
       
       <%= yield %>
       <div class="clear">
-      	<% unless params[:controller] == 'welcome' || (params[:controller] == 'projects' && (params[:action] == 'show' || params[:action] == 'index')) %>
-      	<%= link_to "&laquo; Project Home", current_project %>
-      	<% end %>
       </div>
 	</div>
 	<div id="footer">
