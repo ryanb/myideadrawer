@@ -24,7 +24,7 @@
 			<li><%= link_to "Log In", login_url + "?width=420&height=400", :class=> "thickbox" %></li>
 			<% end %>
 			<li><%= link_to "About", about_url %></li>
-			<li><%= link_to "Help", help_url %></li>
+			<li><%= link_to "Tour", tour_url %></li>
 		</ul>
 	</div>
 	<div id="content">
@@ -35,7 +35,7 @@
 		</div> 
 		<% else %>
 		<div id="welcome_bar">
-			Hi, there! We noticed you're not logged in. Why not register for an account? It's free and easy. <small><a href="/help">Here's how!</a></small>
+			Hi, there! We noticed you're not logged in. Why not register for an account? It's free and easy. <small><a href="/tour">Here's how!</a></small>
 		</div> 
 		<% end %>
       <%- flash.each do |name, msg| -%>

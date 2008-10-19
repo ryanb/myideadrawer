@@ -5,6 +5,6 @@ class WelcomeController < ApplicationController
   def about
   end
   
-  def help
+  def tour
   end
 end

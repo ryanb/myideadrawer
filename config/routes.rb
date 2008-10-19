@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.login 'login', :controller => 'sessions', :action => 'new'
   map.home 'home', :controller => 'projects', :action => 'index'
   map.about 'about', :controller => 'welcome', :action => 'about'
-  map.help 'help', :controller => 'welcome', :action => 'about'
+  map.help 'tour', :controller => 'welcome', :action => 'tour'
   map.resources :sessions
   map.resources :users
   map.resources :projects do |project|
