@@ -125,4 +125,4 @@ h1.main_title a { background:#fffba8; color:#333; }
 .pagination .current { display:block; background:#357fa6; float:left; color:#fff; padding:3px 5px; margin-right:5px; }
 .pagination a { display:block; float:left; color:#fff; background:#adc8cf; padding:3px 5px; margin-right:5px; }
 .pagination a:hover { background:#9c0a0d; text-decoration:none; }
-.sthumb { width:150px; height:106px; margin:10px 0 10px 0; padding:5px; border:1px solid #333; float:left; }
+.sthumb { width:150px; height:106px; padding:5px; border:1px solid #333; float:left; }
