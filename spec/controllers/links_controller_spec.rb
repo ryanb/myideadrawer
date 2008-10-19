@@ -50,7 +50,7 @@ describe LinksController do
   it "destroy action should destroy model and redirect to index action" do
     link = Link.first
     delete :destroy, :id => link, :project_id => Project.first
-    response.should redirect_to(project_url(Project.first))
+    response.should redirect_to(project_links_url(Project.first))
     Link.exists?(link.id).should be_false
   end
 end

@@ -14,4 +14,4 @@ You're viewing "<%= link_to @project.name, project_path(@project) %>", last acti
 	<p><%= activity.message %></p>
 <% end %>
 <br />
-<%= link_to image_tag("/images/rss.jpg", :alt => "RSS Feed"), formatted_project_activities_path(project_param.token, :rss), :title => "RSS Feed" %>
+<%= link_to image_tag("/images/rss.jpg", :alt => "RSS Feed"), formatted_project_activities_path(current_project.token, :rss), :title => "RSS Feed" %>

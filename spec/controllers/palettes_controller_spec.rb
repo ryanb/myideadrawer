@@ -27,7 +27,7 @@ describe PalettesController do
   it "create action should redirect when model is valid" do
     Palette.any_instance.stubs(:valid?).returns(true)
     post :create, :project_id => Project.first
-    response.should redirect_to(project_url(Project.first))
+    response.should redirect_to(project_palettes_url(Project.first))
   end
   
   it "edit action should render edit template" do
@@ -50,7 +50,7 @@ describe PalettesController do
   it "destroy action should destroy model and redirect to index action" do
     palette = Palette.first
     delete :destroy, :id => palette, :project_id => Project.first
-    response.should redirect_to(project_url(Project.first))
+    response.should redirect_to(project_palettes_url(Project.first))
     Palette.exists?(palette.id).should be_false
   end
 end

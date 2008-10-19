@@ -44,6 +44,6 @@ class NotesController < ApplicationController
     @note.destroy
     flash[:notice] = "Successfully destroyed note."
     record_activity "Removed #{@note} note from #{current_project} project."
-    redirect_to current_project
+    redirect_to project_notes_path(current_project)
   end
 end

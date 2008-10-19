@@ -55,7 +55,7 @@ describe NotesController, "logged in" do
   it "destroy action should destroy model and redirect to index action" do
     note = Note.first
     delete :destroy, :id => note, :project_id => Project.first
-    response.should redirect_to(project_url(note.project))
+    response.should redirect_to(project_notes_url(note.project))
     Note.exists?(note.id).should be_false
   end
 end

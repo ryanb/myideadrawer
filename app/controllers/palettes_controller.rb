@@ -14,7 +14,7 @@ class PalettesController < ApplicationController
     if @palette.save
       flash[:notice] = "Successfully created palette."
       record_activity "Added #{@palette} palette to #{current_project} project."
-      redirect_to current_project
+      redirect_to project_palettes_path(current_project)
     else
       render :action => 'new'
     end
@@ -40,6 +40,6 @@ class PalettesController < ApplicationController
     @palette.destroy
     flash[:notice] = "Successfully destroyed palette."
     record_activity "Removed #{@palette} palette from #{current_project} project."
-    redirect_to current_project
+    redirect_to project_palettes_path(current_project)
   end
 end

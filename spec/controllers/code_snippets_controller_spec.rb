@@ -55,7 +55,7 @@ describe CodeSnippetsController do
   it "destroy action should destroy model and redirect to index action" do
     code_snippet = CodeSnippet.first
     delete :destroy, :id => code_snippet, :project_id => Project.first
-    response.should redirect_to(project_url(Project.first))
+    response.should redirect_to(project_code_snippets_url(Project.first))
     CodeSnippet.exists?(code_snippet.id).should be_false
   end
 end

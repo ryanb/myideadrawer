@@ -15,7 +15,7 @@ class LinksController < ApplicationController
     if @link.save
       flash[:notice] = "Successfully created link."
       record_activity "Added #{@link} link to #{current_project} project."
-      redirect_to project_url(current_project)
+      redirect_to current_project
     else
       render :action => 'new'
     end
@@ -41,6 +41,6 @@ class LinksController < ApplicationController
     @link.destroy
     flash[:notice] = "Successfully destroyed link."
     record_activity "Removed #{@link} link from #{current_project} project."
-    redirect_to project_url(current_project)
+    redirect_to project_links_path(current_project)
   end
 end

@@ -44,6 +44,6 @@ class CodeSnippetsController < ApplicationController
     @code_snippet.destroy
     flash[:notice] = "Successfully destroyed code snippet."
     record_activity "Removed #{@code_snippet} snippet from #{current_project} project."
-    redirect_to current_project
+    redirect_to project_code_snippets_path(current_project)
   end
 end
