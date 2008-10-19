@@ -1,10 +1,12 @@
 <div id="left_col">
 	<% title "View Note: " + @note.name %>
     <h1><%= yield(:title) %></h1>
+  <% if owner? %>
 	<p>
 	  <%= link_to image_tag("/images/edit_note_btn.png", :alt => "Edit Note"), edit_project_note_path(current_project, @note) %> 
 	  <%= link_to image_tag("/images/delete_note_btn.png", :alt => "Delete Note"), [current_project, @note], :confirm => 'Are you sure?', :method => :delete %>
 	</p>
+	<% end %>
 	<p>
 	  <strong>Project:</strong>
 	  <%=h @note.project.name %>
@@ -13,10 +15,7 @@
 	  <strong>Name:</strong>
 	  <%=h @note.name %>
 	</p>
-	<p>
-	  <strong>Content:</strong>
-	  <%= @note.content.gsub(/\n/, '<br>') %>
-	</p>
+	<%= simple_format @note.content %>
 </div>
 <div id="sidebar">
   <h3><%= link_to "&#187; Back to Project Home", project_path(current_project) %></h3>

@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   protect_from_forgery :except => [:create] # since openid doesn't pass auth token
   
   def new
-	render :layout => 'thickbox' if request.xhr?
+    render :layout => 'thickbox' if request.xhr?
   end
   
   def create
