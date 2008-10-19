@@ -10,8 +10,8 @@ describe Project do
   end
   
   it "should generate a unique token" do
-    p1 = Factory(:project)
-    p2 = Factory(:project)
+    p1 = Factory(:project, :user => nil)
+    p2 = Factory(:project, :user => nil)
     p1.token.should_not == p2.token
   end
   
