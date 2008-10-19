@@ -3,9 +3,11 @@ one:
   description: MyText
   last_activity_at: 2008-10-17 17:32:41
   user: one
+  token: abc123
 
 two:
   name: MyString
   description: MyText
   last_activity_at: 2008-10-17 17:32:41
   user: one
+  token: 123abc

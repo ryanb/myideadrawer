@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
-  before_filter :login_required, :only => :index
-  before_filter :owner_required, :except => [:index, :show]
+  before_filter :login_required, :only => [:new, :create, :index]
+  before_filter :owner_required, :except => [:new, :create, :index, :show]
   
   def index
     @projects = current_user.projects.paginate(:per_page => 10, :page => params[:page])
@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
   
   def create
     @project = current_user.projects.build(params[:project])
-	@project.last_activity_at = Time.now
+    @project.last_activity_at = Time.now
     if @project.save
       flash[:notice] = "Successfully created project."
       record_activity "Created #{@project} project."

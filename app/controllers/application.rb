@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
   
   def owner?
-    current_user.id == current_project.user_id
+    logged_in? && current_user.id == current_project.user_id
   end
   
   def project_param

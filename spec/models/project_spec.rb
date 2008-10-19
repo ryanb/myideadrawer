@@ -20,7 +20,7 @@ describe Project do
   
   it "should not be able to fetch projects by bad token" do
     lambda {
-      Project.fetch(User.new, 'abc123')
+      Project.fetch(User.new, 'badtoken')
     }.should raise_error(ActiveRecord::RecordNotFound)
   end
   

@@ -5,6 +5,11 @@ describe ProjectsController do
   integrate_views
   
   it_should_require_login_for_actions :index, :new, :edit, :update, :destroy
+  
+  it "show should render when using project token" do
+    get :show, :id => Project.first.token
+    response.should render_template(:show)
+  end
 end
  
 describe ProjectsController, "logged in" do
