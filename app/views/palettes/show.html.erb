@@ -1,0 +1,14 @@
+<div id="left_col">
+	<% title "View Palette: " + @palette.name %>
+  <h1><%=h yield(:title) %></h1>
+	<div id="palette">
+  	<% for swatch in @palette.color_swatches %>
+		  <div class="big_swatch" style="background:<%= swatch.hex %>"></div>
+		<% end %>
+	</div>
+	<div class="clear"></div>
+</div>
+<div id="sidebar">
+  <h3><%= link_to "&#187; Back to Project Home", project_path(project_param) %></h3>
+  <%= render :partial => "projects/project_sidebar"  %>
+</div>

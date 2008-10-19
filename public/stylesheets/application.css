@@ -65,7 +65,7 @@ fieldset { border:none; }
 			#picker { width:150px; float:left; }
 			
 			#palette { width:506px; height:102px; padding:5px; border:1px solid #000; margin:0 auto 10px auto; }
-				#swatch_1, #swatch_2, #swatch_3, #swatch_4, #swatch_4, #swatch_5 { display:block; width:100px; height:100px; border:1px solid #000; border-right:none; float:left; }
+				#swatch_1, #swatch_2, #swatch_3, #swatch_4, #swatch_4, #swatch_5, .big_swatch { display:block; width:100px; height:100px; border:1px solid #000; border-right:none; float:left; }
 				#swatch_5 { border-right:1px solid #000 !important; }
 				#palette a:hover, #palette_small a:hover { text-decoration:none; }
 				
