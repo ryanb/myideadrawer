@@ -1,41 +1,46 @@
-<% title "Join My Idea Drawer" %>
-    <h1><%= yield(:title) %></h1>
-
-<p>Already have an account? <%= link_to "Log in", login_path %>.</p>
-<% form_for @user do |f| %>
-  <h3>Create A New Account:</h3>
-  <%= f.error_messages %><br />
-  <fieldset>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-  </fieldset>
-  <fieldset>
-    <%= f.label :email, "Email Address" %>
-    <%= f.text_field :email %>
-  </fieldset>
-  
-  <% if @user.openid_url.blank? %>
-    <fieldset>
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-    </fieldset>
-    <fieldset>
-      <%= f.label :password_confirmation, "Confirm Password" %>
-      <%= f.password_field :password_confirmation %>
-    </fieldset>
-  <% else %>
-    <%= f.hidden_field :openid_url %>
-  <% end %>
-  
-  <p class="align_right"><%= f.submit "Sign Up" %></p>
-<% end %>
-<div id="login">
-<% form_tag sessions_path do %>
-  <h3>Or use OpenID:</h3><br />
-  <fieldset>
-    <%= label_tag :openid_url, "OpenID URL" %>
-    <%= text_field_tag :openid_url, params[:openid_url] %>
-  </fieldset>
-  <p class="align_right"><%= submit_tag "Sign Up" %></p>
-<% end %>
+<div id="left_col">
+	<% title "Join My Idea Drawer" %>
+	    <h1><%= yield(:title) %></h1>
+	
+	<p>Already have an account? <%= link_to "Log in", login_path %>.</p>
+	<% form_for @user do |f| %>
+	  <h3>Create A New Account:</h3>
+	  <%= f.error_messages %><br />
+	  <fieldset>
+	    <%= f.label :username %>
+	    <%= f.text_field :username %>
+	  </fieldset>
+	  <fieldset>
+	    <%= f.label :email, "Email Address" %>
+	    <%= f.text_field :email %>
+	  </fieldset>
+	  
+	  <% if @user.openid_url.blank? %>
+	    <fieldset>
+	      <%= f.label :password %>
+	      <%= f.password_field :password %>
+	    </fieldset>
+	    <fieldset>
+	      <%= f.label :password_confirmation, "Confirm Password" %>
+	      <%= f.password_field :password_confirmation %>
+	    </fieldset>
+	  <% else %>
+	    <%= f.hidden_field :openid_url %>
+	  <% end %>
+	  
+	  <p class="align_right"><%= f.submit "Sign Up" %></p>
+	<% end %>
+	<div id="login">
+	<% form_tag sessions_path do %>
+	  <h3>Or use OpenID:</h3><br />
+	  <fieldset>
+	    <%= label_tag :openid_url, "OpenID URL" %>
+	    <%= text_field_tag :openid_url, params[:openid_url] %>
+	  </fieldset>
+	  <p class="align_right"><%= submit_tag "Sign Up" %></p>
+	<% end %>
+	</div>
+</div>
+<div id="sidebar">
+<%= image_tag "ad.png" %>
 </div>
