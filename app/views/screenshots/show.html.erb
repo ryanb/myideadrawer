@@ -1,7 +1,10 @@
 <div id="left_col">
 <% title "Viewing Screenshot: " + h(@screenshot.name) %>
 <h1><%=h yield(:title) %></h1>
-<p style="padding:5px; border:1px solid #333;">
+<% if owner? %>
+	<%= link_to image_tag("/images/delete_screenshot_btn.png", :alt => "Delete Note"), [current_project, @screenshot], :confirm => 'Are you sure?', :method => :delete, :class => "del_btn" %>
+<% end %>
+<p style="padding:5px; border:1px solid #333; text-align:center;">
 <%= link_to image_tag(@screenshot.image_url(600)), @screenshot.source_url %>
 </p>
 </div>
