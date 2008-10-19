@@ -5,6 +5,8 @@ class Screenshot < ActiveRecord::Base
   
   validates_presence_of :name
   
+  attr_accessible :name, :source_url
+  
   before_save :add_protocol_to_source_url
   
   def image_url(width)

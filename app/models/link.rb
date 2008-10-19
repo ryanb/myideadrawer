@@ -7,6 +7,8 @@ class Link < ActiveRecord::Base
   
   before_save :add_protocol_to_url
   
+  attr_accessible :name, :url, :description
+  
   private
   
   def add_protocol_to_url

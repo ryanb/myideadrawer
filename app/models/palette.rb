@@ -8,6 +8,8 @@ class Palette < ActiveRecord::Base
   
   validates_presence_of :name
   
+  attr_accessible :name, :project_id
+  
   private
   
   def color_hexes

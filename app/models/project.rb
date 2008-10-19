@@ -8,6 +8,8 @@ class Project < ActiveRecord::Base
   has_many :screenshots, :dependent => :destroy
   has_many :photos, :dependent => :destroy
   
+  attr_accessible :name, :description
+  
   generate_unique :token
   
   validates_presence_of :name

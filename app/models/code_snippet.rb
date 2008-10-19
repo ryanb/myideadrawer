@@ -4,4 +4,6 @@ class CodeSnippet < ActiveRecord::Base
   belongs_to :project
   
   validates_presence_of :name, :content, :language
+  
+  attr_accessible :name, :content, :language
 end

@@ -76,4 +76,12 @@ describe ProjectsController, "logged in" do
     response.should redirect_to(projects_url)
     Project.exists?(project.id).should be_false
   end
+  
+  it "update action should not allow setting project to different user" do
+    user = Factory(:user)
+    Project.any_instance.stubs(:valid?).returns(true)
+    post :update, :id => Project.first, :project => { :user_id => user.id }
+    response.should redirect_to(project_url(assigns[:project]))
+    Project.first.user.should_not == user
+  end
 end

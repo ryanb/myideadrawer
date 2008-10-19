@@ -35,7 +35,8 @@ describe ActivityMessageGenerator do
   
   it "should link to object with container object" do
     target = Note.new(:name => 'foo')
-    container = Project.new(:name => 'bar', :token => 'token')
+    container = Project.new(:name => 'bar')
+    container.token = 'token'
     template = TemplateStub.new
     template.expects(:project_note_url).with('token', target).returns('note_url')
     template.expects(:link_to).with('foo', 'note_url').returns('link')
