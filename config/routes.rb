@@ -19,4 +19,6 @@ ActionController::Routing::Routes.draw do |map|
     project.resources :activities
   end
   map.root :controller => 'welcome'
+  
+  map.share_project ':id', :controller => 'projects', :action => 'show'
 end
