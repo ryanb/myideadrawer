@@ -12,10 +12,6 @@ class Project < ActiveRecord::Base
   
   validates_presence_of :name
   
-  def to_s
-    name
-  end
-  
   def self.fetch(user, id_or_token)
     Project.find_by_token(id_or_token) || (user || User.new).projects.find(id_or_token)
   end
