@@ -9,6 +9,9 @@ class Palette < ActiveRecord::Base
   validates_presence_of :name
   
   attr_accessible :name, :project_id
+  (1..5).each do |num|
+    attr_accessible "color_hex_#{num}"
+  end
   
   private
   
