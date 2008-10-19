@@ -1,12 +1,12 @@
 <div id="left_col">
 	<% title "Browsing Code Snippets for: " + current_project.name %>
-    <h1><%= yield(:title) %></h1>
+    <h1><%=h yield(:title) %></h1>
 	<% if owner? %><%= link_to image_tag("/images/new_code_btn.png", :alt=>"New Code Snippet"), new_project_code_snippet_path(project_param) %><% end %>
 	<ul class="linklist">
 	<%
 	if current_project.code_snippets.count > 0
 	  for code_snippet in current_project.code_snippets %>
-	    <li class="<%= cycle('normal', 'alt') %>"><%= link_to h(code_snippet.name), project_code_snippet_path(project_param, code_snippet) %> <span class="date">(<%= code_snippet.created_at.strftime("%b, %d %Y at %I:%M %p") %>)</span>  <em><small><strong>Language:</strong> <%= code_snippet.language %></small></em></li>
+	    <li class="<%= cycle('normal', 'alt') %>"><%= link_to h(code_snippet.name), project_code_snippet_path(project_param, code_snippet) %> <span class="date">(<%= code_snippet.created_at.strftime("%b, %d %Y at %I:%M %p") %>)</span>  <em><small><strong>Language:</strong> <%=h code_snippet.language %></small></em></li>
 	  <% end %>
 	<% else %>
 		<li><em>This project has no code snippets.</em></li>
