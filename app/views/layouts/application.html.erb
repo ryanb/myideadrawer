@@ -43,6 +43,11 @@
       <%- end -%>
       
       <%= yield %>
+      <div class="clear">
+      	<% if params[:project_id] %>
+      	<%= link_to "&laquo; Project Home", current_project %>
+      	<% end %>
+      </div>
 	</div>
 	<div id="footer">
 		MyIdeaDrawer is a <a href="http://railsrumble.com" title="Rails Rumble 2008">Rails Rumble 2008</a> project by <a href="http://railscasts.com" title="Ryan Bates">Ryan Bates</a> and <a href="http://kellishaver.com" title="Kelli Shaver">Kelli Shaver</a>
