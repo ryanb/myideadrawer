@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
-  before_filter :owner_required, :except => :show
+  before_filter :login_required, :only => :index
+  before_filter :owner_required, :except => [:index, :show]
   
   def index
     @projects = current_user.projects.paginate(:per_page => 10, :page => params[:page])
