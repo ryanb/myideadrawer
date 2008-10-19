@@ -33,6 +33,10 @@
 			Welcome back, <%= current_user.username %>!&nbsp;&nbsp;&nbsp;&nbsp;
 			<small><%= link_to "My Account", edit_user_path(:current) %></small>
 		</div> 
+		<% else %>
+		<div id="welcome_bar">
+			Hi, there! We noticed you're not logged in. Why not register for an account? It's free and easy. <small><a href="/help">Here's how!</a></small>
+		</div> 
 		<% end %>
       <%- flash.each do |name, msg| -%>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
