@@ -5,6 +5,14 @@ class TemplateStub
   def link_to(name, path)
     name
   end
+  
+  def project_url(project)
+    project
+  end
+  
+  def project_note_url(project, note)
+    return project
+  end
 end
 
 describe ActivityMessageGenerator do
@@ -19,16 +27,18 @@ describe ActivityMessageGenerator do
   it "should link to object" do
     target = Note.new(:name => 'foo')
     template = TemplateStub.new
-    template.expects(:link_to).with('foo', target).returns('link')
+    template.expects(:note_url).with(target).returns('note_url')
+    template.expects(:link_to).with('foo', 'note_url').returns('link')
     message_generator = ActivityMessageGenerator.new(template)
     message_generator.link_obj(target).should == "link note"
   end
   
   it "should link to object with container object" do
     target = Note.new(:name => 'foo')
-    container = Project.new(:name => 'bar')
+    container = Project.new(:name => 'bar', :token => 'token')
     template = TemplateStub.new
-    template.expects(:link_to).with('foo', [container, target]).returns('link')
+    template.expects(:project_note_url).with('token', target).returns('note_url')
+    template.expects(:link_to).with('foo', 'note_url').returns('link')
     message_generator = ActivityMessageGenerator.new(template)
     message_generator.container = container
     message_generator.link_obj(target).should == "link note"

@@ -8,15 +8,19 @@ class ActivityMessageGenerator
     @action = action
   end
   
+  def lower_name(item)
+    item.class.name.underscore
+  end
+  
   def link_obj(item)
-    "#{link_to(item)} #{item.class.name.humanize.downcase}"
+    "#{link_to(item)} #{lower_name(item).humanize.downcase}"
   end
   
   def link_to(item)
     if container && item != container
-      @template.link_to(item.name, [container, item])
+      @template.link_to(item.name, @template.send("#{lower_name(container)}_#{lower_name(item)}_url", container.token, item))
     else
-      @template.link_to(item.name, item)
+      @template.link_to(item.name, @template.send("#{lower_name(item)}_url", item))
     end
   end
   
