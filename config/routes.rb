@@ -5,7 +5,6 @@ ActionController::Routing::Routes.draw do |map|
   map.home 'home', :controller => 'projects', :action => 'index'
   map.about 'about', :controller => 'welcome', :action => 'about'
   map.help 'help', :controller => 'welcome', :action => 'about'
-  map.resources :activities
   map.resources :sessions
   map.resources :users
   map.resources :projects do |project|
@@ -17,6 +16,7 @@ ActionController::Routing::Routes.draw do |map|
     project.resources :palettes
     project.resources :screenshots
     project.resources :photos
+    project.resources :activities
   end
   map.root :controller => 'welcome'
 end
