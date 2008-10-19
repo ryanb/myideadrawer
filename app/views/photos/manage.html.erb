@@ -1,6 +1,6 @@
 <div id="left_col">
 	<% title "Manage Photos for: " + current_project.name %>
-    <h1><%= yield(:title) %></h1>
+    <h1><%=h yield(:title) %></h1>
 	<% if owner? %><%= link_to image_tag("/images/new_photo_btn.png", :alt=>"New Photo"), new_project_photo_path(project_param) + "?width=510&amp;height=230", :class=> "thickbox" %><% end %>
 	<ul class="linklist managelist">
 	  	<%
@@ -8,7 +8,7 @@
 	  	  for photo in current_project.photos.recent(3) %>
 	    	<li class="<%= cycle('normal', 'alt') %>">
 	    		<%= image_tag photo.image.url(:tiny), :class => "tinythumb" %>
-	    		<span class="info"><%= link_to photo.name, photo.image.url %> <span class="date"><%= photo.created_at.strftime("%b, %d %Y at %I:%M %p") %></span></span>
+	    		<span class="info"><%= link_to h(photo.name), photo.image.url %> <span class="date"><%=h photo.created_at.strftime("%b, %d %Y at %I:%M %p") %></span></span>
 	  			<%= link_to image_tag("/images/delete_photo_btn.png", :alt => "Delete Photo"), [current_project, photo], :confirm => 'Are you sure?', :method => :delete, :class => "del_btn" %>
 				  <div class="clear"><br /></div>
 	  	    	</li>

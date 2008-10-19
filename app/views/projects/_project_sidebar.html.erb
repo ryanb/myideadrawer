@@ -1,4 +1,4 @@
-You're viewing "<%= link_to @project.name, project_path(@project) %>", last active on  <%=h @project.last_activity_at.strftime("%b, %d %Y at %I:%M %p") %>.
+You're viewing "<%= link_to h(@project.name), project_path(@project) %>", last active on  <%=h @project.last_activity_at.strftime("%b, %d %Y at %I:%M %p") %>.
 <br /><br />
 <h4>Project Tools</h4>
 <ul class="linklist">
