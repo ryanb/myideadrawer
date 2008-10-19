@@ -23,7 +23,7 @@ class PhotosController < ApplicationController
     if @photo.save
       flash[:notice] = "Successfully created photo."
       record_activity @photo
-      redirect_to [current_project, @photo]
+      redirect_to project_photos_path(current_project)
     else
       render :action => 'new'
     end

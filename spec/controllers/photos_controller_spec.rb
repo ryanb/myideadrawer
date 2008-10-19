@@ -37,7 +37,7 @@ describe PhotosController do
   it "create action should redirect when model is valid" do
     Photo.any_instance.stubs(:valid?).returns(true)
     post :create, :project_id => Project.first
-    response.should redirect_to(project_photo_url(Project.first, assigns[:photo]))
+    response.should redirect_to(project_photos_path(Project.first))
   end
   
   it "edit action should render edit template" do

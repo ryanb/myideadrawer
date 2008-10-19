@@ -37,7 +37,7 @@ describe ScreenshotsController do
   it "create action should redirect when model is valid" do
     Screenshot.any_instance.stubs(:valid?).returns(true)
     post :create, :project_id => Project.first
-    response.should redirect_to(project_screenshot_url(Project.first, assigns[:screenshot]))
+    response.should redirect_to(project_screenshots_path(Project.first))
   end
   
   it "edit action should render edit template" do

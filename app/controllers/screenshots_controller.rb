@@ -23,7 +23,7 @@ class ScreenshotsController < ApplicationController
     if @screenshot.save
       flash[:notice] = "Successfully created screenshot."
       record_activity @screenshot
-      redirect_to [current_project, @screenshot]
+      redirect_to project_screenshots_path(current_project)
     else
       render :action => 'new'
     end

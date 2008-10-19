@@ -79,8 +79,8 @@ fieldset { border:none; }
 					#sidebar p {font-size:8pt;margin:10px 0 0 0;padding:0;border-bottom:1px solid #eee;}
 					#sidebar p a { text-decoration:underline; }
 					#sidebar h4 { clear:both;color:#fff;padding:5px;margin:0;border-top:10px solid #fff; background:#6aa5c3;}
-		.thumb { width:150px; padding:5px; border:1px solid #000; margin-right:10px; float:left; }
-		.screenshot { width:300px; padding:5px; border:1px solid #000; margin-right:10px; float:left; }
+		.thumb { width:150px; padding:5px; border:1px solid #000; margin-right:10px; margin-bottom:10px; margin-right:10px; float:left; }
+		.screenshot { width:300px; padding:5px; border:1px solid #000; margin-right:10px; margin-bottom:10px;; float:left; }
 		.thumb a:hover, .screenshot a:hover { text-decoration:none; }
 		.thumb img, .screenshot img { display:block; margin:auto; }
 		.thumb .name, .screenshot .name { clear:both; padding-top:5px; text-align:center; font-size:8pt; }
