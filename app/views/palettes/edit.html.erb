@@ -1,6 +1,6 @@
 <div id="left_col">
-	<% title "Edit Palette: " + h(@palette.name) %>
-    <h1><%= yield(:title) %></h1>
+	<% title "Edit Palette: " + @palette.name %>
+    <h1><%=h yield(:title) %></h1>
 	<%= render :partial => 'form' %>
 	<p class="clear"><br /><br /><%= link_to image_tag("/images/delete_palette_btn.png", :alt => "Delete Palette"), [current_project, @palette], :confirm => 'Are you sure?', :method => :delete %></p>
 </div>

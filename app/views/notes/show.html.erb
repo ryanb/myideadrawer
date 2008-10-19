@@ -1,6 +1,6 @@
 <div id="left_col">
-	<% title "View Note: " + h(@note.name) %>
-    <h1><%= yield(:title) %></h1>
+	<% title "View Note: " + @note.name %>
+    <h1><%=h yield(:title) %></h1>
   <% if owner? %>
 	  <%= link_to image_tag("/images/edit_note_btn.png", :alt => "Edit Note"), edit_project_note_path(project_param, @note) %> 
 	  <%= link_to image_tag("/images/delete_note_btn.png", :alt => "Delete Note"), [current_project, @note], :confirm => 'Are you sure?', :method => :delete %>

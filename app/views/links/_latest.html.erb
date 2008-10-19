@@ -4,7 +4,7 @@
 	  	<%
 	  	if current_project.links.count > 0
 	  	  for link in current_project.links.recent(5) %>
-  		    <li><%= link_to link.name, link.url %> <span class="date">(<%= link.created_at.strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
+  		    <li><%= link_to h(link.name), h(link.url) %> <span class="date">(<%= link.created_at.strftime("%b, %d %Y at %I:%M %p") %>)</span></li>
   		  <% end %>
   		<% else %>
   			<li><em>This project has no links.</em></li>
