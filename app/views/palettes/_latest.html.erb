@@ -5,7 +5,11 @@
 	  	if current_project.palettes.count > 0
 	  	  for palette in current_project.palettes.recent(5) %>
   		    <li>
+  		    	<% if owner? %>
   		    	<%= link_to h(palette.name), edit_project_palette_path(project_param, palette) %> <span class="date">(<%= palette.created_at.strftime("%b, %d %Y at %I:%M %p") %>)</span>
+  		    	<% else %>
+  		    	<strong><%= h(palette.name) %></strong> <span class="date">(<%= palette.created_at.strftime("%b, %d %Y at %I:%M %p") %>)</span>
+				<% end %>
   		    	<div id="palette_small">
   		    		<% for swatch in palette.color_swatches %>
 	  		    		<div class="small_swatch" style="background:<%= swatch.hex %>"></div>
