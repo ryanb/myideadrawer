@@ -13,6 +13,11 @@ describe ScreenshotsController do
     response.should render_template(:index)
   end
   
+  it "manage action should render manage template" do
+    get :manage, :project_id => Project.first
+    response.should render_template(:manage)
+  end
+  
   it "show action should render show template" do
     get :show, :id => Screenshot.first, :project_id => Project.first
     response.should render_template(:show)
