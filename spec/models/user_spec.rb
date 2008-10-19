@@ -97,6 +97,16 @@ describe User do
     user.openid_url.should == 'boo'
   end
   
+  it "should automatically add protocol to openid url" do
+    user = Factory(:user, :openid_url => 'example.com')
+    user.openid_url.should == 'http://example.com'
+  end
+  
+  it "should find user by openid url even without protocol" do
+    user = Factory(:user, :openid_url => 'example.com')
+    User.find_by_openid_url('example.com').should == user
+  end
+  
   describe "with password" do
     before(:each) do
       @user = new_user

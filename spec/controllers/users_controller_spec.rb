@@ -10,12 +10,12 @@ describe UsersController do
   end
   
   it "new should apply openid attributes to user model" do
-    session[:openid_attributes] = { 'username' => 'foo', 'email' => 'bar', 'openid_url' => 'boo'}
+    session[:openid_attributes] = { 'username' => 'foo', 'email' => 'bar', 'openid_url' => 'http://boo'}
     get :new
     response.should render_template(:new)
     assigns[:user].username.should == 'foo'
     assigns[:user].email.should == 'bar'
-    assigns[:user].openid_url.should == 'boo'
+    assigns[:user].openid_url.should == 'http://boo'
     assigns[:user].errors.on(:email).should_not be_nil
     session[:openid_attributes].should be_nil
     

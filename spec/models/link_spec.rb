@@ -12,4 +12,9 @@ describe Link do
   it "should require url" do
     Factory.build(:link, :url => '').should have(1).error_on(:url)
   end
+  
+  it "should automatically add protocol to url" do
+    link = Factory(:link, :url => 'example.com')
+    link.url.should == 'http://example.com'
+  end
 end

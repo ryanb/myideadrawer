@@ -14,4 +14,9 @@ describe Screenshot do
     screenshot = Screenshot.new(:source_url => 'railscasts.com')
     screenshot.image_url(250).should == "http://api.thumbalizr.com?api_key=key&url=railscasts.com&width=250"
   end
+  
+  it "should automatically add protocol to source url" do
+    screenshot = Factory(:screenshot, :source_url => 'example.com')
+    screenshot.source_url.should == 'http://example.com'
+  end
 end

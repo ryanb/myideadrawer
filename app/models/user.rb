@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   
   attr_accessor :password
   before_save :prepare_password
+  before_validation :add_protocol_to_openid_url
   
   validates_presence_of :username
   validates_uniqueness_of :username, :email, :openid_url, :allow_blank => true
@@ -34,6 +35,11 @@ class User < ActiveRecord::Base
     end
   end
   
+  def self.find_by_openid_url(url)
+    url = "http://#{url}" unless url.blank? || url.include?('://')
+    super(url)
+  end
+  
   private
   
   def prepare_password
@@ -49,5 +55,9 @@ class User < ActiveRecord::Base
   
   def password_required?
     (password_hash.blank? && openid_url.blank?) || !password.blank?
+  end
+  
+  def add_protocol_to_openid_url
+    self.openid_url = "http://#{openid_url}" unless openid_url.blank? || openid_url.include?('://')
   end
 end
