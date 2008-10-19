@@ -1,5 +1,5 @@
 	<div class="item">	
-	<h2><span>Photos: (<%= current_project.screenshots.count %>)</span><span class="align_right"><%= link_to image_tag("/images/new_screenshot_btn.png", :alt=>"New Screenshot"), new_project_screenshot_path(project_param) + "?width=410&height=230", :class => "thickbox" %> &nbsp; <%= link_to image_tag("/images/manage_btn.png", :alt=>"Manage Photos"), manage_project_photos_path(project_param) %></span></h2>
+	<h2><span>Photos: (<%= current_project.screenshots.count %>)</span><% if owner? %><span class="align_right"><%= link_to image_tag("/images/new_screenshot_btn.png", :alt=>"New Screenshot"), new_project_screenshot_path(project_param) + "?width=410&height=230", :class => "thickbox" %> &nbsp; <%= link_to image_tag("/images/manage_btn.png", :alt=>"Manage Photos"), manage_project_photos_path(project_param) %></span><% end %></h2>
 	  	<%
 	  	if current_project.screenshots.count > 0
 	  	  for screenshot in current_project.screenshots.recent(3) %>

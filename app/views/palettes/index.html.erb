@@ -1,7 +1,7 @@
 <div id="left_col">
 	<% title "Browse Palettes for: " + current_project.name %>
     <h1><%= yield(:title) %></h1>
-	<%= link_to image_tag("/images/new_palette_btn.png", :alt=>"New Palette"), new_project_palette_path(project_param) %>
+	<% if owner? %><%= link_to image_tag("/images/new_palette_btn.png", :alt=>"New Palette"), new_project_palette_path(project_param) %><% end %>
 		<ul class="linklist">
 	  	<%
 	  	if current_project.palettes.count > 0

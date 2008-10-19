@@ -1,7 +1,7 @@
 <div id="left_col">
 	<% title "Browse Links for: " + current_project.name %>
     <h1><%= yield(:title) %></h1>
-	<%= link_to image_tag("/images/new_link_btn.png", :alt=>"New Link"), new_project_link_path(project_param) + "?width=630&height=250", :class => "thickbox" %>	
+	<% if owner? %><%= link_to image_tag("/images/new_link_btn.png", :alt=>"New Link"), new_project_link_path(project_param) + "?width=630&height=250", :class => "thickbox" %>	<% end %>
 	<ul class="linklist managelist">
 	  	<%
 	  	if current_project.links.count > 0
