@@ -1,11 +1,13 @@
 <div id="left_col">
 <% title "Viewing Palette: " + h(@palette.name) %>
 <h1><%=h yield(:title) %></h1>
-  	<div id="palette_small">
-  		<% for swatch in @palette.color_swatches %>
-	   		<div class="swatch" style="background:<%= swatch.hex %>"></div>
-    	<% end %>
-   	</div>
+	<div id="palette">
+		<div id="swatch_1"></a>
+		<div id="swatch_2"></a>
+		<div id="swatch_3"></a>
+		<div id="swatch_4"></a>
+		<div id="swatch_5"></a>
+	</div>
 </div>
 <div id="sidebar">
  <h3><%= link_to "&#187; Back to Project Home", project_path(project_param) %></h3>
