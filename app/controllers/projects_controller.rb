@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  # TODO refactor these before filters, sometimes they do the same check multiple times
   before_filter :login_required, :only => [:new, :create, :index, :edit, :update, :destroy]
   before_filter :fetch_current_project, :except => [:new, :create, :index]
   before_filter :owner_required, :except => [:new, :create, :index, :show]

@@ -30,6 +30,12 @@ describe ProjectsController, "logged in" do
     response.should render_template(:show)
   end
   
+  it "show action should redirect to root if user doesn't own project" do
+    project = Factory(:project)
+    get :show, :id => project
+    response.should render_template(:show)
+  end
+  
   it "new action should render new template" do
     get :new
     response.should render_template(:new)
