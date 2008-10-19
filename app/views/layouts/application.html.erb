@@ -30,8 +30,8 @@
 	<div id="content">
 		<% if logged_in? %>
 		<div id="welcome_bar">
-			Welcome back, <%= current_user.username %>!&nbsp;&nbsp;&nbsp;&nbsp;
-			<small><%= link_to "My Account", edit_user_path(:current) %></small>
+			Welcome, <%= current_user.username %>!&nbsp;&nbsp;&nbsp;&nbsp;
+			<small><%= link_to "Edit My Account", edit_user_path(:current) %></small>
 		</div> 
 		<% else %>
 		<div id="welcome_bar">
@@ -43,7 +43,11 @@
       <%- end -%>
       
       <%= yield %>
-      <div class="clear">&nbsp;</div>
+      <div class="clear">
+      	<% unless params[:controller] == 'welcome' || (params[:controller] == 'projects' && (params[:action] == 'show' || params[:action] == 'index')) %>
+      	<%= link_to "&laquo; Project Home", current_project %>
+      	<% end %>
+      </div>
 	</div>
 	<div id="footer">
 		MyIdeaDrawer is a <a href="http://railsrumble.com" title="Rails Rumble 2008">Rails Rumble 2008</a> project by <a href="http://railscasts.com" title="Ryan Bates">Ryan Bates</a> and <a href="http://kellishaver.com" title="Kelli Shaver">Kelli Shaver</a>
